@@ -1,0 +1,35 @@
+# Environment & Secrets (Never Commit)
+.env
+.env.*
+*.token
+*.key
+
+# Python & Cache
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.coverage
+htmlcov/
+.venv/
+env/
+venv/
+ENV/
+
+# Large Raw Documents & Artifacts
+*.docx
+data/raw_documents/*.pdf
+data/raw_documents/*.docx
+data/raw_documents/*.zip
+data/raw_documents/*.tar.gz
+data/team_notes/
+
+# Local Processed Chroma & Large Cache (rebuilt by python rag_pipeline.py ingest)
+data/processed/chroma/
+data/processed/docs/
+data/processed/ingested.json
+
+# Logs & Temporary Scratch
+*.log
+scratch/
+.tmp/

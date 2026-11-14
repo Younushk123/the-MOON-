@@ -1,0 +1,10 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {"name": "1. Ingest documents", "type": "debugpy", "request": "launch", "program": "${workspaceFolder}/rag_pipeline.py", "args": ["ingest"], "cwd": "${workspaceFolder}", "console": "integratedTerminal"},
+    {"name": "2. Chat (auto: Groq if key set)", "type": "debugpy", "request": "launch", "program": "${workspaceFolder}/rag_pipeline.py", "args": ["chat"], "cwd": "${workspaceFolder}", "console": "integratedTerminal"},
+    {"name": "3. Run T1-T30 tests", "type": "debugpy", "request": "launch", "program": "${workspaceFolder}/evaluation/run_tests.py", "args": ["auto"], "cwd": "${workspaceFolder}", "console": "integratedTerminal"},
+    {"name": "4. Run 5 demo questions", "type": "debugpy", "request": "launch", "program": "${workspaceFolder}/evaluation/run_demo_questions.py", "args": ["auto"], "cwd": "${workspaceFolder}", "console": "integratedTerminal"},
+    {"name": "5. Unit tests (pytest)", "type": "debugpy", "request": "launch", "module": "pytest", "args": ["-q"], "cwd": "${workspaceFolder}", "console": "integratedTerminal"}
+  ]
+}

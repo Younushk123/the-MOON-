@@ -1,0 +1,11 @@
+{
+  "example_file.pdf": {
+    "source_id": "S5",
+    "register_id": "S5",
+    "title": "Exact title as printed on the document",
+    "publisher": "Fill only if known",
+    "url": "Fill only if verified",
+    "doi": "Fill only if verified",
+    "content_type": "document"
+  }
+}

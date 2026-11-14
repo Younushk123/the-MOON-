@@ -1,0 +1,9 @@
+pymupdf
+python-docx
+chromadb
+sentence-transformers
+groq
+python-dotenv
+pydantic>=2
+openpyxl
+pytest
