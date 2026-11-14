@@ -1,0 +1,250 @@
+[
+  {
+    "measurement_id": "MEAS-MOCK-001",
+    "experiment_id": "MOCK-EXP-001",
+    "variable": "flame_spread_rate",
+    "value": 0.8,
+    "unit": "mm/s",
+    "timestamp": null,
+    "conditions": {
+      "fuel": "PMMA",
+      "pressure": 101.3,
+      "temperature": 298.0,
+      "flow_velocity": 0.1
+    },
+    "source_id": "SRC-MOCK-001",
+    "measurement_status": "illustrative",
+    "notes": [
+      "Illustrative value. Not a NASA measurement."
+    ]
+  },
+  {
+    "measurement_id": "MEAS-MOCK-002",
+    "experiment_id": "MOCK-EXP-001",
+    "variable": "flame_spread_rate",
+    "value": 1.0,
+    "unit": "mm/s",
+    "timestamp": null,
+    "conditions": {
+      "fuel": "PMMA",
+      "pressure": 101.3,
+      "temperature": 298.0,
+      "flow_velocity": 0.1
+    },
+    "source_id": "SRC-MOCK-001",
+    "measurement_status": "illustrative",
+    "notes": [
+      "Illustrative value. Not a NASA measurement."
+    ]
+  },
+  {
+    "measurement_id": "MEAS-MOCK-003",
+    "experiment_id": "MOCK-EXP-001",
+    "variable": "flame_spread_rate",
+    "value": 1.2,
+    "unit": "mm/s",
+    "timestamp": null,
+    "conditions": {
+      "fuel": "PMMA",
+      "pressure": 101.3,
+      "temperature": 298.0,
+      "flow_velocity": 0.1
+    },
+    "source_id": "SRC-MOCK-001",
+    "measurement_status": "illustrative",
+    "notes": [
+      "Illustrative value. Not a NASA measurement."
+    ]
+  },
+  {
+    "measurement_id": "MEAS-MOCK-004",
+    "experiment_id": "MOCK-EXP-001",
+    "variable": "flame_temperature",
+    "value": 1200.0,
+    "unit": "K",
+    "timestamp": null,
+    "conditions": {
+      "fuel": "PMMA",
+      "pressure": 101.3,
+      "temperature": 298.0,
+      "flow_velocity": 0.1
+    },
+    "source_id": "SRC-MOCK-001",
+    "measurement_status": "illustrative",
+    "notes": [
+      "Illustrative value. Not a NASA measurement."
+    ]
+  },
+  {
+    "measurement_id": "MEAS-MOCK-005",
+    "experiment_id": "MOCK-EXP-001",
+    "variable": "flame_temperature",
+    "value": null,
+    "unit": "K",
+    "timestamp": null,
+    "conditions": {
+      "fuel": "PMMA",
+      "pressure": 101.3,
+      "temperature": 298.0,
+      "flow_velocity": 0.1
+    },
+    "source_id": "SRC-MOCK-001",
+    "measurement_status": "illustrative",
+    "notes": [
+      "Illustrative value. Not a NASA measurement.",
+      "Value deliberately missing, to exercise null handling."
+    ]
+  },
+  {
+    "measurement_id": "MEAS-MOCK-006",
+    "experiment_id": "MOCK-EXP-001",
+    "variable": "flame_temperature",
+    "value": 1300.0,
+    "unit": "K",
+    "timestamp": null,
+    "conditions": {
+      "fuel": "PMMA",
+      "pressure": 101.3,
+      "temperature": 298.0,
+      "flow_velocity": 0.1
+    },
+    "source_id": "SRC-MOCK-001",
+    "measurement_status": "illustrative",
+    "notes": [
+      "Illustrative value. Not a NASA measurement."
+    ]
+  },
+  {
+    "measurement_id": "MEAS-MOCK-007",
+    "experiment_id": "MOCK-EXP-001",
+    "variable": "oxygen_concentration",
+    "value": 21.0,
+    "unit": "percent",
+    "timestamp": null,
+    "conditions": {
+      "fuel": "PMMA",
+      "pressure": 101.3,
+      "temperature": 298.0,
+      "flow_velocity": 0.1
+    },
+    "source_id": "SRC-MOCK-001",
+    "measurement_status": "illustrative",
+    "notes": [
+      "Illustrative value. Not a NASA measurement."
+    ]
+  },
+  {
+    "measurement_id": "MEAS-MOCK-008",
+    "experiment_id": "MOCK-EXP-002",
+    "variable": "flame_spread_rate",
+    "value": 1.6,
+    "unit": "mm/s",
+    "timestamp": null,
+    "conditions": {
+      "fuel": "PMMA",
+      "pressure": 101.3,
+      "temperature": 298.0,
+      "flow_velocity": 0.1
+    },
+    "source_id": "SRC-MOCK-002",
+    "measurement_status": "illustrative",
+    "notes": [
+      "Illustrative value. Not a NASA measurement."
+    ]
+  },
+  {
+    "measurement_id": "MEAS-MOCK-009",
+    "experiment_id": "MOCK-EXP-002",
+    "variable": "flame_spread_rate",
+    "value": 2.0,
+    "unit": "mm/s",
+    "timestamp": null,
+    "conditions": {
+      "fuel": "PMMA",
+      "pressure": 101.3,
+      "temperature": 298.0,
+      "flow_velocity": 0.1
+    },
+    "source_id": "SRC-MOCK-002",
+    "measurement_status": "illustrative",
+    "notes": [
+      "Illustrative value. Not a NASA measurement."
+    ]
+  },
+  {
+    "measurement_id": "MEAS-MOCK-010",
+    "experiment_id": "MOCK-EXP-002",
+    "variable": "flame_spread_rate",
+    "value": 2.4,
+    "unit": "mm/s",
+    "timestamp": null,
+    "conditions": {
+      "fuel": "PMMA",
+      "pressure": 101.3,
+      "temperature": 298.0,
+      "flow_velocity": 0.1
+    },
+    "source_id": "SRC-MOCK-002",
+    "measurement_status": "illustrative",
+    "notes": [
+      "Illustrative value. Not a NASA measurement."
+    ]
+  },
+  {
+    "measurement_id": "MEAS-MOCK-011",
+    "experiment_id": "MOCK-EXP-002",
+    "variable": "flame_temperature",
+    "value": 1050.0,
+    "unit": "degC",
+    "timestamp": null,
+    "conditions": {
+      "fuel": "PMMA",
+      "pressure": 101.3,
+      "temperature": 298.0,
+      "flow_velocity": 0.1
+    },
+    "source_id": "SRC-MOCK-002",
+    "measurement_status": "illustrative",
+    "notes": [
+      "Illustrative value. Not a NASA measurement."
+    ]
+  },
+  {
+    "measurement_id": "MEAS-MOCK-012",
+    "experiment_id": "MOCK-EXP-002",
+    "variable": "flame_temperature",
+    "value": 1100.0,
+    "unit": "degC",
+    "timestamp": null,
+    "conditions": {
+      "fuel": "PMMA",
+      "pressure": 101.3,
+      "temperature": 298.0,
+      "flow_velocity": 0.1
+    },
+    "source_id": "SRC-MOCK-002",
+    "measurement_status": "illustrative",
+    "notes": [
+      "Illustrative value. Not a NASA measurement."
+    ]
+  },
+  {
+    "measurement_id": "MEAS-MOCK-013",
+    "experiment_id": "MOCK-EXP-002",
+    "variable": "oxygen_concentration",
+    "value": 21.0,
+    "unit": "percent",
+    "timestamp": null,
+    "conditions": {
+      "fuel": "PMMA",
+      "pressure": 101.3,
+      "temperature": 298.0,
+      "flow_velocity": 0.1
+    },
+    "source_id": "SRC-MOCK-002",
+    "measurement_status": "illustrative",
+    "notes": [
+      "Illustrative value. Not a NASA measurement."
+    ]
+  }
+]
