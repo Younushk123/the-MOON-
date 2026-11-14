@@ -1,0 +1,26 @@
+[
+  {
+    "source_id": "SRC-MOCK-001",
+    "title": "Illustrative mock source A (not a real NASA record)",
+    "url": null,
+    "publisher": null,
+    "source_type": "dataset",
+    "experiment_id": "MOCK-EXP-001",
+    "access_status": "unknown",
+    "verification_status": "unverified",
+    "ingestion_status": "not_ingested",
+    "publication_date": null
+  },
+  {
+    "source_id": "SRC-MOCK-002",
+    "title": "Illustrative mock source B (not a real NASA record)",
+    "url": null,
+    "publisher": null,
+    "source_type": "dataset",
+    "experiment_id": "MOCK-EXP-002",
+    "access_status": "unknown",
+    "verification_status": "unverified",
+    "ingestion_status": "not_ingested",
+    "publication_date": null
+  }
+]
