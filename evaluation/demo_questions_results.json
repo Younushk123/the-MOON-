@@ -1,0 +1,481 @@
+[
+ {
+  "question": "Why is combustion different in microgravity?",
+  "evidence_status": "supported",
+  "abstained": false,
+  "claim": "Fundamental research in microgravity highlighted the vastly different particulate size associated with flames in microgravity. Since many fire detectors operate by sensing fire-generated particulates, they would need to use different signatures to detect fires in microgravity.",
+  "supporting_evidence": [
+   {
+    "source_id": "S2",
+    "register_id": "S2",
+    "experiment_id": null,
+    "evidence_text": "Fundamental research in microgravity highlighted the vastly different particulate size associated with flames in microgravity.",
+    "chunk_id": "S2_5fe046ef_p35_76",
+    "page": 35,
+    "section": "2. A fire will self-extinguish if ventilation is shut off.",
+    "content_type": "document",
+    "url": null,
+    "title": "A Researcher's Guide to: Combustion Science (cover text)"
+   }
+  ],
+  "nasa_source": "A Researcher's Guide to: International Space Station Combustion Science [S2] - NASA ISS Program Science Office (NP-2015-10-034-JSC; no URL on record)",
+  "experiment_conditions": "Conditions are those stated in the quoted passages only (not extracted separately in offline mode). Locations: [S2_5fe046ef_p35_76] page 35, section 2. A fire will self-extinguish if ventilation is shut off., type=document",
+  "fire_safety_relevance": "Not generated in this mode / not stated in retrieved evidence.",
+  "limitations": "Extracted from an ingested file; document presence does not by itself verify the scientific claim. Raw experimental data tables are not indexed, so no quantitative result beyond the quoted text is established.",
+  "data_status": "Indexed Document",
+  "team_status_label": null,
+  "team_status_note": "No manual verification flag on the cited sources (inspected / url_verified); cannot assign a team status label without it.",
+  "validated_findings": [],
+  "validated_findings_note": "",
+  "retrieved": [
+   {
+    "chunk_id": "S2_5fe046ef_p35_76",
+    "register_id": "S2",
+    "score": 1.0,
+    "bm25_raw": 8.535,
+    "semantic": null,
+    "content_type": "document"
+   },
+   {
+    "chunk_id": "S2_5fe046ef_p10_15",
+    "register_id": "S2",
+    "score": 0.822,
+    "bm25_raw": 7.016,
+    "semantic": null,
+    "content_type": "document"
+   },
+   {
+    "chunk_id": "S2_5fe046ef_p35_77",
+    "register_id": "S2",
+    "score": 0.7637,
+    "bm25_raw": 6.519,
+    "semantic": null,
+    "content_type": "document"
+   },
+   {
+    "chunk_id": "S2_5fe046ef_p38_84",
+    "register_id": "S2",
+    "score": 0.7593,
+    "bm25_raw": 6.481,
+    "semantic": null,
+    "content_type": "document"
+   },
+   {
+    "chunk_id": "S2_5fe046ef_p33_70",
+    "register_id": "S2",
+    "score": 0.7232,
+    "bm25_raw": 6.173,
+    "semantic": null,
+    "content_type": "document"
+   }
+  ],
+  "generation_mode": "extractive-offline (no LLM)",
+  "retrieval_mode": "BM25 + entity ONLY - semantic retrieval NOT active (ProxyError: 403 Forbidden)",
+  "validation": {
+   "ok": true,
+   "problems": []
+  },
+  "warnings": [
+   "Semantic retrieval inactive: ProxyError: 403 Forbidden"
+  ],
+  "human_verified": null
+ },
+ {
+  "question": "What was the objective of BASS-II?",
+  "evidence_status": "partially_supported",
+  "abstained": false,
+  "claim": "BASS-II investigated burning and extinction of PMMA and fabrics in diluted atmospheres (down to ~14% O2). Summary report on BASS-II test variables, CSTR dilution, stoichiometry, and heat release rates < 100 W. Combustion Products Sensor readings were taken before and after each BASS-II test.",
+  "supporting_evidence": [
+   {
+    "source_id": "S13",
+    "register_id": "S13",
+    "experiment_id": "PSI-25",
+    "evidence_text": "BASS-II investigated burning and extinction of PMMA and fabrics in diluted atmospheres (down to ~14% O2).",
+    "chunk_id": "cat_S13",
+    "page": null,
+    "section": null,
+    "content_type": "catalogue_record",
+    "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-25",
+    "title": "BASS-II (Burning and Suppression of Solids - II)"
+   },
+   {
+    "source_id": "S29",
+    "register_id": "S29",
+    "experiment_id": null,
+    "evidence_text": "Summary report on BASS-II test variables, CSTR dilution, stoichiometry, and heat release rates < 100 W.",
+    "chunk_id": "cat_S29",
+    "page": null,
+    "section": null,
+    "content_type": "catalogue_record",
+    "url": null,
+    "title": "Burning and Suppression of Solids-II (BASS-II) Summary Report"
+   },
+   {
+    "source_id": "DOC-BASS2-ICES",
+    "register_id": "DOC-BASS2-ICES",
+    "experiment_id": null,
+    "evidence_text": "Combustion Products Sensor readings were taken before and after each BASS-II test.",
+    "chunk_id": "DOC-BASS2-ICES_e9c1286f_p5_17",
+    "page": 5,
+    "section": "7 Professor,  Mechanical and Aerospace Engineering, Glennan 418",
+    "content_type": "document",
+    "url": null,
+    "title": "Results from on-board CSA-CP and CDM Sensor Readings during the Burning and Suppression of Solids - II (BASS-II) Experiment in the Microgravity Science Glovebox (MSG)"
+   }
+  ],
+  "nasa_source": "BASS-II (Burning and Suppression of Solids - II) [S13] - NASA BPS / PSI (PSI-25; DOI: 10.60555/4qc4-de67; Version 4; https://psi.nasa.gov/physci/repo/data/investigations/PSI-25)\nBurning and Suppression of Solids-II (BASS-II) Summary Report [S29] - NASA Glenn Research Center (via NTRS) (NTRS 20210011385; Report E-19939; no URL on record)\nResults from on-board CSA-CP and CDM Sensor Readings during BASS-II Experiment in MSG [DOC-BASS2-ICES] - ICES / Sandra L. Olson et al. (ICES-2015-196; no URL on record)",
+  "experiment_conditions": "Conditions are those stated in the quoted passages only (not extracted separately in offline mode). Locations: [cat_S13] page n/a, type=catalogue_record; [cat_S29] page n/a, type=catalogue_record; [DOC-BASS2-ICES_e9c1286f_p5_17] page 5, section 7 Professor,  Mechanical and Aerospace Engineering, Glennan 418, type=document",
+  "fire_safety_relevance": "Not generated in this mode / not stated in retrieved evidence.",
+  "limitations": "Catalogue/register metadata only; it does not show that raw or processed data files exist or are indexed. Extracted from an ingested file; document presence does not by itself verify the scientific claim. Raw experimental data tables are not indexed, so no quantitative result beyond the quoted text is established.",
+  "data_status": "Catalogue Record Only",
+  "team_status_label": null,
+  "team_status_note": "No manual verification flag on the cited sources (inspected / url_verified); cannot assign a team status label without it.",
+  "validated_findings": [],
+  "validated_findings_note": "",
+  "retrieved": [
+   {
+    "chunk_id": "cat_S13",
+    "register_id": "S13",
+    "score": 1.05,
+    "bm25_raw": 8.552,
+    "semantic": null,
+    "content_type": "catalogue_record"
+   },
+   {
+    "chunk_id": "chunk_bass2_cstr_model",
+    "register_id": "S13",
+    "score": 0.7853,
+    "bm25_raw": 4.578,
+    "semantic": null,
+    "content_type": "seed_summary"
+   },
+   {
+    "chunk_id": "cat_S29",
+    "register_id": "S29",
+    "score": 0.7693,
+    "bm25_raw": 5.551,
+    "semantic": null,
+    "content_type": "catalogue_record"
+   },
+   {
+    "chunk_id": "chunk_bass2_combustion_products",
+    "register_id": "S13",
+    "score": 0.7683,
+    "bm25_raw": 4.432,
+    "semantic": null,
+    "content_type": "seed_summary"
+   },
+   {
+    "chunk_id": "DOC-BASS2-ICES_e9c1286f_p5_17",
+    "register_id": "DOC-BASS2-ICES",
+    "score": 0.5405,
+    "bm25_raw": 4.622,
+    "semantic": null,
+    "content_type": "document"
+   }
+  ],
+  "generation_mode": "extractive-offline (no LLM)",
+  "retrieval_mode": "BM25 + entity ONLY - semantic retrieval NOT active (ProxyError: 403 Forbidden)",
+  "validation": {
+   "ok": true,
+   "problems": []
+  },
+  "warnings": [
+   "Semantic retrieval inactive: ProxyError: 403 Forbidden",
+   "Top results include unverified hand-written seed summaries, not original-document passages."
+  ],
+  "human_verified": null
+ },
+ {
+  "question": "What did Saffire VI investigate?",
+  "evidence_status": "partially_supported",
+  "abstained": false,
+  "claim": "In Saffire VI-3, ignition occurred at 637 s, flow reduced from 20 to 5 cm/s at 1120 s, and terminated at 1420 s. Preliminary findings from Saffire VI: heat release rates 1.5-3.2 kW, toxic gases CO/CO2, smoke detection timing. ACKNOWLEDGEMENTS The members of the Fire Safety in Space International Topical Team are acknowledged for their continued contributions to the development of the Saffire series of Table 5.",
+  "supporting_evidence": [
+   {
+    "source_id": "S31",
+    "register_id": "S31",
+    "experiment_id": null,
+    "evidence_text": "In Saffire VI-3, ignition occurred at 637 s, flow reduced from 20 to 5 cm/s at 1120 s, and terminated at 1420 s.",
+    "chunk_id": "chunk_saffire6_results",
+    "page": null,
+    "section": null,
+    "content_type": "seed_summary",
+    "url": null,
+    "title": "Saffire VI Preliminary Experimental Results (ICES 2024)"
+   },
+   {
+    "source_id": "S4",
+    "register_id": "S4",
+    "experiment_id": null,
+    "evidence_text": "Preliminary findings from Saffire VI: heat release rates 1.5-3.2 kW, toxic gases CO/CO2, smoke detection timing.",
+    "chunk_id": "cat_S4",
+    "page": null,
+    "section": null,
+    "content_type": "catalogue_record",
+    "url": null,
+    "title": "Preliminary Results from the Saffire VI Experiment"
+   },
+   {
+    "source_id": "S3",
+    "register_id": "S3",
+    "experiment_id": null,
+    "evidence_text": "ACKNOWLEDGEMENTS The members of the Fire Safety in Space International Topical Team are acknowledged for their continued contributions to the development of the Saffire series of Table 5.",
+    "chunk_id": "S3_f0403bce_p5_23",
+    "page": 5,
+    "section": "6. ACKNOWLEDGEMENTS",
+    "content_type": "document",
+    "url": null,
+    "title": "The Spacecraft Fire Experiment (Saffire) - Objectives, Development and Status"
+   }
+  ],
+  "nasa_source": "Preliminary Results from the Saffire VI Experiment (ICES 2024) [S31] - NASA Glenn Research Center (NTRS 20240002981; ICES-2024-365; no URL on record)\nPreliminary Results from the Saffire VI Experiment [S4] - NASA Glenn Research Center (ICES 2024) (NTRS 20240002981; ICES-2024-365; no URL on record)\nThe Spacecraft Fire Experiment (Saffire) — Objectives, Development and Status [S3] - NASA Glenn Research Center (IAASS) (NTRS 20170001636; Report GRC-E-DAA-TN32222; no URL on record)",
+  "experiment_conditions": "Conditions are those stated in the quoted passages only (not extracted separately in offline mode). Locations: [chunk_saffire6_results] page n/a, type=seed_summary; [cat_S4] page n/a, type=catalogue_record; [S3_f0403bce_p5_23] page 5, section 6. ACKNOWLEDGEMENTS, type=document",
+  "fire_safety_relevance": "Not generated in this mode / not stated in retrieved evidence.",
+  "limitations": "Cited text is a hand-written summary in the project seed, not extracted from the original file; page numbers unknown and wording not yet checked against the source document. Catalogue/register metadata only; it does not show that raw or processed data files exist or are indexed. Extracted from an ingested file; document presence does not by itself verify the scientific claim. Raw experimental data tables are not indexed, so no quantitative result beyond the quoted text is established.",
+  "data_status": "Pending Verification",
+  "team_status_label": null,
+  "team_status_note": "No manual verification flag on the cited sources (inspected / url_verified); cannot assign a team status label without it.",
+  "validated_findings": [],
+  "validated_findings_note": "",
+  "retrieved": [
+   {
+    "chunk_id": "chunk_saffire6_results",
+    "register_id": "S31",
+    "score": 1.104,
+    "bm25_raw": 12.639,
+    "semantic": null,
+    "content_type": "seed_summary"
+   },
+   {
+    "chunk_id": "cat_S31",
+    "register_id": "S31",
+    "score": 1.05,
+    "bm25_raw": 14.799,
+    "semantic": null,
+    "content_type": "catalogue_record"
+   },
+   {
+    "chunk_id": "cat_S4",
+    "register_id": "S4",
+    "score": 1.013,
+    "bm25_raw": 14.114,
+    "semantic": null,
+    "content_type": "catalogue_record"
+   },
+   {
+    "chunk_id": "S3_f0403bce_p5_23",
+    "register_id": "S3",
+    "score": 0.6936,
+    "bm25_raw": 10.264,
+    "semantic": null,
+    "content_type": "document"
+   },
+   {
+    "chunk_id": "chunk_saffire_objectives_hardware",
+    "register_id": "S18",
+    "score": 0.5843,
+    "bm25_raw": 8.647,
+    "semantic": null,
+    "content_type": "seed_summary"
+   }
+  ],
+  "generation_mode": "extractive-offline (no LLM)",
+  "retrieval_mode": "BM25 + entity ONLY - semantic retrieval NOT active (ProxyError: 403 Forbidden)",
+  "validation": {
+   "ok": true,
+   "problems": []
+  },
+  "warnings": [
+   "Semantic retrieval inactive: ProxyError: 403 Forbidden",
+   "Top results include unverified hand-written seed summaries, not original-document passages."
+  ],
+  "human_verified": null
+ },
+ {
+  "question": "How are smoke particles studied in microgravity?",
+  "evidence_status": "supported",
+  "abstained": false,
+  "claim": "Furthermore, the criteria for sensitivity and false-alarm rejection of the smoke detectors depend on foreknowledge of the size and size distribution of the particles released in a fire event. The onset of smoke production found in low gravity is substantially different than in normal gravity and contrary to predictions in prior literature.",
+  "supporting_evidence": [
+   {
+    "source_id": "S5",
+    "register_id": "S5",
+    "experiment_id": null,
+    "evidence_text": "Furthermore, the criteria for sensitivity and false-alarm rejection of the smoke detectors depend on foreknowledge of the size and size distribution of the particles released in a fire event.",
+    "chunk_id": "S5_2ec5c6dd_p10_34",
+    "page": 10,
+    "section": "4. Experimental",
+    "content_type": "document",
+    "url": null,
+    "title": "Fire Safety in the Low-Gravity Spacecraft Environment"
+   },
+   {
+    "source_id": "S2",
+    "register_id": "S2",
+    "experiment_id": null,
+    "evidence_text": "The onset of smoke production found in low gravity is substantially different than in normal gravity and contrary to predictions in prior literature.",
+    "chunk_id": "S2_5fe046ef_p32_69",
+    "page": 32,
+    "section": "2003. The purpose of the Mist experiment",
+    "content_type": "document",
+    "url": null,
+    "title": "A Researcher's Guide to: Combustion Science (cover text)"
+   }
+  ],
+  "nasa_source": "Fire Safety in the Low-Gravity Spacecraft Environment (Robert Friedman) [S5] - NASA Glenn Research Center (NASA/TM-1999-209285; no URL on record)\nA Researcher's Guide to: International Space Station Combustion Science [S2] - NASA ISS Program Science Office (NP-2015-10-034-JSC; no URL on record)",
+  "experiment_conditions": "Conditions are those stated in the quoted passages only (not extracted separately in offline mode). Locations: [S5_2ec5c6dd_p10_34] page 10, section 4. Experimental, type=document; [S2_5fe046ef_p32_69] page 32, section 2003. The purpose of the Mist experiment, type=document",
+  "fire_safety_relevance": "Not generated in this mode / not stated in retrieved evidence.",
+  "limitations": "Extracted from an ingested file; document presence does not by itself verify the scientific claim. Raw experimental data tables are not indexed, so no quantitative result beyond the quoted text is established.",
+  "data_status": "Indexed Document",
+  "team_status_label": null,
+  "team_status_note": "No manual verification flag on the cited sources (inspected / url_verified); cannot assign a team status label without it.",
+  "validated_findings": [],
+  "validated_findings_note": "",
+  "retrieved": [
+   {
+    "chunk_id": "S5_2ec5c6dd_p10_34",
+    "register_id": "S5",
+    "score": 1.0,
+    "bm25_raw": 10.396,
+    "semantic": null,
+    "content_type": "document"
+   },
+   {
+    "chunk_id": "S5_2ec5c6dd_p10_31",
+    "register_id": "S5",
+    "score": 0.8912,
+    "bm25_raw": 9.265,
+    "semantic": null,
+    "content_type": "document"
+   },
+   {
+    "chunk_id": "S5_2ec5c6dd_p9_30",
+    "register_id": "S5",
+    "score": 0.88,
+    "bm25_raw": 9.149,
+    "semantic": null,
+    "content_type": "document"
+   },
+   {
+    "chunk_id": "S2_5fe046ef_p32_69",
+    "register_id": "S2",
+    "score": 0.7306,
+    "bm25_raw": 7.595,
+    "semantic": null,
+    "content_type": "document"
+   },
+   {
+    "chunk_id": "S5_2ec5c6dd_p9_29",
+    "register_id": "S5",
+    "score": 0.7046,
+    "bm25_raw": 7.324,
+    "semantic": null,
+    "content_type": "document"
+   }
+  ],
+  "generation_mode": "extractive-offline (no LLM)",
+  "retrieval_mode": "BM25 + entity ONLY - semantic retrieval NOT active (ProxyError: 403 Forbidden)",
+  "validation": {
+   "ok": true,
+   "problems": []
+  },
+  "warnings": [
+   "Semantic retrieval inactive: ProxyError: 403 Forbidden"
+  ],
+  "human_verified": null
+ },
+ {
+  "question": "What can microgravity combustion research teach us about spacecraft fire safety?",
+  "evidence_status": "supported",
+  "abstained": false,
+  "claim": "Rygh, Knut: Fire Safety Research in Microgravity: How to Detect Smoke and Flames You Cannot See. Benefits of conducting combustion research in microgravity can thus be summarized as: • \u0007Removal of the complex interaction between the buoyant flow and the energy feedback to the flame. • \u0007Realistic simulation of the fire risk seen in manned spacecraft. • \u0007Practical simulation of the gravitational environment seen for reacting systems in future spacecraft.",
+  "supporting_evidence": [
+   {
+    "source_id": "S5",
+    "register_id": "S5",
+    "experiment_id": null,
+    "evidence_text": "Rygh, Knut: Fire Safety Research in Microgravity: How to Detect Smoke and Flames You Cannot See.",
+    "chunk_id": "S5_2ec5c6dd_p15_63",
+    "page": 15,
+    "section": "1 Year",
+    "content_type": "document",
+    "url": null,
+    "title": "Fire Safety in the Low-Gravity Spacecraft Environment"
+   },
+   {
+    "source_id": "S2",
+    "register_id": "S2",
+    "experiment_id": null,
+    "evidence_text": "Benefits of conducting combustion research in microgravity can thus be summarized as: • \u0007Removal of the complex interaction between the buoyant flow and the energy feedback to the flame. • \u0007Realistic simulation of the fire risk seen in manned spacecraft. • \u0007Practical simulation of the gravitational environment seen for reacting systems in future spacecraft.",
+    "chunk_id": "S2_5fe046ef_p10_15",
+    "page": 10,
+    "section": null,
+    "content_type": "document",
+    "url": null,
+    "title": "A Researcher's Guide to: Combustion Science (cover text)"
+   }
+  ],
+  "nasa_source": "Fire Safety in the Low-Gravity Spacecraft Environment (Robert Friedman) [S5] - NASA Glenn Research Center (NASA/TM-1999-209285; no URL on record)\nA Researcher's Guide to: International Space Station Combustion Science [S2] - NASA ISS Program Science Office (NP-2015-10-034-JSC; no URL on record)",
+  "experiment_conditions": "Conditions are those stated in the quoted passages only (not extracted separately in offline mode). Locations: [S5_2ec5c6dd_p15_63] page 15, section 1 Year, type=document; [S2_5fe046ef_p10_15] page 10, type=document",
+  "fire_safety_relevance": "Not generated in this mode / not stated in retrieved evidence.",
+  "limitations": "Extracted from an ingested file; document presence does not by itself verify the scientific claim. Raw experimental data tables are not indexed, so no quantitative result beyond the quoted text is established.",
+  "data_status": "Indexed Document",
+  "team_status_label": null,
+  "team_status_note": "No manual verification flag on the cited sources (inspected / url_verified); cannot assign a team status label without it.",
+  "validated_findings": [],
+  "validated_findings_note": "",
+  "retrieved": [
+   {
+    "chunk_id": "S5_2ec5c6dd_p15_63",
+    "register_id": "S5",
+    "score": 1.0,
+    "bm25_raw": 16.956,
+    "semantic": null,
+    "content_type": "document"
+   },
+   {
+    "chunk_id": "S5_2ec5c6dd_p3_2",
+    "register_id": "S5",
+    "score": 0.9479,
+    "bm25_raw": 16.073,
+    "semantic": null,
+    "content_type": "document"
+   },
+   {
+    "chunk_id": "S5_2ec5c6dd_p16_66",
+    "register_id": "S5",
+    "score": 0.8673,
+    "bm25_raw": 14.706,
+    "semantic": null,
+    "content_type": "document"
+   },
+   {
+    "chunk_id": "S2_5fe046ef_p10_15",
+    "register_id": "S2",
+    "score": 0.8151,
+    "bm25_raw": 13.82,
+    "semantic": null,
+    "content_type": "document"
+   },
+   {
+    "chunk_id": "S2_5fe046ef_p42_94",
+    "register_id": "S2",
+    "score": 0.7655,
+    "bm25_raw": 12.98,
+    "semantic": null,
+    "content_type": "document"
+   }
+  ],
+  "generation_mode": "extractive-offline (no LLM)",
+  "retrieval_mode": "BM25 + entity ONLY - semantic retrieval NOT active (ProxyError: 403 Forbidden)",
+  "validation": {
+   "ok": true,
+   "problems": []
+  },
+  "warnings": [
+   "Semantic retrieval inactive: ProxyError: 403 Forbidden"
+  ],
+  "human_verified": null
+ }
+]

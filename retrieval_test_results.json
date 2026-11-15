@@ -1,0 +1,1806 @@
+[
+ {
+  "test_id": "T1",
+  "query": "How do flames behave in microgravity drop tests versus on the ISS?",
+  "expected_source": "S2",
+  "actual_retrieved_sources": [
+   "S2",
+   "S2",
+   "S2",
+   "S2",
+   "S2"
+  ],
+  "top_scores": [
+   [
+    "S2",
+    0.8599
+   ],
+   [
+    "S2",
+    0.7844
+   ],
+   [
+    "S2",
+    0.7773
+   ]
+  ],
+  "retrieved_evidence": [
+   {
+    "source_id": "S2",
+    "register_id": "S2",
+    "experiment_id": null,
+    "evidence_text": "Microgravity studies in drop towers and space-based facilities show striking differences (in comparison to normalgravity studies) in the observed flame heights of jet flames at low and moderate jet Reynolds numbers (e.g., Hegde et al., 1994; Urban et al., 1998).",
+    "chunk_id": "S2_5fe046ef_p32_68",
+    "page": 32,
+    "section": "2003. The purpose of the Mist experiment",
+    "content_type": "document",
+    "url": null,
+    "title": "International Space Station (ISS) Researcher's Guide to: Combustion Science"
+   }
+  ],
+  "generated_answer": "Microgravity studies in drop towers and space-based facilities show striking differences (in comparison to normalgravity studies) in the observed flame heights of jet flames at low and moderate jet Reynolds numbers (e.g., Hegde et al., 1994; Urban et al., 1998). Jet Flames Another common class of flames in combustion research is gaseous jet flames (a fuel gas issuing from a nozzle into an initially quiescent oxidizing atmosphere).",
+  "data_status": "Indexed Document",
+  "evidence_status": "supported",
+  "retrieval_relevance": "TOP1",
+  "citation_correctness": "VALID",
+  "abstention_correctness": "N/A",
+  "answer_correctness": "HUMAN REVIEW REQUIRED (not auto-judged)",
+  "final_status": "PASS",
+  "observations": "Retrieval + citation criteria met; answer quality still needs human check.",
+  "retrieval_mode": "hybrid (BM25 + semantic + entity)",
+  "generation_mode": "extractive-offline (no LLM)"
+ },
+ {
+  "test_id": "T2",
+  "query": "first large-scale spacecraft fire experiment in a Cygnus vehicle",
+  "expected_source": "S3/S6",
+  "actual_retrieved_sources": [
+   "S3",
+   "S3",
+   "S3",
+   "S3",
+   "S33"
+  ],
+  "top_scores": [
+   [
+    "S3",
+    0.6954
+   ],
+   [
+    "S3",
+    0.634
+   ],
+   [
+    "S3",
+    0.6254
+   ]
+  ],
+  "retrieved_evidence": [
+   {
+    "source_id": "S3",
+    "register_id": "S3",
+    "experiment_id": null,
+    "evidence_text": "First large-scale spacecraft fire experiments conducted in uncrewed Cygnus vehicle after unberthing.",
+    "chunk_id": "cat_S3",
+    "page": null,
+    "section": null,
+    "content_type": "catalogue_record",
+    "url": null,
+    "title": "The Spacecraft Fire Experiment (Saffire) — Objectives, Development and Status"
+   }
+  ],
+  "generated_answer": "First large-scale spacecraft fire experiments conducted in uncrewed Cygnus vehicle after unberthing. Conducted in Orbital ATK's Cygnus vehicle after it has unberthed from the ISS.",
+  "data_status": "Catalogue Record Only",
+  "evidence_status": "partially_supported",
+  "retrieval_relevance": "TOP1",
+  "citation_correctness": "VALID",
+  "abstention_correctness": "N/A",
+  "answer_correctness": "HUMAN REVIEW REQUIRED (not auto-judged)",
+  "final_status": "PASS",
+  "observations": "Retrieval + citation criteria met; answer quality still needs human check.",
+  "retrieval_mode": "hybrid (BM25 + semantic + entity)",
+  "generation_mode": "extractive-offline (no LLM)"
+ },
+ {
+  "test_id": "T3",
+  "query": "Saffire VI preliminary results CO2 CO and temperature rise",
+  "expected_source": "S4",
+  "actual_retrieved_sources": [
+   "S31",
+   "S31",
+   "S31",
+   "S31",
+   "S31"
+  ],
+  "top_scores": [
+   [
+    "S31",
+    0.9235
+   ],
+   [
+    "S31",
+    0.9131
+   ],
+   [
+    "S31",
+    0.9058
+   ]
+  ],
+  "retrieved_evidence": [
+   {
+    "source_id": "S31",
+    "register_id": "S31",
+    "experiment_id": null,
+    "evidence_text": "Temperature results for Saffire VI-3 (two-sided PMMA).",
+    "chunk_id": "S31_7f875da1_p5_20",
+    "page": 5,
+    "section": "21 Senior Researcher, FRISSBE, ZAG, Ljubljana, Slovenia",
+    "content_type": "document",
+    "url": "https://ntrs.nasa.gov/api/citations/20240002981/downloads/Saffire-ICES-2024-ICES-365-accepted%20final.pdf",
+    "title": "Preliminary Results from the Saffire VI Experiment"
+   }
+  ],
+  "generated_answer": "Temperature results for Saffire VI-3 (two-sided PMMA). CO and CO2 concentrations for Saffire VI-3 (two-sided PMMA) The duct flow terminated at 1420 s so the outlet traces end.",
+  "data_status": "Indexed Document",
+  "evidence_status": "supported",
+  "retrieval_relevance": "TOP1",
+  "citation_correctness": "VALID",
+  "abstention_correctness": "N/A",
+  "answer_correctness": "HUMAN REVIEW REQUIRED (not auto-judged)",
+  "final_status": "PASS",
+  "observations": "Retrieval + citation criteria met; answer quality still needs human check.",
+  "retrieval_mode": "hybrid (BM25 + semantic + entity)",
+  "generation_mode": "extractive-offline (no LLM)"
+ },
+ {
+  "test_id": "T4",
+  "query": "why does the ISS fire alarm protocol turn off forced air flow",
+  "expected_source": "S2",
+  "actual_retrieved_sources": [
+   "S5",
+   "S50",
+   "S5",
+   "S5",
+   "S29"
+  ],
+  "top_scores": [
+   [
+    "S5",
+    0.7445
+   ],
+   [
+    "S50",
+    0.5561
+   ],
+   [
+    "S5",
+    0.5487
+   ]
+  ],
+  "retrieved_evidence": [
+   {
+    "source_id": "S5",
+    "register_id": "S5",
+    "experiment_id": null,
+    "evidence_text": "A module can also be isolated from the rest of the ISS complex by closing valves to cut off the intermodule ventilation.",
+    "chunk_id": "S5_2ec5c6dd_p11_41",
+    "page": 11,
+    "section": "7. Time",
+    "content_type": "document",
+    "url": null,
+    "title": "Fire Safety in the Low-Gravity Spacecraft Environment"
+   },
+   {
+    "source_id": "S50",
+    "register_id": "S50",
+    "experiment_id": null,
+    "evidence_text": "The Caution and Warning Alarm was actuated 15 seconds after the oxygen flow exceeded one pound per hour.",
+    "chunk_id": "S50_b9c25c13_p154_304",
+    "page": 154,
+    "section": "2 Voltage",
+    "content_type": "document",
+    "url": "https://ntrs.nasa.gov/api/citations/19820066930/downloads/19820066930.pdf",
+    "title": "Report of Apollo 204 Review Board"
+   }
+  ],
+  "generated_answer": "A module can also be isolated from the rest of the ISS complex by closing valves to cut off the intermodule ventilation. The Caution and Warning Alarm was actuated 15 seconds after the oxygen flow exceeded one pound per hour.",
+  "data_status": "Indexed Document",
+  "evidence_status": "supported",
+  "retrieval_relevance": "MISS",
+  "citation_correctness": "VALID",
+  "abstention_correctness": "N/A",
+  "answer_correctness": "HUMAN REVIEW REQUIRED (not auto-judged)",
+  "final_status": "FAIL",
+  "observations": "expected S2 not in top-3 ['S5', 'S50', 'S5']",
+  "retrieval_mode": "hybrid (BM25 + semantic + entity)",
+  "generation_mode": "extractive-offline (no LLM)"
+ },
+ {
+  "test_id": "T5",
+  "query": "flamelet that survives with very little oxygen",
+  "expected_source": "S7",
+  "actual_retrieved_sources": [
+   "S28",
+   "S52",
+   "DOC-SOFIE-WKSHP",
+   "S5",
+   "S51"
+  ],
+  "top_scores": [
+   [
+    "S28",
+    0.5436
+   ],
+   [
+    "S52",
+    0.5341
+   ],
+   [
+    "DOC-SOFIE-WKSHP",
+    0.5193
+   ]
+  ],
+  "retrieved_evidence": [
+   {
+    "source_id": "S52",
+    "register_id": "S52",
+    "experiment_id": null,
+    "evidence_text": "All six astronauts were sitting around a table, when, in Jerry Linenger’s words, “I looked down a passageway, and I could see a very large flame bursting out of the canister, smoke billowing out, and I knew we had a problem.” (Detection) A leak had caused a chemical reaction in the oxygen canister and turned it into a giant blowtorch.",
+    "chunk_id": "S52_b8131723_p7_17",
+    "page": 7,
+    "section": null,
+    "content_type": "document",
+    "url": null,
+    "title": "Fire In Space- What Do You Do?"
+   },
+   {
+    "source_id": "DOC-SOFIE-WKSHP",
+    "register_id": "DOC-SOFIE-WKSHP",
+    "experiment_id": null,
+    "evidence_text": "PMMA rods: Negative Oxygen Margin of Safety = 1.4% O2 • Thin fuel sheets: Very few materials have been rated even in 1g at 34% O2, 8.2 psia (exploration atmosphere).",
+    "chunk_id": "DOC-SOFIE-WKSHP_658c21e4_p5_4",
+    "page": 5,
+    "section": null,
+    "content_type": "document",
+    "url": null,
+    "title": "SoFIE Design/Status (Spacecraft Materials Flammability Workshop, 20-22 May 2019)"
+   }
+  ],
+  "generated_answer": "All six astronauts were sitting around a table, when, in Jerry Linenger’s words, “I looked down a passageway, and I could see a very large flame bursting out of the canister, smoke billowing out, and I knew we had a problem.” (Detection) A leak had caused a chemical reaction in the oxygen canister and turned it into a giant blowtorch. PMMA rods: Negative Oxygen Margin of Safety = 1.4% O2 • Thin fuel sheets: Very few materials have been rated even in 1g at 34% O2, 8.2 psia (exploration atmosphere).",
+  "data_status": "Indexed Document",
+  "evidence_status": "supported",
+  "retrieval_relevance": "MISS",
+  "citation_correctness": "VALID",
+  "abstention_correctness": "N/A",
+  "answer_correctness": "HUMAN REVIEW REQUIRED (not auto-judged)",
+  "final_status": "FAIL",
+  "observations": "expected S7 not in top-3 ['S28', 'S52', 'DOC-SOFIE-WKSHP']",
+  "retrieval_mode": "hybrid (BM25 + semantic + entity)",
+  "generation_mode": "extractive-offline (no LLM)"
+ },
+ {
+  "test_id": "T6",
+  "query": "where can I download raw combustion experiment data",
+  "expected_source": "S1",
+  "actual_retrieved_sources": [
+   "S1",
+   "S40",
+   "S36",
+   "S36",
+   "S2"
+  ],
+  "top_scores": [
+   [
+    "S1",
+    1.0073
+   ],
+   [
+    "S40",
+    0.5343
+   ],
+   [
+    "S36",
+    0.5234
+   ]
+  ],
+  "retrieved_evidence": [
+   {
+    "source_id": "S1",
+    "register_id": "S1",
+    "experiment_id": null,
+    "evidence_text": "Primary entry point to search and download raw/processed microgravity combustion data.",
+    "chunk_id": "cat_S1",
+    "page": null,
+    "section": null,
+    "content_type": "catalogue_record",
+    "url": null,
+    "title": "NASA Physical Sciences Informatics (PSI) System Repository"
+   }
+  ],
+  "generated_answer": "Primary entry point to search and download raw/processed microgravity combustion data. PSI repository contains raw and processed data from ISS, Shuttle, and ground studies.",
+  "data_status": "Catalogue Record Only",
+  "evidence_status": "partially_supported",
+  "retrieval_relevance": "TOP1",
+  "citation_correctness": "VALID",
+  "abstention_correctness": "N/A",
+  "answer_correctness": "HUMAN REVIEW REQUIRED (not auto-judged)",
+  "final_status": "PASS",
+  "observations": "Retrieval + citation criteria met; answer quality still needs human check.",
+  "retrieval_mode": "hybrid (BM25 + semantic + entity)",
+  "generation_mode": "extractive-offline (no LLM)"
+ },
+ {
+  "test_id": "T7",
+  "query": "limits of flammability testing on small samples and drop towers",
+  "expected_source": "S5",
+  "actual_retrieved_sources": [
+   "S3",
+   "S28",
+   "S29",
+   "S5",
+   "S2"
+  ],
+  "top_scores": [
+   [
+    "S3",
+    0.7624
+   ],
+   [
+    "S28",
+    0.6158
+   ],
+   [
+    "S29",
+    0.4564
+   ]
+  ],
+  "retrieved_evidence": [
+   {
+    "source_id": "S3",
+    "register_id": "S3",
+    "experiment_id": null,
+    "evidence_text": "Drop tower testing has demonstrated the MOC flammability limits of a material can be different in low-g than in normal gravity [3-5].",
+    "chunk_id": "S3_f0403bce_p3_9",
+    "page": 3,
+    "section": "2.3 Experiment Development",
+    "content_type": "document",
+    "url": null,
+    "title": "The Spacecraft Fire Experiment (Saffire) - Objectives, Development and Status"
+   },
+   {
+    "source_id": "S28",
+    "register_id": "S28",
+    "experiment_id": null,
+    "evidence_text": "Present tests, performed in normal gravity, are not adequate for reduced gravity scenarios.” ― Ground-based drop tower testing provides some data, but long-duration microgravity data is needed to study flammability limits for all but the thinnest films. ― Practical, realistic fuels in typical geometries are examined, including concurrent and opposed-flow flames for the same geometries, which represent fires spreading with the wind, or fires spreading against the wind, or a wake flame burning behind another object. ― Models can be validated and developed.",
+    "chunk_id": "S28_9f2c89db_p4_3",
+    "page": 4,
+    "section": null,
+    "content_type": "document",
+    "url": "https://ntrs.nasa.gov/citations/20160000593",
+    "title": "Combustion of Solids in Microgravity: Results from the BASS-II Experiment"
+   }
+  ],
+  "generated_answer": "Drop tower testing has demonstrated the MOC flammability limits of a material can be different in low-g than in normal gravity [3-5]. Present tests, performed in normal gravity, are not adequate for reduced gravity scenarios.” ― Ground-based drop tower testing provides some data, but long-duration microgravity data is needed to study flammability limits for all but the thinnest films. ― Practical, realistic fuels in typical geometries are examined, including concurrent and opposed-flow flames for the same geometries, which represent fires spreading with the wind, or fires spreading against the wind, or a wake flame burning behind another object. ― Models can be validated and developed.",
+  "data_status": "Indexed Document",
+  "evidence_status": "supported",
+  "retrieval_relevance": "MISS",
+  "citation_correctness": "VALID",
+  "abstention_correctness": "N/A",
+  "answer_correctness": "HUMAN REVIEW REQUIRED (not auto-judged)",
+  "final_status": "FAIL",
+  "observations": "expected S5 not in top-3 ['S3', 'S28', 'S29']",
+  "retrieval_mode": "hybrid (BM25 + semantic + entity)",
+  "generation_mode": "extractive-offline (no LLM)"
+ },
+ {
+  "test_id": "T8",
+  "query": "exact oxygen threshold measured in the BASS-II dataset",
+  "expected_source": "S13",
+  "actual_retrieved_sources": [
+   "S29",
+   "S13",
+   "S29",
+   "S29",
+   "S29"
+  ],
+  "top_scores": [
+   [
+    "S29",
+    0.8714
+   ],
+   [
+    "S13",
+    0.8332
+   ],
+   [
+    "S29",
+    0.8075
+   ]
+  ],
+  "retrieved_evidence": [],
+  "generated_answer": "The available indexed sources do not establish an answer. Query asks for an exact measured value, but no indexed measurement table/raw data file is available (only catalogue records, summaries or documents).",
+  "data_status": "Insufficient Evidence",
+  "evidence_status": "insufficient_evidence",
+  "retrieval_relevance": "TOP3",
+  "citation_correctness": "VALID",
+  "abstention_correctness": "CORRECT",
+  "answer_correctness": "N/A (abstention test)",
+  "final_status": "PASS",
+  "observations": "Abstained/negative, no invented numbers.",
+  "retrieval_mode": "hybrid (BM25 + semantic + entity)",
+  "generation_mode": "extractive-offline (no LLM)"
+ },
+ {
+  "test_id": "T9",
+  "query": "smoke detector test data smoke aerosol measurement in the ISS",
+  "expected_source": "S21/S22",
+  "actual_retrieved_sources": [
+   "S56",
+   "S56",
+   "S56",
+   "S2",
+   "S56"
+  ],
+  "top_scores": [
+   [
+    "S56",
+    0.8571
+   ],
+   [
+    "S56",
+    0.8527
+   ],
+   [
+    "S56",
+    0.83
+   ]
+  ],
+  "retrieved_evidence": [
+   {
+    "source_id": "S2",
+    "register_id": "S2",
+    "experiment_id": null,
+    "evidence_text": "The Dust Aerosol measurement Feasibility Test examined the background aerosol particulate levels on the ISS.",
+    "chunk_id": "S2_5fe046ef_p26_54",
+    "page": 26,
+    "section": "2003. The purpose of the Mist experiment",
+    "content_type": "document",
+    "url": null,
+    "title": "International Space Station (ISS) Researcher's Guide to: Combustion Science"
+   }
+  ],
+  "generated_answer": "The Dust Aerosol measurement Feasibility Test examined the background aerosol particulate levels on the ISS. The Smoke Aerosol Measurement Experiment (SAME) examined the particle-size distribution of the smoke from spacecraft materials.",
+  "data_status": "Indexed Document",
+  "evidence_status": "supported",
+  "retrieval_relevance": "TOP1",
+  "citation_correctness": "VALID",
+  "abstention_correctness": "N/A",
+  "answer_correctness": "HUMAN REVIEW REQUIRED (not auto-judged)",
+  "final_status": "PASS",
+  "observations": "Retrieval + citation criteria met; answer quality still needs human check.",
+  "retrieval_mode": "hybrid (BM25 + semantic + entity)",
+  "generation_mode": "extractive-offline (no LLM)"
+ },
+ {
+  "test_id": "T10",
+  "query": "droplet combustion flame extinguishment data with carbon dioxide dilution",
+  "expected_source": "S16/S17",
+  "actual_retrieved_sources": [
+   "S2",
+   "S2",
+   "S16",
+   "S17",
+   "S2"
+  ],
+  "top_scores": [
+   [
+    "S2",
+    0.8292
+   ],
+   [
+    "S2",
+    0.6886
+   ],
+   [
+    "S16",
+    0.6749
+   ]
+  ],
+  "retrieved_evidence": [
+   {
+    "source_id": "S2",
+    "register_id": "S2",
+    "experiment_id": null,
+    "evidence_text": "Flame Extinguishment Experiment (FLEX) The objective of the FLEX is to study heptane and methanol droplets in ambient mixtures of oxygen and nitrogen diluted with a second inert gas (nitrogen, carbon dioxide, helium or xenon).",
+    "chunk_id": "S2_5fe046ef_p12_18",
+    "page": 12,
+    "section": null,
+    "content_type": "document",
+    "url": null,
+    "title": "International Space Station (ISS) Researcher's Guide to: Combustion Science"
+   }
+  ],
+  "generated_answer": "Flame Extinguishment Experiment (FLEX) The objective of the FLEX is to study heptane and methanol droplets in ambient mixtures of oxygen and nitrogen diluted with a second inert gas (nitrogen, carbon dioxide, helium or xenon). 12 The droplet combustion community is fortunate to currently have the Combustion Integrated Rack (CIR) and a CIR insert called Multi-user Droplet Combustion Apparatus (MDCA) available to study droplet combustion aboard the ISS.",
+  "data_status": "Indexed Document",
+  "evidence_status": "supported",
+  "retrieval_relevance": "TOP3",
+  "citation_correctness": "VALID",
+  "abstention_correctness": "N/A",
+  "answer_correctness": "HUMAN REVIEW REQUIRED (not auto-judged)",
+  "final_status": "PASS",
+  "observations": "Retrieval + citation criteria met; answer quality still needs human check.",
+  "retrieval_mode": "hybrid (BM25 + semantic + entity)",
+  "generation_mode": "extractive-offline (no LLM)"
+ },
+ {
+  "test_id": "T11",
+  "query": "Saffire III data from the Cygnus OA-7 flight",
+  "expected_source": "S20",
+  "actual_retrieved_sources": [
+   "S20",
+   "S3",
+   "S3",
+   "S31",
+   "S18"
+  ],
+  "top_scores": [
+   [
+    "S20",
+    0.65
+   ],
+   [
+    "S3",
+    0.647
+   ],
+   [
+    "S3",
+    0.5508
+   ]
+  ],
+  "retrieved_evidence": [
+   {
+    "source_id": "S3",
+    "register_id": "S3",
+    "experiment_id": null,
+    "evidence_text": "SAFFIRE EXPERIMENT SAFETY Even though this experiment will be conducted during the un-crewed portion of the flight, the Cygnus vehicle berths with the ISS and, therefore, the experiment is subject to many of the same safety considerations as other ISS payloads.",
+    "chunk_id": "S3_f0403bce_p4_15",
+    "page": 4,
+    "section": "3. SAFFIRE EXPERIMENT SAFETY",
+    "content_type": "document",
+    "url": null,
+    "title": "The Spacecraft Fire Experiment (Saffire) - Objectives, Development and Status"
+   }
+  ],
+  "generated_answer": "SAFFIRE EXPERIMENT SAFETY Even though this experiment will be conducted during the un-crewed portion of the flight, the Cygnus vehicle berths with the ISS and, therefore, the experiment is subject to many of the same safety considerations as other ISS payloads. Cygnus provides two power feed circuits to Saffire due to power requirements.",
+  "data_status": "Indexed Document",
+  "evidence_status": "supported",
+  "retrieval_relevance": "TOP1",
+  "citation_correctness": "VALID",
+  "abstention_correctness": "N/A",
+  "answer_correctness": "HUMAN REVIEW REQUIRED (not auto-judged)",
+  "final_status": "PASS",
+  "observations": "Retrieval + citation criteria met; answer quality still needs human check.",
+  "retrieval_mode": "hybrid (BM25 + semantic + entity)",
+  "generation_mode": "extractive-offline (no LLM)"
+ },
+ {
+  "test_id": "T12",
+  "query": "cool flames low temperature combustion dataset",
+  "expected_source": "S14",
+  "actual_retrieved_sources": [
+   "S14",
+   "S2",
+   "DOC-ACME-PUBS",
+   "DOC-ACME-PUBS",
+   "S2"
+  ],
+  "top_scores": [
+   [
+    "S14",
+    0.7256
+   ],
+   [
+    "S2",
+    0.7029
+   ],
+   [
+    "DOC-ACME-PUBS",
+    0.6514
+   ]
+  ],
+  "retrieved_evidence": [
+   {
+    "source_id": "S2",
+    "register_id": "S2",
+    "experiment_id": null,
+    "evidence_text": "Cool Flames would be an example of how one of the unprecedented findings of CIRFLEX studies can set the stage for a new research direction on combustion utilizing existing hardware available on the ISS.",
+    "chunk_id": "S2_5fe046ef_p41_92",
+    "page": 41,
+    "section": "2. A fire will self-extinguish if ventilation is shut off.",
+    "content_type": "document",
+    "url": null,
+    "title": "International Space Station (ISS) Researcher's Guide to: Combustion Science"
+   }
+  ],
+  "generated_answer": "Cool Flames would be an example of how one of the unprecedented findings of CIRFLEX studies can set the stage for a new research direction on combustion utilizing existing hardware available on the ISS. New initiatives such as Cool Flames in CIR, NASA Flammability Test Campaign and Schlieren Diagnostic in MSG may fall into this category.",
+  "data_status": "Indexed Document",
+  "evidence_status": "supported",
+  "retrieval_relevance": "TOP1",
+  "citation_correctness": "VALID",
+  "abstention_correctness": "N/A",
+  "answer_correctness": "HUMAN REVIEW REQUIRED (not auto-judged)",
+  "final_status": "PASS",
+  "observations": "Retrieval + citation criteria met; answer quality still needs human check.",
+  "retrieval_mode": "hybrid (BM25 + semantic + entity)",
+  "generation_mode": "extractive-offline (no LLM)"
+ },
+ {
+  "test_id": "T13",
+  "query": "electric field flames ion driven wind simulating partial gravity",
+  "expected_source": "S10",
+  "actual_retrieved_sources": [
+   "S10",
+   "DOC-ACME-PUBS",
+   "S2",
+   "S2",
+   "S2"
+  ],
+  "top_scores": [
+   [
+    "S10",
+    0.9023
+   ],
+   [
+    "DOC-ACME-PUBS",
+    0.6136
+   ],
+   [
+    "S2",
+    0.5814
+   ]
+  ],
+  "retrieved_evidence": [
+   {
+    "source_id": "DOC-ACME-PUBS",
+    "register_id": "DOC-ACME-PUBS",
+    "experiment_id": null,
+    "evidence_text": "Canceling Buoyancy of Gaseous Fuel Flames in a Gravitational Environment Using an Ion‐Driven Wind.",
+    "chunk_id": "DOC-ACME-PUBS_5118544f_p6_16",
+    "page": 6,
+    "section": "30 Aug. 2023",
+    "content_type": "document",
+    "url": null,
+    "title": "ACME Peer-Reviewed Publications (30 Aug. 2023)"
+   }
+  ],
+  "generated_answer": "Canceling Buoyancy of Gaseous Fuel Flames in a Gravitational Environment Using an Ion‐Driven Wind. Soot formation in spherical diffusion flames.",
+  "data_status": "Indexed Document",
+  "evidence_status": "supported",
+  "retrieval_relevance": "TOP1",
+  "citation_correctness": "VALID",
+  "abstention_correctness": "N/A",
+  "answer_correctness": "HUMAN REVIEW REQUIRED (not auto-judged)",
+  "final_status": "PASS",
+  "observations": "Retrieval + citation criteria met; answer quality still needs human check.",
+  "retrieval_mode": "hybrid (BM25 + semantic + entity)",
+  "generation_mode": "extractive-offline (no LLM)"
+ },
+ {
+  "test_id": "T14",
+  "query": "soot smoke point in coflow flames",
+  "expected_source": "S24",
+  "actual_retrieved_sources": [
+   "S24",
+   "S2",
+   "S24",
+   "S24",
+   "S2"
+  ],
+  "top_scores": [
+   [
+    "S24",
+    0.7782
+   ],
+   [
+    "S2",
+    0.696
+   ],
+   [
+    "S24",
+    0.6921
+   ]
+  ],
+  "retrieved_evidence": [
+   {
+    "source_id": "S24",
+    "register_id": "S24",
+    "experiment_id": "PSI-107",
+    "evidence_text": "Smoke Point in Co-flow Experiment (SPICE) The Smoke Point In Co-flow Experiment will continue the study of fundamental phenomena related to understanding the me SPICE will determine the laminar smoke point properties of non-buoyant jet diffusion flames (i.e., the properties of the larges Research Overview · Previous experiments show that soot dominates the heat emitted from flames in normal gravity and microgravity fires.",
+    "chunk_id": "S24_de88def2_p1_0",
+    "page": 1,
+    "section": null,
+    "content_type": "document",
+    "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-107",
+    "title": "Smoke Point in Co-flow Experiment (SPICE) Fact Sheet"
+   },
+   {
+    "source_id": "S2",
+    "register_id": "S2",
+    "experiment_id": null,
+    "evidence_text": "Flames from the 2009 Smoke Point In Coflow experiment showing the transition, with increasing fuel flow, from non-smoking (left) to a fully open and smoking flame tip (right).",
+    "chunk_id": "S2_5fe046ef_p14_25",
+    "page": 14,
+    "section": null,
+    "content_type": "document",
+    "url": null,
+    "title": "International Space Station (ISS) Researcher's Guide to: Combustion Science"
+   }
+  ],
+  "generated_answer": "Smoke Point in Co-flow Experiment (SPICE) The Smoke Point In Co-flow Experiment will continue the study of fundamental phenomena related to understanding the me SPICE will determine the laminar smoke point properties of non-buoyant jet diffusion flames (i.e., the properties of the larges Research Overview · Previous experiments show that soot dominates the heat emitted from flames in normal gravity and microgravity fires. Flames from the 2009 Smoke Point In Coflow experiment showing the transition, with increasing fuel flow, from non-smoking (left) to a fully open and smoking flame tip (right).",
+  "data_status": "Indexed Document",
+  "evidence_status": "supported",
+  "retrieval_relevance": "TOP1",
+  "citation_correctness": "VALID",
+  "abstention_correctness": "N/A",
+  "answer_correctness": "HUMAN REVIEW REQUIRED (not auto-judged)",
+  "final_status": "PASS",
+  "observations": "Retrieval + citation criteria met; answer quality still needs human check.",
+  "retrieval_mode": "hybrid (BM25 + semantic + entity)",
+  "generation_mode": "extractive-offline (no LLM)"
+ },
+ {
+  "test_id": "T15",
+  "query": "dust and aerosol measurement feasibility test",
+  "expected_source": "S15",
+  "actual_retrieved_sources": [
+   "S56",
+   "S15",
+   "S56",
+   "S56",
+   "S56"
+  ],
+  "top_scores": [
+   [
+    "S56",
+    0.7684
+   ],
+   [
+    "S15",
+    0.6624
+   ],
+   [
+    "S56",
+    0.5207
+   ]
+  ],
+  "retrieved_evidence": [
+   {
+    "source_id": "S56",
+    "register_id": "S56",
+    "experiment_id": null,
+    "evidence_text": "ACRONYNMS CMD: Count Mean Diameter CSD: Comparative Soot Diagnostics DAFT: Dust Aerosol measurement Feasibility Test ISS: International Space Station MSG: Microgravity Science Glovebox SAME: Smoke Aerosol Measurement Experiment STS: Space Transportation System TEM: Transmission Electron Microscope",
+    "chunk_id": "S56_510cfbc9_p52_168",
+    "page": 52,
+    "section": "10. Reist, P.C., Introduction to Aerosol Science, Macmillan Pub. Co., NY, NY, 1984.",
+    "content_type": "document",
+    "url": null,
+    "title": "Smoke Aerosol Measurement Experiment (SAME)"
+   }
+  ],
+  "generated_answer": "ACRONYNMS CMD: Count Mean Diameter CSD: Comparative Soot Diagnostics DAFT: Dust Aerosol measurement Feasibility Test ISS: International Space Station MSG: Microgravity Science Glovebox SAME: Smoke Aerosol Measurement Experiment STS: Space Transportation System TEM: Transmission Electron Microscope Reist, P.C., Introduction to Aerosol Science, Macmillan Pub.",
+  "data_status": "Indexed Document",
+  "evidence_status": "supported",
+  "retrieval_relevance": "TOP3",
+  "citation_correctness": "VALID",
+  "abstention_correctness": "N/A",
+  "answer_correctness": "HUMAN REVIEW REQUIRED (not auto-judged)",
+  "final_status": "PASS",
+  "observations": "Retrieval + citation criteria met; answer quality still needs human check.",
+  "retrieval_mode": "hybrid (BM25 + semantic + entity)",
+  "generation_mode": "extractive-offline (no LLM)"
+ },
+ {
+  "test_id": "T16",
+  "query": "BASS solid fuel burning and suppression measurements",
+  "expected_source": "S12",
+  "actual_retrieved_sources": [
+   "S12",
+   "S29",
+   "S29",
+   "S29",
+   "S29"
+  ],
+  "top_scores": [
+   [
+    "S12",
+    0.9259
+   ],
+   [
+    "S29",
+    0.7695
+   ],
+   [
+    "S29",
+    0.6573
+   ]
+  ],
+  "retrieved_evidence": [
+   {
+    "source_id": "S12",
+    "register_id": "S12",
+    "experiment_id": "PSI-26",
+    "evidence_text": "BASS solid fuel burning and extinction tests in the Microgravity Science Glovebox (MSG).",
+    "chunk_id": "cat_S12",
+    "page": null,
+    "section": null,
+    "content_type": "catalogue_record",
+    "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-26",
+    "title": "BASS (Burning and Suppression of Solids)"
+   }
+  ],
+  "generated_answer": "BASS solid fuel burning and extinction tests in the Microgravity Science Glovebox (MSG). BASS tests burning and suppression of solid fuels in the SPICE flow duct inside MSG.",
+  "data_status": "Catalogue Record Only",
+  "evidence_status": "partially_supported",
+  "retrieval_relevance": "TOP1",
+  "citation_correctness": "VALID",
+  "abstention_correctness": "N/A",
+  "answer_correctness": "HUMAN REVIEW REQUIRED (not auto-judged)",
+  "final_status": "PASS",
+  "observations": "Retrieval + citation criteria met; answer quality still needs human check.",
+  "retrieval_mode": "hybrid (BM25 + semantic + entity)",
+  "generation_mode": "extractive-offline (no LLM)"
+ },
+ {
+  "test_id": "T17",
+  "query": "ACME Flame Design PSI-10 soot inception limits normal inverse spherical diffusion flames",
+  "expected_source": "S34",
+  "actual_retrieved_sources": [
+   "S34",
+   "S25",
+   "S11",
+   "S9",
+   "S2"
+  ],
+  "top_scores": [
+   [
+    "S34",
+    1.171
+   ],
+   [
+    "S25",
+    0.8363
+   ],
+   [
+    "S11",
+    0.8217
+   ]
+  ],
+  "retrieved_evidence": [
+   {
+    "source_id": "S2",
+    "register_id": "S2",
+    "experiment_id": null,
+    "evidence_text": "An outside review panel recently declared that Flame Design “… could lead to greatly improved burner designs that are efficient and less polluting than current designs.” Flame Design will investigate the soot inception and extinction limits of spherical microgravity flames, created in the same manner as for the s-Flame experiment.",
+    "chunk_id": "S2_5fe046ef_p17_32",
+    "page": 17,
+    "section": null,
+    "content_type": "document",
+    "url": null,
+    "title": "International Space Station (ISS) Researcher's Guide to: Combustion Science"
+   }
+  ],
+  "generated_answer": "An outside review panel recently declared that Flame Design “… could lead to greatly improved burner designs that are efficient and less polluting than current designs.” Flame Design will investigate the soot inception and extinction limits of spherical microgravity flames, created in the same manner as for the s-Flame experiment. If inverse spherical flame testing is not allowed, the plan is to use a coflow burner, conducting both normal and inverse flame tests.",
+  "data_status": "Indexed Document",
+  "evidence_status": "supported",
+  "retrieval_relevance": "TOP1",
+  "citation_correctness": "VALID",
+  "abstention_correctness": "N/A",
+  "answer_correctness": "HUMAN REVIEW REQUIRED (not auto-judged)",
+  "final_status": "PASS",
+  "observations": "Retrieval + citation criteria met; answer quality still needs human check.",
+  "retrieval_mode": "hybrid (BM25 + semantic + entity)",
+  "generation_mode": "extractive-offline (no LLM)"
+ },
+ {
+  "test_id": "T18",
+  "query": "What are the official NASA microgravity combustion experiment families?",
+  "expected_source": "S35/S36/S37",
+  "actual_retrieved_sources": [
+   "S38",
+   "S28",
+   "S28",
+   "S2",
+   "S28"
+  ],
+  "top_scores": [
+   [
+    "S38",
+    0.668
+   ],
+   [
+    "S28",
+    0.6324
+   ],
+   [
+    "S28",
+    0.6185
+   ]
+  ],
+  "retrieved_evidence": [
+   {
+    "source_id": "S28",
+    "register_id": "S28",
+    "experiment_id": null,
+    "evidence_text": "Science Applications ― Understanding of long-duration microgravity solid material burning and extinction ― Improved strategies for NASA spacecraft materials selection; link actual burn behavior in microgravity to Earth-based selection methods ― Improved combustion computational models used in the design of fire detection and suppression systems in microgravity and on Earth ― Validated detailed combustion models in the simpler flow environment of microgravity build more complex combustion models needed to capture the important details of flames burning in normal gravity; models have wide applicability to the general understanding of many terrestrial combustion problems.",
+    "chunk_id": "S28_9f2c89db_p5_4",
+    "page": 5,
+    "section": null,
+    "content_type": "document",
+    "url": "https://ntrs.nasa.gov/citations/20160000593",
+    "title": "Combustion of Solids in Microgravity: Results from the BASS-II Experiment"
+   }
+  ],
+  "generated_answer": "Science Applications ― Understanding of long-duration microgravity solid material burning and extinction ― Improved strategies for NASA spacecraft materials selection; link actual burn behavior in microgravity to Earth-based selection methods ― Improved combustion computational models used in the design of fire detection and suppression systems in microgravity and on Earth ― Validated detailed combustion models in the simpler flow environment of microgravity build more complex combustion models needed to capture the important details of flames burning in normal gravity; models have wide applicability to the general understanding of many terrestrial combustion problems.",
+  "data_status": "Indexed Document",
+  "evidence_status": "supported",
+  "retrieval_relevance": "MISS",
+  "citation_correctness": "VALID",
+  "abstention_correctness": "N/A",
+  "answer_correctness": "HUMAN REVIEW REQUIRED (not auto-judged)",
+  "final_status": "FAIL",
+  "observations": "expected S35/S36/S37 not in top-3 ['S38', 'S28', 'S28']",
+  "retrieval_mode": "hybrid (BM25 + semantic + entity)",
+  "generation_mode": "extractive-offline (no LLM)"
+ },
+ {
+  "test_id": "T19",
+  "query": "What are the five ACME studies and what does BRE contribute to spacecraft fire safety?",
+  "expected_source": "S38",
+  "actual_retrieved_sources": [
+   "S38",
+   "S2",
+   "S33",
+   "S8",
+   "S3"
+  ],
+  "top_scores": [
+   [
+    "S38",
+    0.9279
+   ],
+   [
+    "S2",
+    0.5281
+   ],
+   [
+    "S33",
+    0.5054
+   ]
+  ],
+  "retrieved_evidence": [
+   {
+    "source_id": "S38",
+    "register_id": "S38",
+    "experiment_id": null,
+    "evidence_text": "ACME comprises five independent studies in CIR; BRE focuses on fire prevention by simulating solid/liquid fuels using gaseous burner.",
+    "chunk_id": "cat_S38",
+    "page": null,
+    "section": null,
+    "content_type": "catalogue_record",
+    "url": null,
+    "title": "Advanced Combustion Microgravity Experiment (ACME) Facility"
+   }
+  ],
+  "generated_answer": "ACME comprises five independent studies in CIR; BRE focuses on fire prevention by simulating solid/liquid fuels using gaseous burner. Details the 5 ACME studies (BRE, CLD Flame, E-FIELD, Flame Design, s-Flame) and BRE's role in fire prevention.",
+  "data_status": "Catalogue Record Only",
+  "evidence_status": "partially_supported",
+  "retrieval_relevance": "TOP1",
+  "citation_correctness": "VALID",
+  "abstention_correctness": "N/A",
+  "answer_correctness": "HUMAN REVIEW REQUIRED (not auto-judged)",
+  "final_status": "PASS",
+  "observations": "Retrieval + citation criteria met; answer quality still needs human check.",
+  "retrieval_mode": "hybrid (BM25 + semantic + entity)",
+  "generation_mode": "extractive-offline (no LLM)"
+ },
+ {
+  "test_id": "T20",
+  "query": "Which PSI-98 Saffire-I dataset DOI and licence are shown on the official record?",
+  "expected_source": "S18 / E25",
+  "actual_retrieved_sources": [
+   "S18",
+   "S36",
+   "S18",
+   "S36",
+   "S40"
+  ],
+  "top_scores": [
+   [
+    "S18",
+    0.75
+   ],
+   [
+    "S36",
+    0.5819
+   ],
+   [
+    "S18",
+    0.3883
+   ]
+  ],
+  "retrieved_evidence": [
+   {
+    "source_id": "S18",
+    "register_id": "S18",
+    "experiment_id": "PSI-98",
+    "evidence_text": "Identifier: PSI-98; DOI: 10.60555/0t15-1z43; Version 4.",
+    "chunk_id": "cat_S18",
+    "page": null,
+    "section": null,
+    "content_type": "catalogue_record",
+    "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-98",
+    "title": "SAFFIRE I (Spacecraft Fire Safety Demonstration I)"
+   },
+   {
+    "source_id": "S36",
+    "register_id": "S36",
+    "experiment_id": null,
+    "evidence_text": "NASA PSI Repository Policy: A PSI investigation page (such as PSI-25 BASS-II or PSI-98 Saffire-I) contains study metadata, DOIs, licensing (CC0-1.0), and file listings.",
+    "chunk_id": "chunk_psi_metadata_policy",
+    "page": null,
+    "section": null,
+    "content_type": "seed_summary",
+    "url": null,
+    "title": "NASA PSI Repository Architecture & Verification Policy"
+   }
+  ],
+  "generated_answer": "Identifier: PSI-98; DOI: 10.60555/0t15-1z43; Version 4. NASA PSI Repository Policy: A PSI investigation page (such as PSI-25 BASS-II or PSI-98 Saffire-I) contains study metadata, DOIs, licensing (CC0-1.0), and file listings.",
+  "data_status": "Pending Verification",
+  "evidence_status": "partially_supported",
+  "retrieval_relevance": "TOP1",
+  "citation_correctness": "VALID",
+  "abstention_correctness": "N/A",
+  "answer_correctness": "HUMAN REVIEW REQUIRED (not auto-judged)",
+  "final_status": "PASS",
+  "observations": "Retrieval + citation criteria met; answer quality still needs human check.",
+  "retrieval_mode": "hybrid (BM25 + semantic + entity)",
+  "generation_mode": "extractive-offline (no LLM)"
+ },
+ {
+  "test_id": "T21",
+  "query": "What exact oxygen threshold did BASS-II measure for ignition?",
+  "expected_source": "S13",
+  "actual_retrieved_sources": [
+   "S29",
+   "S29",
+   "S29",
+   "S29",
+   "S29"
+  ],
+  "top_scores": [
+   [
+    "S29",
+    0.8181
+   ],
+   [
+    "S29",
+    0.781
+   ],
+   [
+    "S29",
+    0.777
+   ]
+  ],
+  "retrieved_evidence": [],
+  "generated_answer": "The available indexed sources do not establish an answer. Query asks for an exact measured value, but no indexed measurement table/raw data file is available (only catalogue records, summaries or documents).",
+  "data_status": "Insufficient Evidence",
+  "evidence_status": "insufficient_evidence",
+  "retrieval_relevance": "MISS",
+  "citation_correctness": "VALID",
+  "abstention_correctness": "CORRECT",
+  "answer_correctness": "N/A (abstention test)",
+  "final_status": "PASS",
+  "observations": "Abstained/negative, no invented numbers. Note: expected source S13 not in top-3.",
+  "retrieval_mode": "hybrid (BM25 + semantic + entity)",
+  "generation_mode": "extractive-offline (no LLM)"
+ },
+ {
+  "test_id": "T22",
+  "query": "When was smoke detected in the Saffire VI PMMA test and what caveat applies?",
+  "expected_source": "S31 / E17",
+  "actual_retrieved_sources": [
+   "S31",
+   "S31",
+   "S31",
+   "S4",
+   "S31"
+  ],
+  "top_scores": [
+   [
+    "S31",
+    0.9132
+   ],
+   [
+    "S31",
+    0.8471
+   ],
+   [
+    "S31",
+    0.8444
+   ]
+  ],
+  "retrieved_evidence": [
+   {
+    "source_id": "S31",
+    "register_id": "S31",
+    "experiment_id": null,
+    "evidence_text": "Saffire VI results: PMMA fires 1.5-3.2 kW, CO exceeded 24-hr limit, CO2 exceeded 1-hr limit, smoke detected at 981 s.",
+    "chunk_id": "cat_S31",
+    "page": null,
+    "section": null,
+    "content_type": "catalogue_record",
+    "url": null,
+    "title": "Preliminary Results from the Saffire VI Experiment (ICES 2024)"
+   }
+  ],
+  "generated_answer": "Saffire VI results: PMMA fires 1.5-3.2 kW, CO exceeded 24-hr limit, CO2 exceeded 1-hr limit, smoke detected at 981 s. Saffire VI tested fires of 1.5-3.2 kW in Cygnus; ambient CO exceeded 24-hr limit and CO2 exceeded 1-hr limit; smoke detected at 981 s.",
+  "data_status": "Catalogue Record Only",
+  "evidence_status": "partially_supported",
+  "retrieval_relevance": "TOP1",
+  "citation_correctness": "VALID",
+  "abstention_correctness": "N/A",
+  "answer_correctness": "HUMAN REVIEW REQUIRED (not auto-judged)",
+  "final_status": "PASS",
+  "observations": "Retrieval + citation criteria met; answer quality still needs human check.",
+  "retrieval_mode": "hybrid (BM25 + semantic + entity)",
+  "generation_mode": "extractive-offline (no LLM)"
+ },
+ {
+  "test_id": "T23",
+  "query": "Compare Saffire, BASS-II and SAME by the question each investigates",
+  "expected_source": "S18-S22 / S13 / S37",
+  "actual_retrieved_sources": [
+   "S31",
+   "S3",
+   "S29",
+   "S31",
+   "S3"
+  ],
+  "top_scores": [
+   [
+    "S31",
+    0.81
+   ],
+   [
+    "S3",
+    0.7519
+   ],
+   [
+    "S29",
+    0.75
+   ]
+  ],
+  "retrieved_evidence": [
+   {
+    "source_id": "S31",
+    "register_id": "S31",
+    "experiment_id": null,
+    "evidence_text": "The Saffire IV and V tests were discussed in detail in Urban et al.3 For this paper, the thin cotton samples from each flight will be included in this analysis because the heat relase rate can be estimated from the spread rate for thin fuels.",
+    "chunk_id": "S31_7f875da1_p3_10",
+    "page": 3,
+    "section": "21 Senior Researcher, FRISSBE, ZAG, Ljubljana, Slovenia",
+    "content_type": "document",
+    "url": "https://ntrs.nasa.gov/api/citations/20240002981/downloads/Saffire-ICES-2024-ICES-365-accepted%20final.pdf",
+    "title": "Preliminary Results from the Saffire VI Experiment"
+   }
+  ],
+  "generated_answer": "The Saffire IV and V tests were discussed in detail in Urban et al.3 For this paper, the thin cotton samples from each flight will be included in this analysis because the heat relase rate can be estimated from the spread rate for thin fuels. The Saffire VI sample card contained four samples and was configured for four ignitions.",
+  "data_status": "Indexed Document",
+  "evidence_status": "supported",
+  "retrieval_relevance": "MISS",
+  "citation_correctness": "VALID",
+  "abstention_correctness": "N/A",
+  "answer_correctness": "HUMAN REVIEW REQUIRED (not auto-judged)",
+  "final_status": "FAIL",
+  "observations": "expected S18-S22 / S13 / S37 not in top-3 ['S31', 'S3', 'S29']",
+  "retrieval_mode": "hybrid (BM25 + semantic + entity)",
+  "generation_mode": "extractive-offline (no LLM)"
+ },
+ {
+  "test_id": "T24",
+  "query": "Does the PSI investigation listing alone prove raw data files are downloadable?",
+  "expected_source": "S36/S40",
+  "actual_retrieved_sources": [
+   "S36",
+   "S1",
+   "S40",
+   "S36",
+   "S9"
+  ],
+  "top_scores": [
+   [
+    "S36",
+    1.1273
+   ],
+   [
+    "S1",
+    0.874
+   ],
+   [
+    "S40",
+    0.8083
+   ]
+  ],
+  "retrieved_evidence": [
+   {
+    "source_id": "S36",
+    "register_id": "S36",
+    "experiment_id": null,
+    "evidence_text": "However, an investigation catalogue entry or landing page alone is NOT proof that raw/processed files have been downloaded or indexed into the project RAG.",
+    "chunk_id": "chunk_psi_metadata_policy",
+    "page": null,
+    "section": null,
+    "content_type": "seed_summary",
+    "url": null,
+    "title": "NASA PSI Repository Architecture & Verification Policy"
+   },
+   {
+    "source_id": "S1",
+    "register_id": "S1",
+    "experiment_id": null,
+    "evidence_text": "PSI repository contains raw and processed data from ISS, Shuttle, and ground studies.",
+    "chunk_id": "cat_S1",
+    "page": null,
+    "section": null,
+    "content_type": "catalogue_record",
+    "url": null,
+    "title": "NASA Physical Sciences Informatics (PSI) System Repository"
+   }
+  ],
+  "generated_answer": "No. However, an investigation catalogue entry or landing page alone is NOT proof that raw/processed files have been downloaded or indexed into the project RAG. PSI repository contains raw and processed data from ISS, Shuttle, and ground studies.",
+  "data_status": "Pending Verification",
+  "evidence_status": "partially_supported",
+  "retrieval_relevance": "TOP1",
+  "citation_correctness": "VALID",
+  "abstention_correctness": "CORRECT",
+  "answer_correctness": "N/A (abstention test)",
+  "final_status": "PASS",
+  "observations": "Abstained/negative, no invented numbers.",
+  "retrieval_mode": "hybrid (BM25 + semantic + entity)",
+  "generation_mode": "extractive-offline (no LLM)"
+ },
+ {
+  "test_id": "T25",
+  "query": "What DOI and licence are shown on the official PSI-25 BASS-II record?",
+  "expected_source": "S13",
+  "actual_retrieved_sources": [
+   "S13",
+   "S29",
+   "S29",
+   "S29",
+   "S36"
+  ],
+  "top_scores": [
+   [
+    "S13",
+    0.75
+   ],
+   [
+    "S29",
+    0.4812
+   ],
+   [
+    "S29",
+    0.4801
+   ]
+  ],
+  "retrieved_evidence": [
+   {
+    "source_id": "S13",
+    "register_id": "S13",
+    "experiment_id": "PSI-25",
+    "evidence_text": "Identifier: PSI-25; DOI: 10.60555/4qc4-de67; Version 4.",
+    "chunk_id": "cat_S13",
+    "page": null,
+    "section": null,
+    "content_type": "catalogue_record",
+    "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-25",
+    "title": "BASS-II (Burning and Suppression of Solids - II)"
+   },
+   {
+    "source_id": "S36",
+    "register_id": "S36",
+    "experiment_id": null,
+    "evidence_text": "NASA PSI Repository Policy: A PSI investigation page (such as PSI-25 BASS-II or PSI-98 Saffire-I) contains study metadata, DOIs, licensing (CC0-1.0), and file listings.",
+    "chunk_id": "chunk_psi_metadata_policy",
+    "page": null,
+    "section": null,
+    "content_type": "seed_summary",
+    "url": null,
+    "title": "NASA PSI Repository Architecture & Verification Policy"
+   }
+  ],
+  "generated_answer": "Identifier: PSI-25; DOI: 10.60555/4qc4-de67; Version 4. NASA PSI Repository Policy: A PSI investigation page (such as PSI-25 BASS-II or PSI-98 Saffire-I) contains study metadata, DOIs, licensing (CC0-1.0), and file listings.",
+  "data_status": "Pending Verification",
+  "evidence_status": "partially_supported",
+  "retrieval_relevance": "TOP1",
+  "citation_correctness": "VALID",
+  "abstention_correctness": "N/A",
+  "answer_correctness": "HUMAN REVIEW REQUIRED (not auto-judged)",
+  "final_status": "PASS",
+  "observations": "Retrieval + citation criteria met; answer quality still needs human check.",
+  "retrieval_mode": "hybrid (BM25 + semantic + entity)",
+  "generation_mode": "extractive-offline (no LLM)"
+ },
+ {
+  "test_id": "T26",
+  "query": "What does NASA say SoFIE is designed to study, and which facility does it use?",
+  "expected_source": "S47",
+  "actual_retrieved_sources": [
+   "S2",
+   "DOC-SOFIE-WKSHP",
+   "S47",
+   "DOC-SOFIE-WKSHP",
+   "DOC-SOFIE-WKSHP"
+  ],
+  "top_scores": [
+   [
+    "S2",
+    0.7152
+   ],
+   [
+    "DOC-SOFIE-WKSHP",
+    0.6275
+   ],
+   [
+    "S47",
+    0.624
+   ]
+  ],
+  "retrieved_evidence": [
+   {
+    "source_id": "DOC-SOFIE-WKSHP",
+    "register_id": "DOC-SOFIE-WKSHP",
+    "experiment_id": null,
+    "evidence_text": "Overall Objective: • Ignition and flammability of solid spacecraft materials in practical geometries and realistic atmospheric conditions Relevance/Impact: • Improve EVA suit design • Safer selection of cabin materials • Validate NASA materials flammability selection 1-g test protocols for low-gravity fires • Improve understanding of early fire growth behavior • Validate material flammability numerical models • Determine optimal suppression techniques for burning materials by diluents, flow reduction, and venting Development Approach: • Develop SoFIE facility (CIR insert and avionics) to support multiple solid-material combustion and fire suppression studies • Utilize Combustion Integrated Rack (CIR); common infrastructure SoFIE — Solid Fuel Ignition and Extinction",
+    "chunk_id": "DOC-SOFIE-WKSHP_658c21e4_p2_1",
+    "page": 2,
+    "section": null,
+    "content_type": "document",
+    "url": null,
+    "title": "SoFIE Design/Status (Spacecraft Materials Flammability Workshop, 20-22 May 2019)"
+   }
+  ],
+  "generated_answer": "Overall Objective: • Ignition and flammability of solid spacecraft materials in practical geometries and realistic atmospheric conditions Relevance/Impact: • Improve EVA suit design • Safer selection of cabin materials • Validate NASA materials flammability selection 1-g test protocols for low-gravity fires • Improve understanding of early fire growth behavior • Validate material flammability numerical models • Determine optimal suppression techniques for burning materials by diluents, flow reduction, and venting Development Approach: • Develop SoFIE facility (CIR insert and avionics) to support multiple solid-material combustion and fire suppression studies • Utilize Combustion Integrated Rack (CIR); common infrastructure SoFIE — Solid Fuel Ignition and Extinction",
+  "data_status": "Indexed Document",
+  "evidence_status": "supported",
+  "retrieval_relevance": "TOP3",
+  "citation_correctness": "VALID",
+  "abstention_correctness": "N/A",
+  "answer_correctness": "HUMAN REVIEW REQUIRED (not auto-judged)",
+  "final_status": "PASS",
+  "observations": "Retrieval + citation criteria met; answer quality still needs human check.",
+  "retrieval_mode": "hybrid (BM25 + semantic + entity)",
+  "generation_mode": "extractive-offline (no LLM)"
+ },
+ {
+  "test_id": "T27",
+  "query": "Compare SoFIE-GEL and SoFIE-MIST by sample geometry and variables studied.",
+  "expected_source": "S48/S49",
+  "actual_retrieved_sources": [
+   "S49",
+   "S48",
+   "S29",
+   "S28",
+   "S47"
+  ],
+  "top_scores": [
+   [
+    "S49",
+    0.7984
+   ],
+   [
+    "S48",
+    0.6298
+   ],
+   [
+    "S29",
+    0.5
+   ]
+  ],
+  "retrieved_evidence": [
+   {
+    "source_id": "S28",
+    "register_id": "S28",
+    "experiment_id": null,
+    "evidence_text": "Objectives ― Study the ignition, flame growth, flame spread, and extinction limits for solid fuels burning in low-velocity forced flows in microgravity. ― Begin to bridge the gap between the normal gravity NASA-STD-6001 Test #1 method, ground-based microgravity tests, and actual material flammability in microgravity. ― Provide SoFIE PIs with preliminary data to refine Science Requirements. ― Practical, realistic (thicker) fuels in typical geometries will be examined, including slabs, cylinders, and spherical sections. ― The primary variables include: • Forced flow velocity (speed and direction) • Ambient oxygen concentration (via working volume nitrogen vitiation) • Sample geometry (rods, spherical section, slabs, films, and fabric sheets)",
+    "chunk_id": "S28_9f2c89db_p2_1",
+    "page": 2,
+    "section": null,
+    "content_type": "document",
+    "url": "https://ntrs.nasa.gov/citations/20160000593",
+    "title": "Combustion of Solids in Microgravity: Results from the BASS-II Experiment"
+   }
+  ],
+  "generated_answer": "Objectives ― Study the ignition, flame growth, flame spread, and extinction limits for solid fuels burning in low-velocity forced flows in microgravity. ― Begin to bridge the gap between the normal gravity NASA-STD-6001 Test #1 method, ground-based microgravity tests, and actual material flammability in microgravity. ― Provide SoFIE PIs with preliminary data to refine Science Requirements. ― Practical, realistic (thicker) fuels in typical geometries will be examined, including slabs, cylinders, and spherical sections. ― The primary variables include: • Forced flow velocity (speed and direction) • Ambient oxygen concentration (via working volume nitrogen vitiation) • Sample geometry (rods, spherical section, slabs, films, and fabric sheets)",
+  "data_status": "Indexed Document",
+  "evidence_status": "supported",
+  "retrieval_relevance": "TOP3 (all groups)",
+  "citation_correctness": "VALID",
+  "abstention_correctness": "N/A",
+  "answer_correctness": "HUMAN REVIEW REQUIRED (not auto-judged)",
+  "final_status": "PASS",
+  "observations": "Retrieval + citation criteria met; answer quality still needs human check.",
+  "retrieval_mode": "hybrid (BM25 + semantic + entity)",
+  "generation_mode": "extractive-offline (no LLM)"
+ },
+ {
+  "test_id": "T28",
+  "query": "Which Saffire-I sample, airflow speed and measurement channels are described on the official PSI record?",
+  "expected_source": "S18",
+  "actual_retrieved_sources": [
+   "S18",
+   "S36",
+   "S18",
+   "S22",
+   "S36"
+  ],
+  "top_scores": [
+   [
+    "S18",
+    0.75
+   ],
+   [
+    "S36",
+    0.4856
+   ],
+   [
+    "S18",
+    0.4764
+   ]
+  ],
+  "retrieved_evidence": [
+   {
+    "source_id": "S18",
+    "register_id": "S18",
+    "experiment_id": "PSI-98",
+    "evidence_text": "Saffire-I used an approximately 0.94 m by 0.4 m Sibal composite-fabric sample; airflow 20 cm/s.",
+    "chunk_id": "cat_S18",
+    "page": null,
+    "section": null,
+    "content_type": "catalogue_record",
+    "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-98",
+    "title": "SAFFIRE I (Spacecraft Fire Safety Demonstration I)"
+   }
+  ],
+  "generated_answer": "Saffire-I used an approximately 0.94 m by 0.4 m Sibal composite-fabric sample; airflow 20 cm/s. Approach (supplied PSI listing): Uncrewed Cygnus after departure from ISS; Sibal composite fabric sample.",
+  "data_status": "Catalogue Record Only",
+  "evidence_status": "partially_supported",
+  "retrieval_relevance": "TOP1",
+  "citation_correctness": "VALID",
+  "abstention_correctness": "N/A",
+  "answer_correctness": "HUMAN REVIEW REQUIRED (not auto-judged)",
+  "final_status": "PASS",
+  "observations": "Retrieval + citation criteria met; answer quality still needs human check.",
+  "retrieval_mode": "hybrid (BM25 + semantic + entity)",
+  "generation_mode": "extractive-offline (no LLM)"
+ },
+ {
+  "test_id": "T29",
+  "query": "Does the BASS-II investigation record alone establish a single exact oxygen ignition threshold?",
+  "expected_source": "S13",
+  "actual_retrieved_sources": [
+   "S29",
+   "S29",
+   "S29",
+   "S29",
+   "S29"
+  ],
+  "top_scores": [
+   [
+    "S29",
+    0.7171
+   ],
+   [
+    "S29",
+    0.7157
+   ],
+   [
+    "S29",
+    0.6673
+   ]
+  ],
+  "retrieved_evidence": [],
+  "generated_answer": "The available indexed sources do not establish an answer. Query asks for an exact measured value, but no indexed measurement table/raw data file is available (only catalogue records, summaries or documents).",
+  "data_status": "Insufficient Evidence",
+  "evidence_status": "insufficient_evidence",
+  "retrieval_relevance": "MISS",
+  "citation_correctness": "VALID",
+  "abstention_correctness": "CORRECT",
+  "answer_correctness": "N/A (abstention test)",
+  "final_status": "PASS",
+  "observations": "Abstained/negative, no invented numbers. Note: expected source S13 not in top-3.",
+  "retrieval_mode": "hybrid (BM25 + semantic + entity)",
+  "generation_mode": "extractive-offline (no LLM)"
+ },
+ {
+  "test_id": "T30",
+  "query": "Is a NASA PSI catalogue entry proof that the project's RAG system has indexed every raw data file?",
+  "expected_source": "S36/S40/S46",
+  "actual_retrieved_sources": [
+   "S36",
+   "S40",
+   "S1",
+   "S36",
+   "DOC-STD-6001B"
+  ],
+  "top_scores": [
+   [
+    "S36",
+    1.0917
+   ],
+   [
+    "S40",
+    0.8162
+   ],
+   [
+    "S1",
+    0.6575
+   ]
+  ],
+  "retrieved_evidence": [
+   {
+    "source_id": "S36",
+    "register_id": "S36",
+    "experiment_id": null,
+    "evidence_text": "However, an investigation catalogue entry or landing page alone is NOT proof that raw/processed files have been downloaded or indexed into the project RAG.",
+    "chunk_id": "chunk_psi_metadata_policy",
+    "page": null,
+    "section": null,
+    "content_type": "seed_summary",
+    "url": null,
+    "title": "NASA PSI Repository Architecture & Verification Policy"
+   }
+  ],
+  "generated_answer": "No. However, an investigation catalogue entry or landing page alone is NOT proof that raw/processed files have been downloaded or indexed into the project RAG. NASA PSI Repository Policy: A PSI investigation page (such as PSI-25 BASS-II or PSI-98 Saffire-I) contains study metadata, DOIs, licensing (CC0-1.0), and file listings.",
+  "data_status": "Pending Verification",
+  "evidence_status": "partially_supported",
+  "retrieval_relevance": "TOP1",
+  "citation_correctness": "VALID",
+  "abstention_correctness": "CORRECT",
+  "answer_correctness": "N/A (abstention test)",
+  "final_status": "PASS",
+  "observations": "Abstained/negative, no invented numbers.",
+  "retrieval_mode": "hybrid (BM25 + semantic + entity)",
+  "generation_mode": "extractive-offline (no LLM)"
+ },
+ {
+  "test_id": "TEST_A",
+  "query": "What does Friedman say about smoke particle agglomeration in microgravity?",
+  "expected_source": "S5",
+  "actual_retrieved_sources": [
+   "S56",
+   "S56",
+   "S56",
+   "S56",
+   "S56"
+  ],
+  "top_scores": [
+   [
+    "S56",
+    0.6358
+   ],
+   [
+    "S56",
+    0.5856
+   ],
+   [
+    "S56",
+    0.5814
+   ]
+  ],
+  "retrieved_evidence": [
+   {
+    "source_id": "S56",
+    "register_id": "S56",
+    "experiment_id": null,
+    "evidence_text": "Proper implementation of smoke detection requires understanding of the smoke particle size distribution.",
+    "chunk_id": "S56_510cfbc9_p44_138",
+    "page": 44,
+    "section": "7 Staff Scientist, 21000 Brookpark Road, MS 77-5.",
+    "content_type": "document",
+    "url": null,
+    "title": "Smoke Aerosol Measurement Experiment (SAME)"
+   }
+  ],
+  "generated_answer": "Proper implementation of smoke detection requires understanding of the smoke particle size distribution. Low-gravity smoke particle size data were not available when the existing systems were designed, consequently the designers used 1-g smoke detector designs.",
+  "data_status": "Indexed Document",
+  "evidence_status": "supported",
+  "retrieval_relevance": "MISS",
+  "citation_correctness": "VALID",
+  "abstention_correctness": "N/A",
+  "answer_correctness": "HUMAN REVIEW REQUIRED (not auto-judged)",
+  "final_status": "FAIL",
+  "observations": "expected S5 not in top-3 ['S56', 'S56', 'S56']",
+  "retrieval_mode": "hybrid (BM25 + semantic + entity)",
+  "generation_mode": "extractive-offline (no LLM)"
+ },
+ {
+  "test_id": "TEST_B",
+  "query": "What is the exact oxygen flammability percentage limit measured for BASS-II samples?",
+  "expected_source": "S13",
+  "actual_retrieved_sources": [
+   "S29",
+   "S29",
+   "S29",
+   "S13",
+   "S29"
+  ],
+  "top_scores": [
+   [
+    "S29",
+    0.7795
+   ],
+   [
+    "S29",
+    0.7767
+   ],
+   [
+    "S29",
+    0.7327
+   ]
+  ],
+  "retrieved_evidence": [],
+  "generated_answer": "The available indexed sources do not establish an answer. Query asks for an exact measured value, but no indexed measurement table/raw data file is available (only catalogue records, summaries or documents).",
+  "data_status": "Insufficient Evidence",
+  "evidence_status": "insufficient_evidence",
+  "retrieval_relevance": "MISS",
+  "citation_correctness": "VALID",
+  "abstention_correctness": "CORRECT",
+  "answer_correctness": "N/A (abstention test)",
+  "final_status": "PASS",
+  "observations": "Abstained/negative, no invented numbers. Note: expected source S13 not in top-3.",
+  "retrieval_mode": "hybrid (BM25 + semantic + entity)",
+  "generation_mode": "extractive-offline (no LLM)"
+ },
+ {
+  "test_id": "TEST_C",
+  "query": "What were the results of the FLEX-3 experiment?",
+  "expected_source": "none indexed",
+  "actual_retrieved_sources": [
+   "DOC-ACME-PUBS",
+   "S17",
+   "S3",
+   "S31",
+   "S2"
+  ],
+  "top_scores": [
+   [
+    "DOC-ACME-PUBS",
+    0.6068
+   ],
+   [
+    "S17",
+    0.5628
+   ],
+   [
+    "S3",
+    0.5404
+   ]
+  ],
+  "retrieved_evidence": [],
+  "generated_answer": "The available indexed sources do not establish an answer. No indexed evidence mentions 'FLEX-3'.",
+  "data_status": "Insufficient Evidence",
+  "evidence_status": "insufficient_evidence",
+  "retrieval_relevance": "N/A (no expected source)",
+  "citation_correctness": "VALID",
+  "abstention_correctness": "CORRECT",
+  "answer_correctness": "N/A (abstention test)",
+  "final_status": "PASS",
+  "observations": "Abstained/negative, no invented numbers.",
+  "retrieval_mode": "hybrid (BM25 + semantic + entity)",
+  "generation_mode": "extractive-offline (no LLM)"
+ },
+ {
+  "test_id": "TEST_D",
+  "query": "Does a NASA PSI catalogue entry prove that raw experimental files are downloadable?",
+  "expected_source": "S36/S40",
+  "actual_retrieved_sources": [
+   "S36",
+   "S1",
+   "S40",
+   "S36",
+   "S56"
+  ],
+  "top_scores": [
+   [
+    "S36",
+    1.1411
+   ],
+   [
+    "S1",
+    0.8581
+   ],
+   [
+    "S40",
+    0.8253
+   ]
+  ],
+  "retrieved_evidence": [
+   {
+    "source_id": "S36",
+    "register_id": "S36",
+    "experiment_id": null,
+    "evidence_text": "However, an investigation catalogue entry or landing page alone is NOT proof that raw/processed files have been downloaded or indexed into the project RAG.",
+    "chunk_id": "chunk_psi_metadata_policy",
+    "page": null,
+    "section": null,
+    "content_type": "seed_summary",
+    "url": null,
+    "title": "NASA PSI Repository Architecture & Verification Policy"
+   }
+  ],
+  "generated_answer": "No. However, an investigation catalogue entry or landing page alone is NOT proof that raw/processed files have been downloaded or indexed into the project RAG. NASA PSI Repository Policy: A PSI investigation page (such as PSI-25 BASS-II or PSI-98 Saffire-I) contains study metadata, DOIs, licensing (CC0-1.0), and file listings.",
+  "data_status": "Pending Verification",
+  "evidence_status": "partially_supported",
+  "retrieval_relevance": "TOP1",
+  "citation_correctness": "VALID",
+  "abstention_correctness": "CORRECT",
+  "answer_correctness": "N/A (abstention test)",
+  "final_status": "PASS",
+  "observations": "Abstained/negative, no invented numbers.",
+  "retrieval_mode": "hybrid (BM25 + semantic + entity)",
+  "generation_mode": "extractive-offline (no LLM)"
+ },
+ {
+  "test_id": "TEST_E",
+  "query": "What is the purpose of the NASA-STD-6001B flammability test procedures?",
+  "expected_source": "DOC-STD-6001B",
+  "actual_retrieved_sources": [
+   "DOC-STD-6001B",
+   "DOC-STD-6001B",
+   "DOC-STD-6001B",
+   "DOC-STD-6001B",
+   "DOC-STD-6001B"
+  ],
+  "top_scores": [
+   [
+    "DOC-STD-6001B",
+    0.856
+   ],
+   [
+    "DOC-STD-6001B",
+    0.8455
+   ],
+   [
+    "DOC-STD-6001B",
+    0.7938
+   ]
+  ],
+  "retrieved_evidence": [
+   {
+    "source_id": "DOC-STD-6001B",
+    "register_id": "DOC-STD-6001B",
+    "experiment_id": null,
+    "evidence_text": "B.9e Purpose [FOCR 416] Facility test procedures shall be available for audit by the certification panel.",
+    "chunk_id": "DOC-STD-6001B_8a8d6fca_p158_327",
+    "page": 158,
+    "section": "7.18 Arc Tracking (Dry Arc Propagation Resistance) (Test 18)",
+    "content_type": "document",
+    "url": null,
+    "title": "NASA-STD-6001B w/Change 3: Flammability, Offgassing, and Compatibility Requirements and Test Procedures"
+   }
+  ],
+  "generated_answer": "B.9e Purpose [FOCR 416] Facility test procedures shall be available for audit by the certification panel. B.11 Purpose [FOCR 418] The test facility shall ensure and certify that all testing is accomplished in accordance with approved test plans and procedures and that the data records and test results are complete and accurate.",
+  "data_status": "Indexed Document",
+  "evidence_status": "supported",
+  "retrieval_relevance": "TOP1",
+  "citation_correctness": "VALID",
+  "abstention_correctness": "N/A",
+  "answer_correctness": "HUMAN REVIEW REQUIRED (not auto-judged)",
+  "final_status": "PASS",
+  "observations": "Retrieval + citation criteria met; answer quality still needs human check.",
+  "retrieval_mode": "hybrid (BM25 + semantic + entity)",
+  "generation_mode": "extractive-offline (no LLM)"
+ }
+]

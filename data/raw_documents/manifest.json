@@ -1,0 +1,172 @@
+{
+  "20150019858.pdf": {
+    "source_id": "DOC-BASS2-ICES",
+    "register_id": "DOC-BASS2-ICES",
+    "title": "Results from on-board CSA-CP and CDM Sensor Readings during the Burning and Suppression of Solids - II (BASS-II) Experiment in the Microgravity Science Glovebox (MSG)",
+    "publisher": "45th International Conference on Environmental Systems (ICES-2015-196); authors at NASA Glenn Research Center / USRA",
+    "year": "2015",
+    "content_type": "document"
+  },
+  "2025_06_25_NASA-STD-6001B_w_Change_3_FINAL_Admin-Change-FINAL.pdf": {
+    "source_id": "DOC-STD-6001B",
+    "register_id": "DOC-STD-6001B",
+    "title": "NASA-STD-6001B w/Change 3: Flammability, Offgassing, and Compatibility Requirements and Test Procedures",
+    "publisher": "National Aeronautics and Space Administration",
+    "content_type": "document"
+  },
+  "ACME-publications-20230830.pdf": {
+    "source_id": "DOC-ACME-PUBS",
+    "register_id": "DOC-ACME-PUBS",
+    "title": "ACME Peer-Reviewed Publications (30 Aug. 2023)",
+    "publisher": "NASA Glenn Research Center (prepared by D. P. Stocker, ACME Project Scientist)",
+    "year": "2023",
+    "document_type": "publication list / bibliography",
+    "content_type": "document",
+    "note": "A bibliography of papers; it lists publications and does not itself contain their findings."
+  },
+  "ccomustion research doocs.pdf": {
+    "source_id": "S2",
+    "register_id": "S2",
+    "title": "International Space Station (ISS) Researcher's Guide to: Combustion Science",
+    "publisher": "NASA ISS Program Science Office (Suleyman A. Gokoglu, Daniel L. Dietrich)",
+    "content_type": "document",
+    "note": "IDENTITY UNVERIFIED: cover reads 'A Researcher's Guide to: Combustion Science'; identifier NP-2015-10-034-JSC and the words 'International Space Station' were NOT found in the extracted text. Confirm this file is the document registered as S2.",
+    "year": "2015",
+    "identifier": "NP-2015-10-034-JSC"
+  },
+  "firesafety.pdf": {
+    "source_id": "S5",
+    "register_id": "S5",
+    "title": "Fire Safety in the Low-Gravity Spacecraft Environment",
+    "publisher": "NASA Glenn Research Center (NASA/TM-1999-209285, R. Friedman)",
+    "year": "1999",
+    "content_type": "document"
+  },
+  "nstrp nasa gov.pdf": {
+    "source_id": "DOC-SOFIE-WKSHP",
+    "register_id": "DOC-SOFIE-WKSHP",
+    "title": "SoFIE Design/Status (Spacecraft Materials Flammability Workshop, 20-22 May 2019)",
+    "publisher": "NASA Glenn Research Center (slides by P. Ferkul, L. Brown, C. Mroczka)",
+    "year": "2019",
+    "document_type": "workshop presentation",
+    "content_type": "document",
+    "note": "Slide deck (little running text). Design/status of SoFIE as of May 2019, not results."
+  },
+  "saffire4 docs.pdf": {
+    "source_id": "S3",
+    "register_id": "S3",
+    "title": "The Spacecraft Fire Experiment (Saffire) - Objectives, Development and Status",
+    "publisher": "NASA Glenn Research Center (W. Schoren, G. Ruff, D. Urban); IAASS conference 2016",
+    "year": "2016",
+    "content_type": "document",
+    "note": "Matched to S3 by title; the register identifier NTRS 20170001636 was not found in the extracted text."
+  },
+  "saffire6_ices2024_365.pdf": {
+    "source_id": "S31",
+    "register_id": "S31",
+    "title": "Preliminary Results from the Saffire VI Experiment",
+    "publisher": "53rd International Conference on Environmental Systems (ICES-2024-365)",
+    "year": "2024",
+    "identifier": "ICES-2024-365; NTRS 20240002981",
+    "url": "https://ntrs.nasa.gov/api/citations/20240002981/downloads/Saffire-ICES-2024-ICES-365-accepted%20final.pdf",
+    "content_type": "document",
+    "note": "preliminary results for one test; heat release data absent for the PMMA cases in this paper."
+  },
+  "bass2_results_ntrs_20160000593.pdf": {
+    "source_id": "S28",
+    "register_id": "S28",
+    "title": "Combustion of Solids in Microgravity: Results from the BASS-II Experiment",
+    "publisher": "54th AIAA Aerospace Sciences Meeting (AIAA 2016-0188)",
+    "year": "2016",
+    "identifier": "NTRS 20160000593; AIAA 2016-0188",
+    "url": "https://ntrs.nasa.gov/citations/20160000593",
+    "content_type": "document"
+  },
+  "bass2_summary_report_ntrs_20210011385.pdf": {
+    "source_id": "S29",
+    "register_id": "S29",
+    "title": "Burning and Suppression of Solids-II (BASS-II) Summary Report",
+    "publisher": "NASA Glenn Research Center (NASA/TM-20210011385)",
+    "year": "2021",
+    "identifier": "NASA/TM-20210011385; Report E-19939",
+    "content_type": "document"
+  },
+  "apollo204_review_board_ntrs_19820066930.pdf": {
+    "source_id": "S50",
+    "register_id": "S50",
+    "title": "Report of Apollo 204 Review Board",
+    "publisher": "National Aeronautics and Space Administration (NASA-TM-84105)",
+    "year": "1967",
+    "identifier": "NASA-TM-84105; NTRS 19820066930",
+    "url": "https://ntrs.nasa.gov/api/citations/19820066930/downloads/19820066930.pdf",
+    "content_type": "document"
+  },
+  "apollo13_review_board_ntrs_20170000913.pdf": {
+    "source_id": "S51",
+    "register_id": "S51",
+    "title": "Report of Apollo 13 Review Board",
+    "publisher": "National Aeronautics and Space Administration",
+    "year": "1970",
+    "identifier": "NTRS 20170000913",
+    "url": "https://ntrs.nasa.gov/citations/20170000913",
+    "content_type": "document",
+    "note": "oxygen-tank failure, NOT a cabin fire. Chapters 4 and 5 are present."
+  },
+  "mir_fire_ntrs_20030068062.pdf": {
+    "source_id": "S52",
+    "register_id": "S52",
+    "title": "Fire In Space- What Do You Do?",
+    "publisher": "NASA (NTRS 20030068062; APT Research Inc. / Hernandez Engineering, Inc.)",
+    "identifier": "NTRS 20030068062",
+    "content_type": "document",
+    "note": "Authors: Melissa Emery, Keith Skinner. Technical paper addressing fire protection hazard analysis after the Mir fire."
+  },
+  "same_final_report_nist_904707.pdf": {
+    "source_id": "S56",
+    "register_id": "S56",
+    "title": "Smoke Aerosol Measurement Experiment (SAME)",
+    "publisher": "NASA Glenn Research Center / National Institute of Standards and Technology",
+    "year": "2010",
+    "identifier": "NIST pub_id 904707",
+    "content_type": "document",
+    "note": "Final Report November 1, 2000 - April 14, 2009; March 5, 2010"
+  },
+  "saffire_objectives_ntrs_20170001636.pdf": {
+    "source_id": "S32",
+    "register_id": "S32",
+    "title": "The Spacecraft Fire Experiment (Saffire) - Objectives, Development and Status",
+    "publisher": "NASA Glenn Research Center (W. Schoren, G. Ruff, D. Urban)",
+    "year": "2016",
+    "identifier": "NTRS 20170001636",
+    "url": "https://ntrs.nasa.gov/api/citations/20170001636/downloads/20170001636.pdf",
+    "content_type": "document"
+  },
+  "saffire_novel_approach_ntrs_20180005168.pdf": {
+    "source_id": "S33",
+    "register_id": "S33",
+    "title": "Saffire: A Novel Approach to Study of Spacecraft Fire Safety Using Un-manned Spacecraft",
+    "publisher": "33rd Annual Meeting American Society for Gravitational and Space Research (NASA GRC)",
+    "year": "2017",
+    "identifier": "NTRS 20180005168",
+    "url": "https://ntrs.nasa.gov/api/citations/20180005168/downloads/20180005168.pdf",
+    "content_type": "document"
+  },
+  "spice_fact_sheet.pdf": {
+    "source_id": "S24",
+    "register_id": "S24",
+    "title": "Smoke Point in Co-flow Experiment (SPICE) Fact Sheet",
+    "publisher": "NASA Glenn Research Center / Physical Sciences Informatics (PSI-107)",
+    "identifier": "PSI-107",
+    "content_type": "document",
+    "note": "SPICE Fact Sheet covering smoke point measurements, soot formation, and radiative heat emission in microgravity."
+  },
+  "slice_fact_sheet.pdf": {
+    "source_id": "S23",
+    "register_id": "S23",
+    "title": "Structure & Liftoff in Combustion Experiment (SLICE) Fact Sheet",
+    "publisher": "NASA Glenn Research Center / Physical Sciences Informatics (PSI-106)",
+    "identifier": "PSI-106",
+    "content_type": "document",
+    "note": "SLICE Fact Sheet covering flame liftoff and attachment, precursor to ACME CLD Flame."
+  }
+}
