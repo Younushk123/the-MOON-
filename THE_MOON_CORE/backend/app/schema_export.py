@@ -15,6 +15,7 @@ from pydantic import BaseModel
 from app.models.analysis import AnalysisRequest, AnalysisResult, Comparison, ComparisonRequest
 from app.models.experiment import Experiment, Measurement, Source
 from app.models.insight import AskRequest, Insight, InsightRequest
+from app.models.media import Media
 from app.models.vision import CVResult, VisionRequest
 
 DEFAULT_OUT_DIR = Path(__file__).resolve().parents[3] / "shared" / "schemas"
@@ -24,6 +25,7 @@ MODELS: dict[str, type[BaseModel]] = {
     "experiment": Experiment,
     "measurement": Measurement,
     "source": Source,
+    "media": Media,
     "analysis_result": AnalysisResult,
     "comparison": Comparison,
     "insight": Insight,
