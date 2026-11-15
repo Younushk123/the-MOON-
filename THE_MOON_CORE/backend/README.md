@@ -4,6 +4,8 @@ FastAPI backend for THE MOON (NASA Space Apps: *Flame in Free Fall*), implementi
 canonical data schema v1.0. The Pydantic models in `app/models/` are the validation authority;
 matching JSON Schema files are generated into `<repo>/shared/schemas/`.
 
+Full API and integration guide: [`../docs/API.md`](../docs/API.md).
+
 ## Run
 
 ```bash

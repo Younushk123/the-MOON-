@@ -1048,8 +1048,9 @@ backend/
     integrations/        Module interfaces and current implementations (section 9)
     adapters/            Data sources: mock adapter + mock_data/*.json (PSI adapter to come)
   tests/                 137 tests: endpoints, errors, rules, models, mock data, schema files
-  docs/API.md            This document
 ```
+
+This document is `THE_MOON_CORE/docs/API.md`, next to `backend/`.
 
 Request flow: **route** (validates) → **service** (looks up experiments, 404s) → **module** (computes) → **route** (wraps in the envelope).
 
