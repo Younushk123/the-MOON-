@@ -3,6 +3,12 @@ import os
 from dataclasses import dataclass, field
 from pathlib import Path
 
+# Prevent tokenizers and OpenMP deadlocks/busy-wait on Windows
+os.environ.setdefault("TOKENIZERS_PARALLELISM", "false")
+os.environ.setdefault("OMP_NUM_THREADS", "1")
+os.environ.setdefault("MKL_NUM_THREADS", "1")
+os.environ.setdefault("ANONYMIZED_TELEMETRY", "False")
+
 try:
     from dotenv import load_dotenv
     load_dotenv(Path(__file__).resolve().parent.parent / ".env")   # always the project-root .env, whatever the cwd

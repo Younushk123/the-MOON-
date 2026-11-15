@@ -15,6 +15,7 @@ from pydantic import BaseModel, Field
 from src.config import Settings
 from rag_pipeline import NASARAG
 from src.api_adapter import ask_research, build_router
+from src.experiment_mapping import get_all_mappings, resolve_experiment
 
 _RAG_INSTANCE: Optional[NASARAG] = None
 
@@ -27,7 +28,7 @@ def get_rag(settings: Optional[Settings] = None, mode: str = "auto", use_semanti
     return _RAG_INSTANCE
 
 
-def answer_question(query: str, top_k: int = 5, rag: Optional[NASARAG] = None) -> Dict[str, Any]:
+def answer_question(query: str, top_k: int = 5, experiment_ids: Optional[List[str]] = None, rag: Optional[NASARAG] = None) -> Dict[str, Any]:
     """Callable RAG function for Backend / AI integration.
 
     Returns:
@@ -41,6 +42,8 @@ def answer_question(query: str, top_k: int = 5, rag: Optional[NASARAG] = None) -
       evidence_status: supported | partially_supported | insufficient_evidence
       fire_safety_relevance: spacecraft fire safety relevance statement
       limitations: gaps, uncertainties, and constraints
+      resolved_experiments: list of resolved canonical experiment objects
+      integration_note: statement clarifying research passages vs raw data
       retrieval: retrieved chunks with scores and modes
       generation_mode: mode of generation (groq or extractive-offline)
       retrieval_mode: retrieval pipeline mode
@@ -58,6 +61,8 @@ def answer_question(query: str, top_k: int = 5, rag: Optional[NASARAG] = None) -
             "evidence_status": "insufficient_evidence",
             "fire_safety_relevance": "N/A",
             "limitations": "Empty query provided.",
+            "resolved_experiments": [],
+            "integration_note": "RAG supplies scientific literature evidence passages. Actual experiment telemetry is supplied by the Scientific Data module.",
             "retrieval": [],
             "generation_mode": "none",
             "retrieval_mode": "none",
@@ -66,7 +71,7 @@ def answer_question(query: str, top_k: int = 5, rag: Optional[NASARAG] = None) -
         }
 
     active_rag = rag or get_rag()
-    res = ask_research(active_rag, query.strip(), top_k=top_k)
+    res = ask_research(active_rag, query.strip(), experiment_ids=experiment_ids, top_k=top_k)
 
     # Collect source IDs from supporting evidence or top retrieved items
     cited_sources = []
@@ -94,6 +99,8 @@ def answer_question(query: str, top_k: int = 5, rag: Optional[NASARAG] = None) -
         "evidence_status": res["evidence_status"],
         "fire_safety_relevance": res["fire_safety_relevance"],
         "limitations": res["limitations"],
+        "resolved_experiments": res.get("resolved_experiments", []),
+        "integration_note": res.get("integration_note", "RAG supplies scientific literature evidence passages. Actual experiment telemetry is supplied by the Scientific Data module."),
         "retrieval": res["retrieved"],
         "generation_mode": res["generation_mode"],
         "retrieval_mode": res["retrieval_mode"],
@@ -136,7 +143,7 @@ def ask_endpoint(req: AskRequest):
             error_code="EMPTY_QUERY"
         )
     try:
-        data = answer_question(q, top_k=req.top_k)
+        data = answer_question(q, top_k=req.top_k, experiment_ids=req.experiment_ids)
         return AskResponse(
             success=True,
             data=data,
@@ -190,5 +197,17 @@ def sources_endpoint():
     }
 
 
+@app.get("/experiments/mapping")
+def experiments_mapping_endpoint():
+    """Return canonical experiment mappings between Dashboard IDs (EXP-001..010) and NASA PSI IDs."""
+    mappings = get_all_mappings()
+    return {
+        "success": True,
+        "count": len(mappings),
+        "integration_note": "RAG provides scientific research context, explanations, and evidence passages. Actual numerical measurements, telemetry, and calculations are provided by the Scientific Data module.",
+        "experiments": mappings
+    }
+
+
 # Include existing team router for compatibility with POST /api/v1/assistant/ask
-app.include_router(build_router(get_rag()))
+app.include_router(build_router(get_rag))

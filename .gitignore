@@ -1,6 +1,7 @@
 # Environment & Secrets (Never Commit)
 .env
 .env.*
+!.env.example
 *.token
 *.key
 

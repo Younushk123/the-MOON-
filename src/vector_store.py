@@ -6,7 +6,9 @@ from typing import Dict, List, Tuple
 class VectorStore:
     def __init__(self, path=None, collection="nasa_rag"):
         import chromadb
-        self.client = chromadb.PersistentClient(path=str(path)) if path else chromadb.EphemeralClient()
+        from chromadb.config import Settings as ChromaSettings
+        c_settings = ChromaSettings(anonymized_telemetry=False)
+        self.client = chromadb.PersistentClient(path=str(path), settings=c_settings) if path else chromadb.EphemeralClient(settings=c_settings)
         try:
             self.col = self.client.get_or_create_collection(collection, metadata={"hnsw:space": "cosine"})
         except Exception:

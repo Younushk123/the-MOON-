@@ -5,7 +5,10 @@ from typing import List, Optional, Tuple
 class Embedder:
     def __init__(self, model_name="all-MiniLM-L6-v2"):
         from sentence_transformers import SentenceTransformer
-        self.model = SentenceTransformer(model_name)
+        try:
+            self.model = SentenceTransformer(model_name, local_files_only=True)
+        except Exception:
+            self.model = SentenceTransformer(model_name)
         self.name = model_name
 
     def encode(self, texts: List[str]) -> List[List[float]]:

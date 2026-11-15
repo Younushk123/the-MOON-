@@ -61,7 +61,10 @@ def ask_research(rag, question: str, experiment_ids: Optional[List[str]] = None,
     xwalk = _load_crosswalk(settings)
     exp_map = _experiment_map(rag)
     focus, unknown = [], []
-    for eid in experiment_ids or []:
+    from .experiment_mapping import resolve_experiment_ids_to_sources, resolve_experiment
+    res_mapping = resolve_experiment_ids_to_sources(experiment_ids or [])
+    focus.extend(res_mapping["target_sources"])
+    for eid in res_mapping["unresolved_ids"]:
         ids = exp_map.get(eid.upper())
         (focus.extend(ids) if ids else unknown.append(eid))
     hits = rag.retriever.retrieve(question, top_k, focus_ids=focus)
@@ -74,10 +77,12 @@ def ask_research(rag, question: str, experiment_ids: Optional[List[str]] = None,
             continue
         line = next((l for l in res.answer.evidence.splitlines() if l.startswith(f"[{cid}]")), "")
         e = rag.register.get(c.register_id)
+        canon = resolve_experiment(c.register_id)
+        canon_id = canon["canonical_id"] if canon else next((k for k, v in exp_map.items() if c.register_id in v), None)
         evidence.append({
             "source_id": xwalk.get(c.register_id, c.register_id),       # SRC-xxx once crosswalk exists, else S-id
             "register_id": c.register_id,
-            "experiment_id": next((k for k, v in exp_map.items() if c.register_id in v), None),
+            "experiment_id": canon_id,
             "evidence_text": line.split("] ", 1)[1] if "] " in line else line,
             "chunk_id": cid, "page": c.page, "section": c.section, "content_type": c.content_type,
             "url": (e.url if e else None) or c.url,
@@ -107,6 +112,11 @@ def ask_research(rag, question: str, experiment_ids: Optional[List[str]] = None,
         "team_status_label": ts["label"], "team_status_note": ts["note"],
         "validated_findings": validated_findings or [],      # passed through from Data Analysis; NOT RAG evidence
         "validated_findings_note": "Supplied by the Data Analysis module; not verified or modified by RAG." if validated_findings else "",
+        "resolved_experiments": [
+            {"canonical_id": r["canonical_id"], "experiment_name": r["experiment_name"], "psi_id": r["psi_id"]}
+            for r in res_mapping["resolved_experiments"]
+        ],
+        "integration_note": "RAG supplies scientific literature evidence passages. Actual experiment telemetry is supplied by the Scientific Data module.",
         "retrieved": retrieved,
         "generation_mode": res.mode, "retrieval_mode": rag.retriever.mode,
         "validation": {"ok": res.validation.ok, "problems": res.validation.problems},
@@ -126,10 +136,11 @@ def build_router(rag):
 
     @router.post("/ask")
     def ask(req: AskRequest):
+        active_rag = rag() if callable(rag) else rag
         if not req.question.strip():
             return {"success": False, "data": None, "message": "Question is empty.", "error_code": "EMPTY_QUESTION"}
         try:
-            data = ask_research(rag, req.question, req.experiment_ids, req.validated_findings, req.top_k)
+            data = ask_research(active_rag, req.question, req.experiment_ids, req.validated_findings, req.top_k)
         except Exception as e:      # never leak a stack trace into the envelope
             return {"success": False, "data": None, "message": f"RAG failure: {type(e).__name__}", "error_code": "RAG_ERROR"}
         return {"success": True, "data": data, "message": "Request completed successfully."}

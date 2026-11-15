@@ -40,7 +40,9 @@ class HybridRetriever:
         self.semantic_error = None if self.semantic_available else (embed_error or "no embedder/vector store configured")
         self._build()
         if self.semantic_available:
-            self.store.add(chunks, embedder.encode([f"{c.title}. {c.content}" for c in chunks]))
+            # Only add and compute embeddings if vector store is empty / missing chunks
+            if self.store.col.count() < len(chunks):
+                self.store.add(chunks, embedder.encode([f"{c.title}. {c.content}" for c in chunks]))
 
     @property
     def mode(self) -> str:
