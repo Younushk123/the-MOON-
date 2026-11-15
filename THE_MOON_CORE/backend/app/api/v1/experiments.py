@@ -6,6 +6,7 @@ from app.api.deps import Experiments
 from app.api.v1.responses import INVALID, NOT_FOUND
 from app.models.envelope import Envelope, Page, ok
 from app.models.experiment import Experiment, ExperimentDataStatus, Measurement
+from app.models.media import Media, MediaType
 
 router = APIRouter(prefix="/experiments", tags=["experiments"])
 
@@ -59,4 +60,23 @@ def list_measurements(
     page_size: Annotated[int, Query(ge=1, le=500, description="Records per page (max 500).")] = 100,
 ) -> Envelope[Page[Measurement]]:
     result = service.list_measurements(experiment_id, variable=variable, page=page, page_size=page_size)
+    return ok(result, data_mode=service.data_mode)
+
+
+@router.get(
+    "/{experiment_id}/media",
+    response_model=Envelope[Page[Media]],
+    summary="Images and videos for an experiment",
+    description="`count` is the total number of matches across all pages. "
+    "Only media with `availability_status: available` can be analysed by `/vision/analyze`.",
+    responses={**NOT_FOUND, **INVALID},
+)
+def list_media(
+    service: Experiments,
+    experiment_id: ExperimentId,
+    media_type: Annotated[MediaType | None, Query(description="Only images or only videos.")] = None,
+    page: PageNumber = 1,
+    page_size: Annotated[int, Query(ge=1, le=100, description="Records per page (max 100).")] = 20,
+) -> Envelope[Page[Media]]:
+    result = service.list_media(experiment_id, media_type=media_type, page=page, page_size=page_size)
     return ok(result, data_mode=service.data_mode)

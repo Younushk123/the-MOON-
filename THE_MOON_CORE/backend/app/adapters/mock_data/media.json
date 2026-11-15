@@ -1,0 +1,41 @@
+[
+  {
+    "media_id": "MOCK-MEDIA-001",
+    "experiment_id": "MOCK-EXP-001",
+    "media_type": "video",
+    "format": "mp4",
+    "file_name": "mock_orbital_flame_spread.mp4",
+    "file_url": null,
+    "storage_path": null,
+    "description": "Illustrative mock video record. No file exists. Not NASA data.",
+    "source_id": "SRC-MOCK-001",
+    "metadata": {"width_pixels": 1280, "height_pixels": 720, "duration_seconds": 30.0, "frame_rate_fps": 30.0},
+    "availability_status": "unavailable"
+  },
+  {
+    "media_id": "MOCK-MEDIA-002",
+    "experiment_id": "MOCK-EXP-001",
+    "media_type": "image",
+    "format": "png",
+    "file_name": "mock_orbital_flame_still.png",
+    "file_url": null,
+    "storage_path": null,
+    "description": "Illustrative mock image record with unknown dimensions. No file exists. Not NASA data.",
+    "source_id": "SRC-MOCK-001",
+    "metadata": {"width_pixels": null, "height_pixels": null, "duration_seconds": null, "frame_rate_fps": null},
+    "availability_status": "unavailable"
+  },
+  {
+    "media_id": "MOCK-MEDIA-003",
+    "experiment_id": "MOCK-EXP-002",
+    "media_type": "image",
+    "format": "jpeg",
+    "file_name": "mock_ground_flame_still.jpeg",
+    "file_url": null,
+    "storage_path": null,
+    "description": "Illustrative mock image record. No file exists. Not NASA data.",
+    "source_id": "SRC-MOCK-002",
+    "metadata": {"width_pixels": 640, "height_pixels": 480, "duration_seconds": null, "frame_rate_fps": null},
+    "availability_status": "unavailable"
+  }
+]

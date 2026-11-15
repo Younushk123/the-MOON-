@@ -18,6 +18,8 @@ logger = logging.getLogger(__name__)
 class ErrorCode(str, Enum):
     VALIDATION_ERROR = "VALIDATION_ERROR"
     EXPERIMENT_NOT_FOUND = "EXPERIMENT_NOT_FOUND"
+    MEDIA_NOT_FOUND = "MEDIA_NOT_FOUND"
+    MEDIA_EXPERIMENT_MISMATCH = "MEDIA_EXPERIMENT_MISMATCH"
     INCOMPATIBLE_MEASUREMENTS = "INCOMPATIBLE_MEASUREMENTS"
     ANALYSIS_FAILED = "ANALYSIS_FAILED"
     NOT_FOUND = "NOT_FOUND"
@@ -52,6 +54,26 @@ class ExperimentNotFoundError(AppError):
             message = f"The requested experiments do not exist: {', '.join(ids)}."
         super().__init__(
             ErrorCode.EXPERIMENT_NOT_FOUND, message, 404, details=[{"experiment_id": i} for i in ids]
+        )
+
+
+class MediaNotFoundError(AppError):
+    def __init__(self, media_id: str) -> None:
+        super().__init__(
+            ErrorCode.MEDIA_NOT_FOUND,
+            f"The requested media '{media_id}' does not exist.",
+            404,
+            details=[{"media_id": media_id}],
+        )
+
+
+class MediaExperimentMismatchError(AppError):
+    def __init__(self, media_id: str, experiment_id: str, media_experiment_id: str) -> None:
+        super().__init__(
+            ErrorCode.MEDIA_EXPERIMENT_MISMATCH,
+            f"Media '{media_id}' belongs to experiment '{media_experiment_id}', not '{experiment_id}'.",
+            422,
+            details=[{"media_id": media_id, "experiment_id": experiment_id, "media_experiment_id": media_experiment_id}],
         )
 
 

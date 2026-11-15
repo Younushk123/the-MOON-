@@ -8,6 +8,7 @@ from typing import Protocol
 
 from app.config import DataMode
 from app.models.experiment import Experiment, Measurement, Source
+from app.models.media import Media
 
 
 class DataRepository(Protocol):
@@ -24,3 +25,9 @@ class DataRepository(Protocol):
         ...
 
     def get_source(self, source_id: str) -> Source | None: ...
+
+    def list_media(self, experiment_id: str) -> list[Media]:
+        """All media for one experiment, sorted by media_id. Empty if none."""
+        ...
+
+    def get_media(self, media_id: str) -> Media | None: ...

@@ -4,9 +4,10 @@ from typing import TypeVar
 
 from app.adapters.base import DataRepository
 from app.config import DataMode
-from app.errors import ExperimentNotFoundError
+from app.errors import ExperimentNotFoundError, MediaNotFoundError
 from app.models.envelope import Page
 from app.models.experiment import Experiment, ExperimentDataStatus, Measurement
+from app.models.media import Media, MediaType
 
 T = TypeVar("T")
 
@@ -63,6 +64,21 @@ class ExperimentService:
         if variable:
             records = [m for m in records if m.variable == variable.strip()]
         return _paginate(records, page, page_size)
+
+    def list_media(
+        self, experiment_id: str, media_type: MediaType | None = None, page: int = 1, page_size: int = 20
+    ) -> Page[Media]:
+        self.get_experiment(experiment_id)  # 404 if unknown
+        records = self.repository.list_media(experiment_id)
+        if media_type is not None:
+            records = [m for m in records if m.media_type == media_type]
+        return _paginate(records, page, page_size)
+
+    def get_media(self, media_id: str) -> Media:
+        record = self.repository.get_media(media_id)
+        if record is None:
+            raise MediaNotFoundError(media_id)
+        return record
 
 
 def _search_text(record: Experiment) -> str:

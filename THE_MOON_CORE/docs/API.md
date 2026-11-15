@@ -52,11 +52,13 @@ pytest                              # run the test suite
 | GET | `/api/v1/experiments` | ✅ Working | Backend |
 | GET | `/api/v1/experiments/{experiment_id}` | ✅ Working | Backend |
 | GET | `/api/v1/experiments/{experiment_id}/measurements` | ✅ Working | Backend |
+| GET | `/api/v1/experiments/{experiment_id}/media` | ✅ Working | Backend |
+| GET | `/api/v1/media/{media_id}` | ✅ Working | Backend |
 | POST | `/api/v1/analysis` | ✅ Working | Built-in reference engine, until the Data Analysis module plugs in |
 | POST | `/api/v1/comparison` | ✅ Working | Built-in reference engine, until the Data Analysis module plugs in |
 | POST | `/api/v1/insights` | ⏳ Placeholder | Returns `insufficient_evidence` until the AI module is connected |
 | POST | `/api/v1/assistant/ask` | ⏳ Placeholder | Returns `insufficient_evidence` until the RAG module is connected |
-| POST | `/api/v1/vision/analyze` | ⏳ Placeholder | Returns `not_processed` until the CV module is connected |
+| POST | `/api/v1/vision/analyze` | ⏳ Placeholder | Checks the media record, then returns `not_processed` until the CV module is connected |
 
 "Placeholder" means the endpoint fully validates requests and returns a correct v1.0 response, but says honestly that no result is available. It never invents a claim, evidence or measurement.
 
@@ -134,6 +136,8 @@ Total pages = `ceil(count / page_size)`. Asking for a page past the end returns 
 |---|---|---|---|
 | `VALIDATION_ERROR` | 422 | Invalid query parameter, path parameter or request body, malformed JSON, or an unknown field in a body | One entry per problem: `location` (e.g. `["body", "experiment_ids"]`), `message`, `type` |
 | `EXPERIMENT_NOT_FOUND` | 404 | An experiment ID doesn't exist. When several IDs are missing, all are reported at once | `[{"experiment_id": "..."}]` |
+| `MEDIA_NOT_FOUND` | 404 | A media ID doesn't exist | `[{"media_id": "..."}]` |
+| `MEDIA_EXPERIMENT_MISMATCH` | 422 | `/vision/analyze` was given media that belongs to a different experiment | `[{"media_id": "...", "experiment_id": "<requested>", "media_experiment_id": "<actual>"}]` |
 | `NOT_FOUND` | 404 | The URL doesn't match any endpoint | `null` |
 | `METHOD_NOT_ALLOWED` | 405 | Wrong HTTP method for the URL | `null` |
 | `HTTP_ERROR` | other | Any other HTTP-level error | `null` |
@@ -148,7 +152,7 @@ Use `error.code` in code, and `error.message` for display. Messages may change; 
 | Input | Rule |
 |---|---|
 | IDs in request bodies (`experiment_id`, `media_id`, …) | Leading and trailing spaces are trimmed; must then be 1–64 characters |
-| `experiment_id` in a URL path | 1–64 characters |
+| `experiment_id` or `media_id` in a URL path | 1–64 characters |
 | Variable names | Trimmed, 1–100 characters. Matching is exact and case-sensitive |
 | Lists of IDs or variables | No duplicates allowed |
 | `question` | Trimmed, 3–1000 characters |
@@ -163,7 +167,7 @@ Computed results get a random ID with a prefix: `ANALYSIS-…`, `COMP-…`, `INS
 
 ## 4. Data models
 
-These match `Schema.txt` exactly. The backend rejects any record that doesn't fit them. "Required" means the field must be present in the data; every field is always present in responses.
+These match `Schema.txt` exactly, except **Media** (section 4.7), which was added by issue #4 and isn't in `Schema.txt` v1.0 yet. The backend rejects any record that doesn't fit them. "Required" means the field must be present in the data; every field is always present in responses.
 
 Values marked *(provisional)* aren't defined in `Schema.txt` yet. They're the backend's current choice, pending answers in `Questions.md`.
 
@@ -294,13 +298,39 @@ Each `supporting_evidence` item: `source_id` (required), `experiment_id` (or `nu
 
 **Rule enforced by the backend:** if `evidence_status` is `supported` or `partially_supported`, `supporting_evidence` must contain at least one item. An insight claiming support without evidence is rejected.
 
-### 4.7 CVResult (computer vision, optional module)
+### 4.7 Media (images and videos)
+
+A Media record describes one image or video of an experiment. Records link up as **Experiment → Media → CVResult**: each Media record names its experiment in `experiment_id`, and a CVResult names the media it analysed in `media_id`.
+
+| Field | Type | Required | Description |
+|---|---|---|---|
+| `media_id` | string | ✔ | Unique ID, 1–64 chars |
+| `experiment_id` | string | ✔ | Experiment the media belongs to. Must exist |
+| `media_type` | enum | ✔ | `image` · `video` |
+| `format` | string | ✔ | File extension without the dot, e.g. `png`, `jpeg`, `mp4`. Letters and digits only, up to 10 characters. Stored in lowercase (`MP4` becomes `mp4`) |
+| `file_name` | string | ✔ | File name only, 1–255 chars, no `/` or `\` |
+| `file_url` | string \| null | | Public URL of the file (`http://` or `https://`) |
+| `storage_path` | string \| null | | Location in the project's own storage, 1–1024 chars |
+| `description` | string \| null | | What the media shows |
+| `source_id` | string \| null | | Source the media comes from. Must exist |
+| `metadata.width_pixels` | integer \| null | | Width in pixels, > 0 |
+| `metadata.height_pixels` | integer \| null | | Height in pixels, > 0 |
+| `metadata.duration_seconds` | number \| null | | Length in seconds, > 0. **Video only** |
+| `metadata.frame_rate_fps` | number \| null | | Frames per second, > 0. **Video only** |
+| `availability_status` | enum | | `available` · `restricted` · `unavailable` · `unknown` (default) *(provisional)* |
+
+**Rules enforced by the backend:**
+- An `image` can't have `duration_seconds` or `frame_rate_fps`.
+- `available` media must have a `file_url` or a `storage_path` (or both), so there's always a file to analyse.
+- Only `available` media is sent to the computer vision module (section 5.11).
+
+### 4.8 CVResult (computer vision, optional module)
 
 | Field | Type | Description |
 |---|---|---|
 | `cv_result_id` | string | Generated, e.g. `CV-ABCA27B09DD7` |
 | `experiment_id` | string | Experiment the media belongs to |
-| `media_id` | string | Media item analysed |
+| `media_id` | string | Media record analysed (section 4.7) |
 | `processing_status` | enum | `success` · `failed` · `not_processed` *(provisional)* |
 | `detected` | boolean \| null | Whether a flame was detected; `null` if not processed |
 | `features.area_pixels` | integer \| null | Flame area in pixels |
@@ -310,11 +340,11 @@ Each `supporting_evidence` item: `source_id` (required), `experiment_id` (or `nu
 | `method` | string \| null | Method used, e.g. `image_processing` |
 | `calibration_status` | enum | `not_calibrated` (default) · `calibrated` *(provisional)* |
 | `limitations` | string[] | Limitations |
-| `source_ids` | string[] | Sources of the media |
+| `source_ids` | string[] | Sources of the media: the media record's `source_id`, if it has one |
 
 Pixel features are **not physical flame dimensions** unless `calibration_status` is `calibrated`.
 
-### 4.8 JSON Schema files
+### 4.9 JSON Schema files
 
 The backend's Pydantic models are the validation authority. JSON Schema versions of every model above, and of each request body, can be generated with:
 
@@ -469,7 +499,77 @@ An experiment with no measurements returns `items: []` and `count: 0` with HTTP 
 
 ---
 
-### 5.5 `POST /api/v1/analysis`
+### 5.5 `GET /api/v1/experiments/{experiment_id}/media`
+
+Lists the images and videos for one experiment, sorted by `media_id`. Use it to find a `media_id` for `/vision/analyze`. Only media with `availability_status: available` can actually be analysed.
+
+**Path parameter:** `experiment_id`.
+
+**Query parameters** (all optional)
+
+| Name | Type | Rules | Behaviour |
+|---|---|---|---|
+| `media_type` | enum | `image` or `video` | Only this type |
+| `page` | integer | ≥ 1, default 1 | Page number |
+| `page_size` | integer | 1–100, default 20 | Records per page |
+
+**Example:** `GET /api/v1/experiments/MOCK-EXP-001/media?page_size=1`
+```json
+{
+  "items": [
+    {
+      "media_id": "MOCK-MEDIA-001",
+      "experiment_id": "MOCK-EXP-001",
+      "media_type": "video",
+      "format": "mp4",
+      "file_name": "mock_orbital_flame_spread.mp4",
+      "file_url": null,
+      "storage_path": null,
+      "description": "Illustrative mock video record. No file exists. Not NASA data.",
+      "source_id": "SRC-MOCK-001",
+      "metadata": { "width_pixels": 1280, "height_pixels": 720, "duration_seconds": 30.0, "frame_rate_fps": 30.0 },
+      "availability_status": "unavailable"
+    }
+  ],
+  "count": 2,
+  "page": 1,
+  "page_size": 1
+}
+```
+
+An experiment with no media returns an empty `items` list with `count: 0`, not an error.
+
+**Errors:** `404 EXPERIMENT_NOT_FOUND`; `422 VALIDATION_ERROR` (e.g. `media_type=audio`, `page_size=101`).
+
+---
+
+### 5.6 `GET /api/v1/media/{media_id}`
+
+Returns one media record.
+
+**Path parameter:** `media_id` (1–64 chars, exact and case-sensitive).
+
+**Response 200:** `data` is one Media object (section 4.7), the same shape as the list items above.
+
+**Errors**
+- `404 MEDIA_NOT_FOUND`, for example:
+  ```json
+  {
+    "success": false,
+    "data": null,
+    "error": {
+      "code": "MEDIA_NOT_FOUND",
+      "message": "The requested media 'NOPE' does not exist.",
+      "details": [{ "media_id": "NOPE" }]
+    },
+    "meta": { "schema_version": "1.0", "data_mode": "mock" }
+  }
+  ```
+- `422 VALIDATION_ERROR` if the ID is longer than 64 characters.
+
+---
+
+### 5.7 `POST /api/v1/analysis`
 
 Runs an analysis on one experiment. Currently supports `statistical_summary`: count, mean, min and max for each variable. The rules are in section 6.
 
@@ -524,7 +624,7 @@ Runs an analysis on one experiment. Currently supports `statistical_summary`: co
 
 ---
 
-### 5.6 `POST /api/v1/comparison`
+### 5.8 `POST /api/v1/comparison`
 
 Compares two or more experiments, variable by variable. A variable gets a finding only when a direct comparison is valid (section 6).
 
@@ -583,7 +683,7 @@ Compares two or more experiments, variable by variable. A variable gets a findin
 
 ---
 
-### 5.7 `POST /api/v1/insights`
+### 5.9 `POST /api/v1/insights`
 
 Generates an evidence-backed insight about a question, optionally about specific experiments. **Currently a placeholder** (section 2).
 
@@ -618,7 +718,7 @@ When the AI module is connected, the response keeps this shape, filled in like t
 
 ---
 
-### 5.8 `POST /api/v1/assistant/ask`
+### 5.10 `POST /api/v1/assistant/ask`
 
 Asks a general research question, answered by the RAG module over approved sources. **Currently a placeholder.**
 
@@ -630,44 +730,62 @@ Asks a general research question, answered by the RAG module over approved sourc
 
 No other fields are accepted (sending `experiment_ids` here gives a `VALIDATION_ERROR`).
 
-**Response 200:** `data` is an Insight (section 4.6). The current placeholder is the same as in 5.7, except the `claim` and `limitations` name the research assistant (RAG) module.
+**Response 200:** `data` is an Insight (section 4.6). The current placeholder is the same as in 5.9, except the `claim` and `limitations` name the research assistant (RAG) module.
 
 **Errors:** `422 VALIDATION_ERROR`.
 
 ---
 
-### 5.9 `POST /api/v1/vision/analyze`
+### 5.11 `POST /api/v1/vision/analyze`
 
 Analyzes a flame image or video. **Optional module, currently a placeholder.**
+
+Before anything reaches the CV module, the backend checks, in this order:
+1. The experiment exists, or it returns `404 EXPERIMENT_NOT_FOUND`.
+2. The media exists, or it returns `404 MEDIA_NOT_FOUND`.
+3. The media belongs to that experiment, or it returns `422 MEDIA_EXPERIMENT_MISMATCH`.
+4. The media is `available`. If not, the backend returns `processing_status: not_processed` with the reason in `limitations`, and the CV module is never called.
 
 **Request body**
 
 | Field | Type | Required | Rules |
 |---|---|---|---|
 | `experiment_id` | string | ✔ | 1–64 chars; must exist |
-| `media_id` | string | ✔ | 1–64 chars. Not checked yet: no media records exist (section 12) |
+| `media_id` | string | ✔ | 1–64 chars; must exist and belong to the experiment |
 
 ```json
-{ "experiment_id": "MOCK-EXP-001", "media_id": "MEDIA-001" }
+{ "experiment_id": "MOCK-EXP-001", "media_id": "MOCK-MEDIA-001" }
 ```
 
-**Response 200** (`data`, current placeholder)
+**Response 200** (`data`). All mock media is `unavailable`, so this is what the mock data returns:
 ```json
 {
-  "cv_result_id": "CV-ABCA27B09DD7",
+  "cv_result_id": "CV-37984460B29F",
   "experiment_id": "MOCK-EXP-001",
-  "media_id": "MEDIA-001",
+  "media_id": "MOCK-MEDIA-001",
   "processing_status": "not_processed",
   "detected": null,
   "features": { "area_pixels": null, "width_pixels": null, "height_pixels": null, "brightness_mean": null },
   "method": null,
   "calibration_status": "not_calibrated",
-  "limitations": ["Computer vision module not connected. No media was analysed."],
-  "source_ids": []
+  "limitations": ["Media 'MOCK-MEDIA-001' is unavailable. No file was analysed."],
+  "source_ids": ["SRC-MOCK-001"]
 }
 ```
 
-**Errors:** `404 EXPERIMENT_NOT_FOUND`; `422 VALIDATION_ERROR` (e.g. missing `media_id`).
+For `available` media, the request goes to the CV module. Until the module is connected, the response has the same shape, with the limitation `"Computer vision module not connected. No media was analysed."`
+
+**Errors**
+- `404 EXPERIMENT_NOT_FOUND`, `404 MEDIA_NOT_FOUND`.
+- `422 MEDIA_EXPERIMENT_MISMATCH`, for example with `{"experiment_id": "MOCK-EXP-002", "media_id": "MOCK-MEDIA-001"}`:
+  ```json
+  {
+    "code": "MEDIA_EXPERIMENT_MISMATCH",
+    "message": "Media 'MOCK-MEDIA-001' belongs to experiment 'MOCK-EXP-001', not 'MOCK-EXP-002'.",
+    "details": [{ "media_id": "MOCK-MEDIA-001", "experiment_id": "MOCK-EXP-002", "media_experiment_id": "MOCK-EXP-001" }]
+  }
+  ```
+- `422 VALIDATION_ERROR` (e.g. missing `media_id`).
 
 ---
 
@@ -699,7 +817,7 @@ Warnings:
 
 ## 7. Mock data
 
-Files: `app/adapters/mock_data/experiments.json`, `measurements.json` and `sources.json`. All IDs start with `MOCK-`, every record is marked `illustrative` or `unverified`, and no URLs are given.
+Files: `app/adapters/mock_data/experiments.json`, `measurements.json`, `sources.json` and `media.json`. All IDs start with `MOCK-`, every record is marked `illustrative`, `unverified` or `unavailable`, and no URLs are given.
 
 | Experiment | Platform | Measurements | Use it to test |
 |---|---|---|---|
@@ -711,6 +829,16 @@ All measurements in 001 and 002 share the same conditions: `fuel: PMMA`, `pressu
 
 Sources: `SRC-MOCK-001` (for 001) and `SRC-MOCK-002` (for 002), both `dataset`, `unverified` and `not_ingested`. 003 has no sources.
 
+Media: no files exist, so every record is `unavailable` with no `file_url` or `storage_path`.
+
+| Media | Experiment | Type | Notes |
+|---|---|---|---|
+| `MOCK-MEDIA-001` | `MOCK-EXP-001` | video, `mp4` | Full metadata: 1280×720, 30 s, 30 fps |
+| `MOCK-MEDIA-002` | `MOCK-EXP-001` | image, `png` | All metadata `null` (unknown) |
+| `MOCK-MEDIA-003` | `MOCK-EXP-002` | image, `jpeg` | 640×480 |
+
+003 has no media.
+
 Handy requests:
 
 | Request | Result |
@@ -720,8 +848,10 @@ Handy requests:
 | Compare `MOCK-EXP-001` + `MOCK-EXP-003` | `not_comparable` |
 | Analyse `MOCK-EXP-003` | `failed` |
 | Experiments with `q=droplet` | Only 003 |
+| Vision with `MOCK-EXP-001` + `MOCK-MEDIA-001` | `not_processed` (media unavailable) |
+| Vision with `MOCK-EXP-002` + `MOCK-MEDIA-001` | `422 MEDIA_EXPERIMENT_MISMATCH` |
 
-When the backend loads the mock data, it checks every record against the schema and checks that the files agree with each other (IDs exist, `available_measurements` matches the actual measurements). Broken mock data stops the server at startup with a clear message, instead of failing during a demo.
+When the backend loads the mock data, it checks every record against the schema and checks that the files agree with each other (IDs are unique, referenced experiments and sources exist, `available_measurements` matches the actual measurements). Broken mock data stops the server at startup with a clear message, instead of failing during a demo.
 
 ---
 
@@ -731,13 +861,14 @@ When the backend loads the mock data, it checks every record against the schema 
 2. **Show a "mock data" banner while `meta.data_mode` is `"mock"`.** Records with `data_status` or `measurement_status` of `illustrative` should be visibly labelled as illustrative.
 3. **Detect placeholders:**
    - For insights, `evidence_status: "insufficient_evidence"` with empty `supporting_evidence` means there's no answer. Show the `claim` and `limitations` as a notice, not as an answer.
-   - For vision, `processing_status: "not_processed"` means nothing was analysed.
+   - For vision, `processing_status: "not_processed"` means nothing was analysed. `limitations` says why (media unavailable, or module not connected).
+   - To pick media for vision, list it with `GET /experiments/{id}/media`. Only offer analysis for media with `availability_status: "available"`.
 4. **Show `null` as missing ("—"),** never as 0.
 5. **Show `warnings` and `limitations`** next to analysis and comparison results. Only chart variables that appear in `findings`; use `compared_variables` with `comparable: false` to explain why the others are missing.
 6. **Pagination:** total pages = `ceil(count / page_size)`. A page past the end is empty, not an error.
 7. **IDs are case-sensitive** and must be sent exactly as received.
 8. **Status values for filters and badges** are listed in section 4. The experiment `data_status` filter only accepts those values.
-9. **Types:** generate TypeScript types from `/openapi.json` (for example with `openapi-typescript`) or from the JSON Schema files (section 4.8), so they stay in sync with the backend.
+9. **Types:** generate TypeScript types from `/openapi.json` (for example with `openapi-typescript`) or from the JSON Schema files (section 4.9), so they stay in sync with the backend.
 10. **CORS:** `http://localhost:3000` and `http://localhost:5173` are allowed by default. Ask the backend owner to add any other origin (section 10).
 
 Minimal envelope type:
@@ -760,7 +891,7 @@ type Page<T> = { items: T[]; count: number; page: number; page_size: number };
 
 Each module has an **interface** (a Python `Protocol`) in `app/integrations/`. Before calling a module, the backend:
 1. validates the request,
-2. looks up the experiments and measurements, returning a 404 itself if an ID is unknown,
+2. looks up the experiments and measurements, returning a 404 itself if an ID is unknown (for vision, it also checks the media record: it exists, belongs to the experiment, and is `available`),
 3. calls your method with plain model objects.
 
 Your method returns a model object. The backend wraps it in the envelope. You don't handle HTTP, routing or errors for unknown IDs.
@@ -793,7 +924,7 @@ class ResearchAssistant(Protocol):
 
 # Computer vision
 class VisionAnalyzer(Protocol):
-    def analyze(self, experiment: Experiment, media_id: str) -> CVResult: ...
+    def analyze(self, experiment: Experiment, media: Media) -> CVResult: ...
 ```
 
 What you receive:
@@ -801,8 +932,9 @@ What you receive:
 - `variables` is `None` when the user didn't choose any, so pick the default yourself.
 - `question` is already trimmed and 3–1000 characters long.
 - `experiments` can be an empty list for insights.
+- `media` is a full Media record (section 4.7) that belongs to `experiment` and is `available`, so it always has a `file_url` or a `storage_path`. Use `media_type`, `format` and `metadata` to decide how to read the file.
 
-Models are imported from `app.models.experiment`, `app.models.analysis`, `app.models.insight` and `app.models.vision`.
+Models are imported from `app.models.experiment`, `app.models.analysis`, `app.models.insight`, `app.models.media` and `app.models.vision`.
 
 ### 9.3 Rules your output must follow
 
@@ -915,9 +1047,10 @@ backend/
     services/            Look up experiments, then hand off to a module
     integrations/        Module interfaces and current implementations (section 9)
     adapters/            Data sources: mock adapter + mock_data/*.json (PSI adapter to come)
-  tests/                 88 tests: endpoints, errors, rules, mock data, schema files
-  docs/API.md            This document
+  tests/                 137 tests: endpoints, errors, rules, models, mock data, schema files
 ```
+
+This document is `THE_MOON_CORE/docs/API.md`, next to `backend/`.
 
 Request flow: **route** (validates) → **service** (looks up experiments, 404s) → **module** (computes) → **route** (wraps in the envelope).
 
@@ -927,7 +1060,7 @@ Request flow: **route** (validates) → **service** (looks up experiments, 404s)
 
 **Not built yet**
 - **Source endpoint.** No endpoint returns Source records (title, URL) for citations. Proposed: `GET /api/v1/sources/{source_id}` and `GET /api/v1/sources`.
-- **Media records.** `media_id` in vision requests isn't checked, and there's no endpoint listing an experiment's media.
+- **Media files.** Media records exist, but there's no upload, and the backend doesn't serve files itself. How files are stored and served isn't decided yet.
 - **PSI adapter.** Only mock data is served.
 - **Stored results.** Analyses, comparisons and insights aren't saved.
 - **Module protections.** No timeouts and no "module unavailable" error code.
@@ -937,12 +1070,12 @@ Request flow: **route** (validates) → **service** (looks up experiments, 404s)
 | # | Subject | Effect on you now |
 |---|---|---|
 | Q1 | Units for `conditions` numbers, fuel names, missing conditions | Show condition numbers without units for now |
-| Q2 | Final allowed values for status fields | Values marked *(provisional)* in section 4 may change |
+| Q2 | Final allowed values for status fields | Values marked *(provisional)* in section 4 may change, including Media `availability_status` |
 | Q3 | Shape of comparison `findings` | The findings item shape may change |
 | Q4 | POST request bodies | Request fields may be added |
 | Q5 | Format of `timestamp` and `publication_date` | Treat both as opaque text for now |
 | Q6 | Serving sources | See "Not built yet" |
-| Q7 | Media for computer vision | See "Not built yet" |
+| Q7 | Media for computer vision | Media record and endpoints added (issue #4). File storage and upload are still open; see "Not built yet" |
 | Q8 | How gravity level is represented | A `gravity_level` field may be added to Experiment |
 
 Changes to anything marked provisional will be announced, and this document updated, before they're merged.

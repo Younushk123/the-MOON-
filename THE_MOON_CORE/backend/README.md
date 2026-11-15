@@ -4,6 +4,8 @@ FastAPI backend for THE MOON (NASA Space Apps: *Flame in Free Fall*), implementi
 canonical data schema v1.0. The Pydantic models in `app/models/` are the validation authority;
 matching JSON Schema files are generated into `<repo>/shared/schemas/`.
 
+Full API and integration guide: [`../docs/API.md`](../docs/API.md).
+
 ## Run
 
 ```bash
@@ -34,15 +36,18 @@ uvicorn app.main:app --reload
 | GET | `/api/v1/experiments` | Working. Filters: `q`, `platform`, `data_status`, `page`, `page_size` (≤100) |
 | GET | `/api/v1/experiments/{experiment_id}` | Working |
 | GET | `/api/v1/experiments/{experiment_id}/measurements` | Working. Filters: `variable`, `page`, `page_size` (≤500) |
+| GET | `/api/v1/experiments/{experiment_id}/media` | Working. Filters: `media_type`, `page`, `page_size` (≤100) |
+| GET | `/api/v1/media/{media_id}` | Working |
 | POST | `/api/v1/analysis` | Working (built-in `statistical_summary`; Data Analysis module to replace) |
 | POST | `/api/v1/comparison` | Working (built-in comparability rules; Data Analysis module to replace) |
 | POST | `/api/v1/insights` | Placeholder: returns `insufficient_evidence` until AI module is connected |
 | POST | `/api/v1/assistant/ask` | Placeholder: returns `insufficient_evidence` until RAG module is connected |
-| POST | `/api/v1/vision/analyze` | Placeholder: returns `not_processed` until CV module is connected |
+| POST | `/api/v1/vision/analyze` | Checks the media exists, belongs to the experiment and is available. Placeholder: returns `not_processed` until CV module is connected |
 
 Every response uses `{success, data, error, meta}`. In list responses, `count` is the total
 number of matches across all pages. Error codes: `VALIDATION_ERROR` (422, with `details`),
-`EXPERIMENT_NOT_FOUND` (404), `NOT_FOUND` (404, unknown route), `METHOD_NOT_ALLOWED` (405),
+`EXPERIMENT_NOT_FOUND` (404), `MEDIA_NOT_FOUND` (404), `MEDIA_EXPERIMENT_MISMATCH` (422),
+`NOT_FOUND` (404, unknown route), `METHOD_NOT_ALLOWED` (405),
 `INTERNAL_ERROR` (500).
 
 ### Analysis and comparison rules
@@ -61,7 +66,7 @@ app/
   config.py          settings
   errors.py          error codes and envelope-rendering handlers
   schema_export.py   writes shared/schemas/*.schema.json
-  models/            schema v1.0: experiment, analysis, insight, vision; envelope
+  models/            schema v1.0: experiment, analysis, insight, media, vision; envelope
   api/v1/            routes (thin: validate, call service, wrap in envelope)
   services/          resolve experiments, then hand off to a module
   integrations/      where teammates' modules plug in (see below)
@@ -79,24 +84,26 @@ Each module has a Protocol in `app/integrations/`. Implement it and return your 
 | Data Analysis | `AnalysisEngine` (`analyze`, `compare`) | `ReferenceAnalysisEngine` |
 | AI integration | `InsightEngine` (`generate`) | `UnavailableInsightEngine` |
 | RAG | `ResearchAssistant` (`ask`) | `UnavailableResearchAssistant` |
-| Computer vision | `VisionAnalyzer` (`analyze`) | `UnavailableVisionAnalyzer` |
+| Computer vision | `VisionAnalyzer` (`analyze`, receives the Media record) | `UnavailableVisionAnalyzer` |
 
 The `Insight` model rejects `evidence_status` other than `insufficient_evidence` when
 `supporting_evidence` is empty, so no module can return an unsupported claim.
 
 ## Mock data
 
-`app/adapters/mock_data/` holds 3 experiments, 13 measurements and 2 sources. All IDs start
-with `MOCK-`, every record is `illustrative`/`unverified`, and no URLs are given. These are
+`app/adapters/mock_data/` holds 3 experiments, 13 measurements, 2 sources and 3 media records. All IDs
+start with `MOCK-`, every record is `illustrative`/`unverified`/`unavailable`, and no URLs or files are given. These are
 not NASA data. The adapter rejects the data at startup if records break the schema or
 reference each other inconsistently.
 
 ## Provisional choices (to confirm with the project lead)
 
 - Allowed values not listed in v1.0: `Experiment.data_status`, `Measurement.measurement_status`,
-  `AnalysisResult.status`, `Insight.confidence`, `CVResult.processing_status`/`calibration_status`.
+  `AnalysisResult.status`, `Insight.confidence`, `CVResult.processing_status`/`calibration_status`,
+  `Media.availability_status`.
   See the `PROVISIONAL` comments in `app/models/`.
 - `MeasurementConditions` pressure/temperature/flow_velocity have no units in v1.0.
 - `Comparison.findings` item shape isn't defined in v1.0; see `ComparisonFinding`.
 - `Measurement.timestamp` and `Source.publication_date` are kept as strings until a format is agreed.
 - Request bodies for the POST endpoints aren't defined in v1.0; see `*Request` models.
+- `Media` (issue #4) isn't in `Schema.txt` v1.0 yet. File storage and upload aren't decided.

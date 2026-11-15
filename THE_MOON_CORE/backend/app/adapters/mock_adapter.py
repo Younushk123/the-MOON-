@@ -1,6 +1,6 @@
 """Serves illustrative records from mock_data/*.json. These are NOT NASA data.
 
-On load, every record is validated against the canonical schema and the three files are
+On load, every record is validated against the canonical schema and the four files are
 checked against each other, so broken mock data fails at startup rather than mid-demo.
 """
 
@@ -13,6 +13,7 @@ from pydantic import BaseModel
 
 from app.config import DataMode
 from app.models.experiment import Experiment, Measurement, Source
+from app.models.media import Media
 
 DEFAULT_MOCK_DIR = Path(__file__).parent / "mock_data"
 
@@ -30,6 +31,7 @@ class MockDataRepository:
         experiments = _load(data_dir / "experiments.json", Experiment)
         measurements = _load(data_dir / "measurements.json", Measurement)
         sources = _load(data_dir / "sources.json", Source)
+        media = _load(data_dir / "media.json", Media)
 
         self._experiments = _index(experiments, "experiment_id", "experiments.json")
         self._sources = _index(sources, "source_id", "sources.json")
@@ -39,7 +41,12 @@ class MockDataRepository:
         for m in measurements_by_id.values():
             self._measurements[m.experiment_id].append(m)
 
-        _check_integrity(self._experiments, self._measurements, self._sources)
+        self._media = _index(media, "media_id", "media.json")
+        self._media_by_experiment: dict[str, list[Media]] = defaultdict(list)
+        for item in self._media.values():
+            self._media_by_experiment[item.experiment_id].append(item)
+
+        _check_integrity(self._experiments, self._measurements, self._sources, self._media)
 
     def list_experiments(self) -> list[Experiment]:
         return list(self._experiments.values())
@@ -52,6 +59,12 @@ class MockDataRepository:
 
     def get_source(self, source_id: str) -> Source | None:
         return self._sources.get(source_id)
+
+    def list_media(self, experiment_id: str) -> list[Media]:
+        return list(self._media_by_experiment.get(experiment_id, []))
+
+    def get_media(self, media_id: str) -> Media | None:
+        return self._media.get(media_id)
 
 
 def _load(path: Path, model: type[M]) -> list[M]:
@@ -72,6 +85,7 @@ def _check_integrity(
     experiments: dict[str, Experiment],
     measurements: dict[str, list[Measurement]],
     sources: dict[str, Source],
+    media: dict[str, Media],
 ) -> None:
     problems: list[str] = []
 
@@ -96,6 +110,12 @@ def _check_integrity(
     for src in sources.values():
         if src.experiment_id is not None and src.experiment_id not in experiments:
             problems.append(f"{src.source_id}: unknown experiment_id '{src.experiment_id}'")
+
+    for item in media.values():
+        if item.experiment_id not in experiments:
+            problems.append(f"{item.media_id}: unknown experiment_id '{item.experiment_id}'")
+        if item.source_id is not None and item.source_id not in sources:
+            problems.append(f"{item.media_id}: unknown source_id '{item.source_id}'")
 
     if problems:
         raise MockDataError("Mock data is inconsistent:\n  " + "\n  ".join(problems))
