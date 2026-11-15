@@ -1,0 +1,44 @@
+[
+  {
+    "experiment_id": "MOCK-EXP-001",
+    "name": "Illustrative Solid-Fuel Flame Spread (Orbital)",
+    "investigation": "Illustrative solid-fuel flame spread study",
+    "program": "THE MOON mock dataset (not NASA data)",
+    "description": "Illustrative mock record for development and integration testing. Not NASA data.",
+    "platform": "International Space Station",
+    "source_ids": ["SRC-MOCK-001"],
+    "data_status": "illustrative",
+    "available_measurements": ["flame_spread_rate", "flame_temperature", "oxygen_concentration"],
+    "limitations": ["Illustrative values only. Do not present as real experimental results."],
+    "last_updated": "2026-11-14"
+  },
+  {
+    "experiment_id": "MOCK-EXP-002",
+    "name": "Illustrative Solid-Fuel Flame Spread (Ground)",
+    "investigation": "Illustrative solid-fuel flame spread study",
+    "program": "THE MOON mock dataset (not NASA data)",
+    "description": "Illustrative normal-gravity counterpart to MOCK-EXP-001. Not NASA data.",
+    "platform": "Ground laboratory",
+    "source_ids": ["SRC-MOCK-002"],
+    "data_status": "illustrative",
+    "available_measurements": ["flame_spread_rate", "flame_temperature", "oxygen_concentration"],
+    "limitations": ["Illustrative values only. Do not present as real experimental results."],
+    "last_updated": "2026-11-14"
+  },
+  {
+    "experiment_id": "MOCK-EXP-003",
+    "name": "Illustrative Droplet Combustion (Sparse Record)",
+    "investigation": "Illustrative droplet combustion study",
+    "program": "THE MOON mock dataset (not NASA data)",
+    "description": "Deliberately sparse mock record with no measurements, to exercise empty and missing data handling. Not NASA data.",
+    "platform": "Drop tower",
+    "source_ids": [],
+    "data_status": "illustrative",
+    "available_measurements": [],
+    "limitations": [
+      "Illustrative values only. Do not present as real experimental results.",
+      "No measurements available."
+    ],
+    "last_updated": "2026-11-14"
+  }
+]
