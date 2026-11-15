@@ -1,172 +1,357 @@
-# NASA Microgravity Combustion & Spacecraft Fire Safety RAG
+# THE MOON
+### Microgravity Observation & Orbital Network
 
-Evidence-grounded RAG module providing research-grade scientific explanations, source citations, experimental conditions, and verified evidence passages for the NASA Spacecraft Fire Safety project (**THE MOON**).
+**NASA Space Apps Challenge 2026 | Multan, Pakistan**
 
----
+THE MOON is an AI-powered scientific intelligence platform developed for NASA Space Apps Challenge 2026 challenge **"Flame in Freefall: AI-Powered Fire Safety Insights from Microgravity Combustion Data."**
 
-## 1. Quick Start & Setup Instructions
+The platform explores microgravity combustion experiments, analyzes available experimental measurements, compares normal and inverse flame behavior, and provides research-based insights relevant to spacecraft fire safety.
 
-### Environment Setup
-Python **3.10–3.12** (or 3.14) is supported.
-```powershell
-# 1. Install dependencies (includes FastAPI, Uvicorn, PyMuPDF, ChromaDB, Sentence-Transformers)
-pip install -r requirements.txt
-
-# 2. Copy the environment template and set optional secrets
-copy .env.example .env          # Windows
-# cp .env.example .env          # Linux / macOS
-```
-> **Note on API Keys:** The system is completely operational in offline extractive mode without an external API key. Providing `GROQ_API_KEY` in `.env` enables generative synthesis via Llama-3.
+Our goal is to make scientific combustion data easier to explore, understand, compare, and interpret for future space exploration missions.
 
 ---
 
-## 2. Rebuilding the Corpus from a Fresh Clone
+## Project Objectives
 
-Raw document PDFs and processed ChromaDB vector databases are excluded from Git via `.gitignore` to prevent repository bloat and respect data licensing. Follow these steps to rebuild the knowledge base:
-
-### Step 1: Place Source PDFs in `data/raw_documents/`
-Ensure the target NASA research PDFs are located in `data/raw_documents/` matching the filenames in `data/raw_documents/manifest.json`:
-
-| Source ID | Target Filename | Investigation / Topic |
-|---|---|---|
-| **S2** | `ccomustion research doocs.pdf` | ISS Researcher's Guide: Combustion Science (NP-2015-10-034-JSC) |
-| **S3** | `saffire4 docs.pdf` | Saffire Objectives, Development and Status (GRC-E-DAA-TN32222) |
-| **S5** | `firesafety.pdf` | Fire Safety in Low-Gravity Spacecraft (NASA/TM-1999-209285) |
-| **S23** | `slice_fact_sheet.pdf` | Structure & Liftoff in Combustion Experiment (PSI-106) |
-| **S24** | `spice_fact_sheet.pdf` | Smoke Point In Co-flow Experiment (PSI-107) |
-| **S28** | `bass2_results_ntrs_20160000593.pdf` | BASS-II Microgravity Solid Combustion (NTRS 20160000593) |
-| **S29** | `bass2_summary_report_ntrs_20210011385.pdf` | BASS-II Final Summary Report (NTRS 20210011385) |
-| **S31** | `saffire6_ices2024_365.pdf` | Saffire VI Preliminary Results (ICES-2024-365 / NTRS 20240002981) |
-| **S33** | `saffire_novel_approach_ntrs_20180005168.pdf` | Saffire Novel Testing Approach (NTRS 20180005168) |
-| **S50** | `apollo204_review_board_ntrs_19820066930.pdf` | Apollo 204 (Apollo 1) Review Board Report (NASA-TM-84105) |
-| **S51** | `apollo13_review_board_ntrs_20170000913.pdf` | Apollo 13 Review Board Investigation (NTRS 20170000913) |
-| **S52** | `mir_fire_ntrs_20030068062.pdf` | Mir Space Station Fire Investigation (NTRS 20030068062) |
-| **S56** | `same_final_report_nist_904707.pdf` | Smoke Aerosol Measurement Experiment Final Report (NIST Pub 904707) |
-| **DOC-STD-6001B** | `NASA-STD-6001B.pdf` | Flammability, Offgassing, and Materials Testing Standards |
-
-### Step 2: Run Ingestion
-Execute the ingestion pipeline to parse documents, build text chunks with page markers, compute semantic embeddings, and populate ChromaDB:
-```powershell
-python rag_pipeline.py ingest
-```
-*Output:* Creates `data/processed/docs/chunks.json` (2,143 grounded chunks) and initialises the vector store in `data/processed/chroma/`.
-
-### Step 3: Verify the Build
-```powershell
-pytest -q -W ignore            # Run unit test suite (23 passing)
-python run_five_questions.py   # Run verified 5-question demo
-```
+- Explore NASA-related microgravity combustion experiment data.
+- Analyze normal and inverse flame experiment records.
+- Compare available combustion measurements.
+- Provide interactive scientific data visualizations.
+- Integrate AI-powered research assistance using Retrieval-Augmented Generation (RAG).
+- Present evidence-linked insights with clear data limitations.
+- Support research into fire safety considerations for future Moon and Mars missions.
 
 ---
 
-## 3. Canonical Experiment Mapping & Integration Boundary
+## Key Features
 
-### Integration Principle: Separation of Concerns
-To ensure strict scientific integrity across THE MOON system:
-- **Research RAG Module:** Handles scientific research literature, combustion physics explanations, experimental background, and verified evidence passages with citations.
-- **Scientific Data Module:** Handles raw sensor telemetry, numerical tables, units, calibrations, and quantitative calculations.
-- Passages retrieved by RAG serve as supporting qualitative evidence; numeric charts and measurements originate directly from the Scientific Data module.
+### 1. Scientific Dashboard
+An interactive web dashboard providing an overview of available experiments, measurements, and analysis results.
 
-### Dashboard Canonical IDs to PSI Investigation Mapping
-The backend can resolve dashboard experiment IDs (`EXP-001` .. `EXP-010`) to official NASA PSI investigation codes and target research sources:
+### 2. Experiment Explorer
+Explore available experiment records, including:
 
-| Dashboard Canonical ID | Experiment / Investigation Name | NASA PSI ID | Target Research Sources | Scientific Scope |
-|---|---|---|---|---|
-| **EXP-001** | Burning and Suppression of Solids - II (BASS-II) | `PSI-25` | `S28`, `S29` | Extinction limits, airflow quenching, and PMMA burning in microgravity |
-| **EXP-002** | Spacecraft Fire Experiment VI (Saffire-VI) | `Saffire-VI` | `S31`, `S3`, `S33` | Large-scale sample card spread, heat flux, and toxic combustion gases |
-| **EXP-003** | Smoke Aerosol Measurement Experiment (SAME) | `SAME` | `S56` | Smoke particle size distribution and agglomeration in low gravity |
-| **EXP-004** | Smoke Point In Co-flow Experiment (SPICE) | `PSI-107` | `S24` | Soot inception, smoke points, and laminar coflow diffusion flames |
-| **EXP-005** | Structure and Liftoff in Combustion Experiment (SLICE) | `PSI-106` | `S23` | Non-buoyant flame liftoff, stabilization, and blow-off limits |
-| **EXP-006** | Advanced Combustion via Microgravity Experiments (ACME) | `PSI-98` | `S35`, `S36`, `DOC-ACME-PUBS` | Spherical diffusion flame extinction and soot suppression |
-| **EXP-007** | Flame Extinguishment Experiment (FLEX / FLEX-2) | `PSI-10` | `S38`, `S39` | Droplet combustion, d-squared law, and radiative extinction |
-| **EXP-008** | Apollo 1 (Apollo 204) Fire Investigation | `APOLLO-204` | `S50` | Pure oxygen high-pressure flammability and rapid fire growth |
-| **EXP-009** | Apollo 13 Oxygen Tank Incident Investigation | `APOLLO-13` | `S51` | Cryogenic oxygen combustion, wire insulation arcing, and tank rupture |
-| **EXP-010** | Mir Space Station Fire Incident Investigation | `MIR-1997` | `S52` | Solid fuel oxygen generator (SFOG) candle failure and toxic smoke response |
-| *MOCK-EXP-001..003* | Synthetic Test Records (Core Foundation) | *MOCK* | `S2`, `S28`, `S24` | Methane combustion normal vs reduced gravity baselines |
+- PSI-159 Normal Flame Experiments
+- PSI-159 Inverse Flame Experiments
+
+### 3. Experiment Details
+View experiment metadata, available measurements, source information, and data limitations.
+
+### 4. Normal vs. Inverse Flame Comparison
+Compare available experimental measurements and explore differences between normal and inverse flame records.
+
+### 5. AI Research Assistant
+An AI-powered research interface designed to retrieve relevant scientific information and provide evidence-linked answers.
+
+### 6. Data Quality and Transparency
+The system communicates data availability, validation status, and known limitations to avoid presenting uncertain information as established scientific findings.
 
 ---
 
-## 4. Backend / API Integration Handoff
-
-The deliverable API is located at `src/api.py`. It provides both a callable Python function and standalone FastAPI endpoints.
-
-### Option A: Python Direct Call
-```python
-from src.api import answer_question
-
-# Call with optional experiment ID focus (e.g. EXP-001, Saffire-VI, or PSI-25)
-result = answer_question("What fuel materials were tested?", experiment_ids=["EXP-001"], top_k=5)
-
-print("Claim:", result["claim"])
-print("Sources:", result["sources"])
-print("Evidence:", result["evidence"])
-print("Conditions:", result["conditions"])
-print("Resolved Experiments:", result["resolved_experiments"])
-print("Integration Note:", result["integration_note"])
-```
-
-### Option B: FastAPI Endpoints
-Start the server:
-```powershell
-uvicorn src.api:app --host 0.0.0.0 --port 8000
-```
-
-Available Endpoints:
-- `POST /ask`: Accepts `{"query": "...", "experiment_ids": ["EXP-001"], "top_k": 5}`. Returns standardized JSON envelope with claim, sources, verbatim evidence passages with page citations, and conditions.
-- `GET /experiments/mapping`: Returns the canonical mapping table between Dashboard IDs (`EXP-001` .. `EXP-010`) and NASA PSI IDs.
-- `GET /health`: Reports service health, retrieval mode (`hybrid (BM25 + semantic + entity)`), total indexed chunks, and registered sources.
-- `GET /sources`: Returns enumeration of all 47 registered NASA sources with their 6-level verification ladder statuses.
-- `POST /api/v1/assistant/ask`: Preserves team router contract with pass-through support for `experiment_ids` and `validated_findings` from the Data Analysis module.
-
----
-
-## 5. Verification Status Consistency
-
-In compliance with NASA PSI scientific evaluation standards, our Source Register (`Source_Register_Updated.xlsx`) tracks a 6-level verification ladder:
-
-1. **Document Ingestion Status:**
-   - **Indexed Documents (18 Sources / 2,143 Chunks):** Primary NASA PDFs (S2, S3, S5, S23, S24, S28, S29, S31, S33, S50, S51, S52, S56, DOC-STD-6001B, etc.) have their actual full-text downloaded, SHA-256 validated, and indexed into ChromaDB.
-   - **Catalogue Only (29 Sources):** Sources where only portal metadata/summary cards were recorded. These are explicitly tagged as `catalogue_record` and never treated as primary experimental findings.
-2. **Scientific Claim & Raw Data Status:**
-   - In `Source_Register_Updated.xlsx`, columns `5_raw_data_available` and `6_claim_verified` are marked `not verified` or `no` across the literature corpus.
-   - **Reason:** Raw numerical telemetry (e.g. sensor millivolt traces, pressure readings, gas chromatograph outputs) has not been ingested as raw datasets in this RAG module; it is provided by the **Scientific Data Module**.
-   - The RAG module guarantees that every claim is grounded in official peer-reviewed NASA text, but refrains from asserting that raw sensor datasets have been independently re-measured.
-
----
-
-## 6. Tested Demo Questions
-
-Run `python run_five_questions.py` to execute the 5 integration questions:
-1. **Why is combustion different in microgravity?** $\rightarrow$ Cites S2 (p. 10) and S28 (p. 5) [Removal of buoyancy flow & simpler modeling].
-2. **What was the objective of BASS-II?** $\rightarrow$ Cites S29 (p. 54) and PSI-25 [Burning and extinction of PMMA/fabrics in diluted O2].
-3. **What did Saffire VI investigate?** $\rightarrow$ Cites S31 (p. 3) [4 sample card concurrent spread, heat release & gas emissions].
-4. **How are smoke particles studied in microgravity?** $\rightarrow$ Cites S56 (p. 10) [Comparative Soot Diagnostics & particle sizing for detectors].
-5. **What can microgravity combustion research teach us about spacecraft fire safety?** $\rightarrow$ Cites S5 (p. 3) and S2 (p. 10) [Fire prevention, detector design, and realistic simulation of spacecraft fire risk].
-
----
-
-## 7. Project Layout
+## System Architecture
 
 ```text
-research_rag/
-├── .env.example              # Template configuration with placeholder values
-├── requirements.txt          # Module dependencies (FastAPI, Uvicorn, ChromaDB, etc.)
-├── data/
-│   ├── experiment_mapping.json # Canonical mapping (EXP-001..010 <-> PSI IDs)
-│   ├── raw_documents/        # manifest.json (PDFs excluded via .gitignore)
-│   └── processed/            # Ingested chunks and ChromaDB vector store
-├── src/
-│   ├── api.py                # Backend handoff API & answer_question()
-│   ├── api_adapter.py        # Team router (POST /api/v1/assistant/ask)
-│   ├── experiment_mapping.py # Canonical ID resolution and source lookup
-│   ├── config.py             # Settings and paths
-│   ├── ingestion.py          # PDF/DOCX ingestion and chunking
-│   ├── retrieval.py          # Hybrid retrieval (BM25 + ChromaDB + entity)
-│   ├── generator.py          # Grounded generator (Extractive + Groq)
-│   ├── evidence_validator.py # Verbatim quote and sufficiency validator
-│   └── source_register.py    # 6-level verification ladder & corpus builder
-├── tests/                    # 23 unit tests (pytest)
-├── evaluation/               # T1-T30 benchmark runner and export scripts
-├── rag_pipeline.py           # CLI entry point (ingest, ask, chat)
-└── Source_Register_Updated.xlsx # 47 records with 6-level verification ladder
+                 USER
+                   |
+                   v
+          REACT WEB DASHBOARD
+                   |
+                   v
+             FASTAPI BACKEND
+                   |
+          +--------+--------+
+          |                 |
+          v                 v
+    EXPERIMENT DATA     ANALYSIS ENGINE
+          |                 |
+          v                 v
+     PSI-159 CSV       STATISTICAL
+       RECORDS          ANALYSIS
+          |                 |
+          +--------+--------+
+                   |
+                   v
+             DATA INSIGHTS
+                   |
+                   v
+          DASHBOARD VISUALIZATION
+
+
+          AI RESEARCH ASSISTANT
+                   |
+                   v
+              RAG MODULE
+                   |
+                   v
+          SCIENTIFIC KNOWLEDGE
+                   |
+                   v
+          EVIDENCE-LINKED ANSWERS
 ```
+
+---
+
+## Technology Stack
+
+| Component | Technologies |
+|---|---|
+| Frontend | React, TypeScript, Vite |
+| UI and Icons | CSS, Lucide React |
+| Data Visualization | Recharts |
+| Backend | Python, FastAPI |
+| API Models | Pydantic |
+| Data Processing | Python, CSV |
+| AI Research | Retrieval-Augmented Generation (RAG) |
+| API Communication | REST API |
+| Development | Git, GitHub, VS Code |
+
+---
+
+## Experimental Data
+
+The current data integration includes processed PSI-159 experiment records for:
+
+**Normal Flame**
+- Experiment ID: `PSI159-CFIG-NORMAL`
+- Source ID: `PSI159-NORMAL-CSV`
+
+**Inverse Flame**
+- Experiment ID: `PSI159-CFIG-INVERSE`
+- Source ID: `PSI159-INVERSE-CSV`
+
+Investigation: Cool Flames Investigation with Gases (CFI-G)
+
+Program: Advanced Combustion via Microgravity Experiments (ACME)
+
+Platform: International Space Station (ISS)
+
+Available measurement categories include:
+
+- Adiabatic flame temperature
+- Burn time
+- Fuel fraction
+- Hydrocarbon mass flow
+- Oxygen fraction
+- Peak burner temperature
+- Pressure
+- Stoichiometric mixture fraction
+
+The available measurement fields differ between experiment types.
+
+**Data Status:** The currently integrated PSI-159 records are marked `unverified` by the project's data adapter. They are locally processed CSV records and have not been independently re-verified by this adapter.
+
+ISS microgravity experiments are not direct simulations of lunar or Martian environments. Any application to future Moon or Mars missions must be treated as research interpretation rather than direct experimental proof.
+
+---
+
+## Project Structure
+
+```text
+THE_MOON_CORE/
+│
+├── app/
+│
+├── backend/
+│   ├── app/
+│   │   ├── api/
+│   │   │   └── v1/
+│   │   ├── adapters/
+│   │   ├── models/
+│   │   ├── services/
+│   │   └── main.py
+│   │
+│   └── tests/
+│
+├── data-anlysis/
+│   └── data/
+│       └── processed/
+│           ├── normal_analysis.csv
+│           └── inverse_analysis.csv
+│
+└── tests/
+```
+
+The frontend is maintained separately in the `the-MOON--frontend` repository.
+
+---
+
+## Getting Started
+
+### Prerequisites
+
+- Python 3.10+
+- Node.js and npm
+- Git
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/Younushk123/the-MOON-.git
+```
+
+Navigate to the core project directory:
+
+```bash
+cd the-MOON-/THE_MOON_CORE
+```
+
+### 2. Configure the Backend
+
+Navigate to the backend:
+
+```bash
+cd backend
+```
+
+Create and activate a virtual environment:
+
+```bash
+python -m venv .venv
+```
+
+Windows:
+
+```powershell
+.venv\Scripts\activate
+```
+
+Install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+Configure the data mode in the backend `.env` file:
+
+```env
+MOON_DATA_MODE=psi
+```
+
+### 3. Start the Backend
+
+```bash
+uvicorn app.main:app --reload --host 127.0.0.1 --port 8000
+```
+
+Backend API:
+
+`http://127.0.0.1:8000`
+
+Interactive API documentation:
+
+`http://127.0.0.1:8000/docs`
+
+### 4. Configure the Frontend
+
+Clone the frontend repository separately:
+
+```bash
+git clone https://github.com/Younushk123/the-MOON--frontend.git
+```
+
+Navigate into it:
+
+```bash
+cd the-MOON--frontend
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Create `.env.local`:
+
+```env
+VITE_API_BASE_URL=http://127.0.0.1:8000
+VITE_USE_MOCK_DATA=false
+VITE_API_TIMEOUT_MS=15000
+VITE_ENABLE_VISION=false
+```
+
+### 5. Start the Frontend
+
+```bash
+npm run dev
+```
+
+Open the local Vite URL shown in the terminal, usually:
+
+`http://localhost:5173`
+
+Make sure the backend is running before using the dashboard.
+
+---
+
+## API Overview
+
+The main backend exposes versioned REST API endpoints.
+
+| Method | Endpoint | Purpose |
+|---|---|---|
+| GET | `/api/v1/health` | Health check |
+| GET | `/api/v1/experiments` | List experiments |
+| GET | `/api/v1/experiments/{experiment_id}` | Experiment details |
+| GET | `/api/v1/experiments/{experiment_id}/measurements` | Experiment measurements |
+| POST | `/api/v1/analysis` | Run experiment analysis |
+| POST | `/api/v1/comparison` | Compare experiments |
+| POST | `/api/v1/insights` | Generate insights |
+| POST | `/api/v1/assistant/ask` | Ask the research assistant |
+| POST | `/api/v1/vision/analyze` | Optional image analysis |
+
+For complete request and response schemas, visit the interactive API documentation at `/docs`.
+
+---
+
+## Scientific Integrity and Limitations
+
+THE MOON is a research-support platform, not a certified spacecraft fire-safety system.
+
+Important limitations:
+
+- Integrated PSI-159 CSV records are currently marked unverified.
+- Measurements must be interpreted according to their available units, definitions, and experimental conditions.
+- Normal and inverse flame records may contain different measurement fields.
+- Only compatible measurements should be compared.
+- AI-generated explanations must be interpreted alongside their supporting evidence.
+- ISS microgravity observations should not be treated as direct representations of Moon or Mars surface conditions.
+- Image-analysis features should only be used when suitable source imagery and validation are available.
+
+The project aims to communicate scientific uncertainty transparently rather than make unsupported conclusions.
+
+---
+
+## Team
+
+**Team Name:** THE MOON
+
+**Event:** NASA Space Apps Challenge 2026
+
+**Location:** Multan, Pakistan
+
+Our multidisciplinary team works across project coordination, frontend development, backend engineering, scientific data analysis, AI research, and computer vision.
+
+---
+
+## Future Development
+
+Potential future improvements include:
+
+- Additional verified NASA experimental datasets.
+- Improved scientific data validation and unit handling.
+- More advanced combustion analysis.
+- Enhanced evidence retrieval and research assistance.
+- Better visualization of experimental trends.
+- Further investigation of spacecraft fire-safety implications.
+- Validated image-based flame analysis where suitable imagery is available.
+
+---
+
+## Acknowledgment
+
+Developed as part of the **NASA Space Apps Challenge 2026**, inspired by the challenge:
+
+*Flame in Freefall: AI-Powered Fire Safety Insights from Microgravity Combustion Data.*
+
+**THE MOON — Exploring combustion science for safer future space exploration.**
