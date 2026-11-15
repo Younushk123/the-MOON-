@@ -13,6 +13,7 @@ from app.integrations.insights import (
     UnavailableInsightEngine,
     UnavailableResearchAssistant,
 )
+from app.integrations.rag_adapter import NASAResearchAssistant
 from app.integrations.vision import UnavailableVisionAnalyzer, VisionAnalyzer
 
 
@@ -28,6 +29,6 @@ def build_integrations(settings: Settings) -> Integrations:
     return Integrations(
         analysis=ReferenceAnalysisEngine(),
         insights=UnavailableInsightEngine(),
-        assistant=UnavailableResearchAssistant(),
+        assistant=NASAResearchAssistant(),
         vision=UnavailableVisionAnalyzer(),
     )
