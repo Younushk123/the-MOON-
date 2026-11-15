@@ -1,0 +1,37 @@
+frame_index,playback_time_s,phase,reference_label,detected,quality_status,angular_coverage_pct,measurement_eligible,raw_prediction,screened_prediction
+1,0.0333,Setup and ignition,not_evaluable,,blank_frame,,False,False,False
+16,0.5333,Setup and ignition,absent,True,excluded_pre_analysis,75.0,False,True,False
+33,1.1,Setup and ignition,absent,False,not_detected,,False,False,False
+46,1.5333,Setup and ignition,ambiguous,False,not_detected,,False,False,False
+59,1.9667,Setup and ignition,ambiguous,False,not_detected,,False,False,False
+74,2.4667,Setup and ignition,ambiguous,False,not_detected,,False,False,False
+75,2.5,Early transition,ambiguous,False,not_detected,,False,False,False
+82,2.7333,Early transition,present,False,not_detected,,False,False,False
+89,2.9667,Early transition,present,True,uncertain_boundary,69.44,False,True,True
+96,3.2,Early transition,present,True,uncertain_boundary,75.0,False,True,True
+104,3.4667,Early transition,present,True,quality_screened,80.56,True,True,True
+105,3.5,Visible envelope,present,True,quality_screened,80.56,True,True,True
+117,3.9,Visible envelope,present,True,quality_screened,83.33,True,True,True
+130,4.3333,Visible envelope,present,True,quality_screened,88.89,True,True,True
+143,4.7667,Visible envelope,present,True,quality_screened,100.0,True,True,True
+156,5.2,Visible envelope,present,True,quality_screened,100.0,True,True,True
+168,5.6,Visible envelope,present,True,quality_screened,100.0,True,True,True
+181,6.0333,Visible envelope,present,True,quality_screened,97.22,True,True,True
+194,6.4667,Visible envelope,present,True,quality_screened,100.0,True,True,True
+206,6.8667,Visible envelope,present,True,quality_screened,100.0,True,True,True
+220,7.3333,Visible envelope,present,True,quality_screened,100.0,True,True,True
+232,7.7333,Visible envelope,present,True,quality_screened,100.0,True,True,True
+245,8.1667,Visible envelope,present,True,quality_screened,83.33,True,True,True
+247,8.2333,Fading transition,present,True,quality_screened,83.33,True,True,True
+256,8.5333,Fading transition,ambiguous,False,not_detected,,False,False,False
+264,8.8,Fading transition,ambiguous,False,not_detected,,False,False,False
+272,9.0667,Fading transition,ambiguous,False,not_detected,,False,False,False
+278,9.2667,Fading transition,absent,False,not_detected,,False,False,False
+284,9.4667,Fading transition,absent,False,not_detected,,False,False,False
+285,9.5,Later recording,absent,False,not_detected,,False,False,False
+353,11.7667,Later recording,absent,False,not_detected,,False,False,False
+421,14.0333,Later recording,absent,False,not_detected,,False,False,False
+488,16.2667,Later recording,absent,False,not_detected,,False,False,False
+556,18.5333,Later recording,absent,False,not_detected,,False,False,False
+623,20.7667,Later recording,absent,False,not_detected,,False,False,False
+691,23.0333,Later recording,not_evaluable,,blank_frame,,False,False,False

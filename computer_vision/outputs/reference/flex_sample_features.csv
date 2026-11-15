@@ -1,0 +1,5 @@
+frame_index,playback_time_s,detected,area_pixels,diameter_pixels,radius_pixels,centroid_x,centroid_y,angular_coverage_pct,boundary_brightness_mean,circularity,calibration_status,method
+125,4.1667,True,34621.0,209.703,104.851,480.631,284.957,91.67,22.89,,not_calibrated,ransac_circle
+188,6.2667,True,42265.0,231.219,115.609,474.846,264.238,97.22,12.006,,not_calibrated,ransac_circle
+251,8.3667,True,44469.0,238.342,119.171,471.389,250.065,72.22,16.565,,not_calibrated,ransac_circle
+314,10.4667,False,,,,,,,,,not_calibrated,ransac_circle

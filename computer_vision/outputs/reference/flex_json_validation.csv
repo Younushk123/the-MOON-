@@ -1,0 +1,47 @@
+Validation,Status
+flex_video_cv_result.json exists,PASS
+flex_video_cv_result.json valid JSON,PASS
+flex_image_cv_result.json exists,PASS
+flex_image_cv_result.json valid JSON,PASS
+flex_frame_timeline.json exists,PASS
+flex_frame_timeline.json valid JSON,PASS
+flex_backend_output.json exists,PASS
+flex_backend_output.json valid JSON,PASS
+CV-FLEX-001: Required fields,PASS
+CV-FLEX-001: Required features,PASS
+CV-FLEX-001: Processing successful,PASS
+CV-FLEX-001: Detection boolean,PASS
+CV-FLEX-001: Valid width_pixels,PASS
+CV-FLEX-001: Valid brightness_mean,PASS
+CV-FLEX-001: Valid height_pixels,PASS
+CV-FLEX-001: Valid area_pixels,PASS
+CV-FLEX-001: Brightness within range,PASS
+CV-FLEX-001: Area within bounding dimensions,PASS
+CV-FLEX-001: Calibration documented,PASS
+CV-FLEX-001: Limitations documented,PASS
+CV-FLEX-001: Source ID field valid,PASS
+CV-FLEX-002: Required fields,PASS
+CV-FLEX-002: Required features,PASS
+CV-FLEX-002: Processing successful,PASS
+CV-FLEX-002: Detection boolean,PASS
+CV-FLEX-002: Valid width_pixels,PASS
+CV-FLEX-002: Valid brightness_mean,PASS
+CV-FLEX-002: Valid height_pixels,PASS
+CV-FLEX-002: Valid area_pixels,PASS
+CV-FLEX-002: Brightness within range,PASS
+CV-FLEX-002: Area within bounding dimensions,PASS
+CV-FLEX-002: Calibration documented,PASS
+CV-FLEX-002: Limitations documented,PASS
+CV-FLEX-002: Source ID field valid,PASS
+Timeline contains 693 frames,PASS
+Timeline frame continuity,PASS
+Timeline frame count consistency,PASS
+Playback timestamps are valid and ordered,PASS
+148 quality-screened measurements,PASS
+Unavailable envelope measurements remain null,PASS
+Backend summary frame count,PASS
+Backend summary screened count,PASS
+Both media results included,PASS
+Media results match individual exports,PASS
+Unique CV result identifiers,PASS
+NASA source URLs included,PASS

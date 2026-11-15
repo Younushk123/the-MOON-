@@ -1,0 +1,13 @@
+frame_index,reference_frame,detected,coverage_pct,longest_arc_deg,status
+16,92,False,0.0,0.0,outside_tracking_window
+33,92,False,0.0,0.0,outside_tracking_window
+82,92,True,29.166666666666668,60.0,candidate_visible_arc
+89,92,True,52.77777777777778,95.0,candidate_visible_arc
+96,95,True,75.0,170.0,candidate_visible_arc
+145,145,True,77.77777777777779,90.0,candidate_visible_arc
+251,250,False,61.111111111111114,55.0,insufficient_evidence
+256,250,False,40.27777777777778,30.0,insufficient_evidence
+264,250,False,38.88888888888889,35.0,insufficient_evidence
+272,250,False,20.833333333333336,15.0,insufficient_evidence
+278,250,False,26.38888888888889,35.0,insufficient_evidence
+285,250,False,25.0,35.0,insufficient_evidence

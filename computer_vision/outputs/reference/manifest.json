@@ -1,0 +1,259 @@
+{
+  "project": "THE MOON",
+  "developer": "Muhammad Ahsan",
+  "experiment": "FLEX",
+  "nasa_investigation": "PSI-69",
+  "processed_frames": 693,
+  "quality_screened_measurements": 148,
+  "partial_boundary_detections": 27,
+  "compact_luminous_observations": 999,
+  "high_intensity_core_observations": 660,
+  "red_region_analyzed_frames": 401,
+  "validation_checks_passed": 46,
+  "validation_checks_failed": 0,
+  "calibration_status": "not_calibrated",
+  "backend_registry_verification": "pending",
+  "video_checks": [
+    {
+      "filename": "flex_annotated.mp4",
+      "decoded_frames": 693,
+      "status": "PASS"
+    },
+    {
+      "filename": "flex_integrated_annotated.mp4",
+      "decoded_frames": 693,
+      "status": "PASS"
+    },
+    {
+      "filename": "flex_integrated_raw.mp4",
+      "decoded_frames": 693,
+      "status": "PASS"
+    }
+  ],
+  "source_urls": [
+    "https://psi.nasa.gov/physci/repo/data/investigations/PSI-69",
+    "https://svs.gsfc.nasa.gov/11318/"
+  ],
+  "files": [
+    {
+      "file": "results/flex_backend_output.json",
+      "size_bytes": 4362,
+      "sha256": "820efbc8d78d750fa0def40c33e859b8908505ab9f4977005061b12c0b93e071"
+    },
+    {
+      "file": "results/flex_extended_validation.csv",
+      "size_bytes": 2894,
+      "sha256": "aa0d9e0dfdae603bd4dbd58f16d12ec8ba4e041d706468ba19c65a15d41c5442"
+    },
+    {
+      "file": "results/flex_final_statistics.csv",
+      "size_bytes": 331,
+      "sha256": "f8bdd36c66c6378f5e50183a4e2d698b0419898d7069c3fe7c0bfe34202d762d"
+    },
+    {
+      "file": "results/flex_frame_timeline.json",
+      "size_bytes": 543046,
+      "sha256": "dddea1f1ffed18e8595363c6a75da27dd9f683822c814d7d930c7af28d1de865"
+    },
+    {
+      "file": "results/flex_image_cv_result.json",
+      "size_bytes": 712,
+      "sha256": "e4710f722cd15f976d53e06254e1d4f3efc8dfac15600d1fd25f6b27bfad90e1"
+    },
+    {
+      "file": "results/flex_integrated_analysis.csv",
+      "size_bytes": 78248,
+      "sha256": "b65649e308f9a41f90d8f38d0dea7f650f510b9298c984e026d614616e1d61d9"
+    },
+    {
+      "file": "results/flex_integrated_luminous_cores.csv",
+      "size_bytes": 60143,
+      "sha256": "120841a5bb7ae9d369d063963bc8d4fe622507587c5718e96fb4cc3396cff4f6"
+    },
+    {
+      "file": "results/flex_integrated_luminous_sources.csv",
+      "size_bytes": 109587,
+      "sha256": "a2da818f0d65a610b6cb8e8da2899a100c3b2ce6f1fb03a3246318c954debae0"
+    },
+    {
+      "file": "results/flex_json_validation.csv",
+      "size_bytes": 1807,
+      "sha256": "f9a3eb34a94b3c72f9d43ffbf59c5b670f1f1a5cc7214633dd31faea1ef1bc7e"
+    },
+    {
+      "file": "results/flex_json_validation.json",
+      "size_bytes": 4463,
+      "sha256": "af1c320a6fed40e43c5769b465df615fc61885fe34fdc7bf6b7d96eefd16a8c3"
+    },
+    {
+      "file": "results/flex_luminous_sources.csv",
+      "size_bytes": 9915,
+      "sha256": "1ad96d6766171f6a228a4c4fc250891df3cb93c0e821ee6c37bb95d267cb1c4c"
+    },
+    {
+      "file": "results/flex_partial_boundary_evaluation.csv",
+      "size_bytes": 719,
+      "sha256": "393504d7186b2197cbd10ec1dba2d15fcd42d90940da9a850070577acfb403f8"
+    },
+    {
+      "file": "results/flex_quality_controlled_features.csv",
+      "size_bytes": 73352,
+      "sha256": "d19218c190bc7f716d422da040f26e95b21fc624b944d40727a86e23bb25abf9"
+    },
+    {
+      "file": "results/flex_red_emission.csv",
+      "size_bytes": 16748,
+      "sha256": "e2aa037099322b267db80758101a15ee349290d0d5627e202f16960fb95816e5"
+    },
+    {
+      "file": "results/flex_refined_luminous_sources.csv",
+      "size_bytes": 3501,
+      "sha256": "d234db3cc8cea25ec2c44c7a071ccc9be298096796ce59ffc6520a7fe56e4544"
+    },
+    {
+      "file": "results/flex_sample_features.csv",
+      "size_bytes": 536,
+      "sha256": "02a409172226a7873958e74e83d89cb0fccfeac321e4d374347bc9b60ccf2cd8"
+    },
+    {
+      "file": "results/flex_static_image_analysis.csv",
+      "size_bytes": 872,
+      "sha256": "8bfacb8953eb7d3566902216065487ebe05f3887948bbfe187d7971f04bc8609"
+    },
+    {
+      "file": "results/flex_temporal_features.csv",
+      "size_bytes": 59436,
+      "sha256": "bf1f1ce065f3ed3828c82558cdd46230accfa252bf9f3b570e87d6614904cf10"
+    },
+    {
+      "file": "results/flex_video_cv_result.json",
+      "size_bytes": 681,
+      "sha256": "b0f79ba18aa89959dde73ee45d3a8923e1664001a72d84d6122e298108ab888f"
+    },
+    {
+      "file": "visualizations/extended_validation_1.png",
+      "size_bytes": 5104633,
+      "sha256": "c9313dd95acfd33a61a1ebf7e7daabbca3b36ce91f8fecd567287ee6069a88a0"
+    },
+    {
+      "file": "visualizations/extended_validation_2.png",
+      "size_bytes": 6200882,
+      "sha256": "b53c4a175a4f4e7efdb3f69581c3d7e46523d5dcc9717feeca606e1b7de23130"
+    },
+    {
+      "file": "visualizations/extended_validation_3.png",
+      "size_bytes": 5968217,
+      "sha256": "43aa83cad224761fe0edc24e8ad78d48f7b5bf2bcbbe801870b7bcaed84af808"
+    },
+    {
+      "file": "visualizations/flex_annotated.mp4",
+      "size_bytes": 1121196,
+      "sha256": "a89c2e94bb06180f49470b40a39e8df0e9e7dfd63c793f98ab7d5dda12aca16d"
+    },
+    {
+      "file": "visualizations/flex_integrated_annotated.mp4",
+      "size_bytes": 2797615,
+      "sha256": "c5aee68dce61b02116b44dbfaa725f9ab69f1193a0d8cda960e0a647c57dbc4c"
+    },
+    {
+      "file": "visualizations/flex_integrated_raw.mp4",
+      "size_bytes": 7243948,
+      "sha256": "bda995a96d5c105f3abf5adb538032ccf490c5a70a4f74b869df12a6ab01e9e4"
+    },
+    {
+      "file": "visualizations/flex_intelligence_timeline.png",
+      "size_bytes": 486309,
+      "sha256": "e1948f0d1b9f8337fd6e330d02e6f0874d9fd3c4b6b7fea5d90bd37206c9c6ed"
+    },
+    {
+      "file": "visualizations/flex_luminous_core_separation.png",
+      "size_bytes": 2401467,
+      "sha256": "d67d42371fdcbd1fd8d92844e5b45ff8ac4cbb260fbc85aa6203d6ea07692c89"
+    },
+    {
+      "file": "visualizations/flex_luminous_segmentation.png",
+      "size_bytes": 1169777,
+      "sha256": "75d930376060702dc9afbb894a893331a5cfb092550745a3dd3f6c9658045a95"
+    },
+    {
+      "file": "visualizations/flex_luminous_source_detection.png",
+      "size_bytes": 4332085,
+      "sha256": "f628f662923137bd4991bf349499b5dba7a817eddec29951791f87de4000751e"
+    },
+    {
+      "file": "visualizations/flex_multilevel_luminous_analysis.png",
+      "size_bytes": 3966139,
+      "sha256": "75c7ab1c72969d3b421746222ac2adf4b00730de744eca36951245cc14fb647d"
+    },
+    {
+      "file": "visualizations/flex_original_image.png",
+      "size_bytes": 1451719,
+      "sha256": "f8b15a255b92100931e048cb8d0202553953ad443e16cd63e580f65ed2ef472a"
+    },
+    {
+      "file": "visualizations/flex_partial_boundary.png",
+      "size_bytes": 4189555,
+      "sha256": "ac14cd397ab7223ecea6a338de714789dac9740799caf385b9d315aeca7426f9"
+    },
+    {
+      "file": "visualizations/flex_quality_controlled_dynamics.png",
+      "size_bytes": 413601,
+      "sha256": "d4a2aed788f28b7d21a0bc2da32364884b03415099e37b37496e83e9a0436caf"
+    },
+    {
+      "file": "visualizations/flex_red_emission.png",
+      "size_bytes": 972803,
+      "sha256": "cb3d7b90c5e16b7b107e09dc6946e68bcdfd2090fee52199a021ee8b1b6495ab"
+    },
+    {
+      "file": "visualizations/flex_refined_luminous_sources.png",
+      "size_bytes": 4177976,
+      "sha256": "456ba89cbb787b778f6742b097428fbe71f0d994820681b22edf37b96cab1eb2"
+    },
+    {
+      "file": "visualizations/flex_segmentation_comparison.png",
+      "size_bytes": 1200757,
+      "sha256": "0a906665f592be76ce2c7f393a1d14fe76b5d18f6a82c7f7d958cd794e35a8c2"
+    },
+    {
+      "file": "visualizations/flex_segmentation_diagnostics.png",
+      "size_bytes": 1119056,
+      "sha256": "c904c4c452880cd0c72ddf352d90f0e0646870a164c9a34b4e11fa765e47ac9d"
+    },
+    {
+      "file": "visualizations/flex_signal_diagnostics.png",
+      "size_bytes": 2312709,
+      "sha256": "091da94b292534c83a141cf3f773c03556c92c2917bad8b24a5bb20b3ea862e6"
+    },
+    {
+      "file": "visualizations/flex_static_image_analysis.png",
+      "size_bytes": 1465070,
+      "sha256": "47a183c88045d20c87426928b9b9e30571a9b90be955959fdc95d782f0b1b91a"
+    },
+    {
+      "file": "visualizations/flex_temporal_audit.png",
+      "size_bytes": 5658329,
+      "sha256": "cabfb82d4002e3f111d90422e379341dcc3ccbc9213efabd4b6c4634cd5ec4b5"
+    },
+    {
+      "file": "visualizations/flex_temporal_contact_sheet.png",
+      "size_bytes": 3671302,
+      "sha256": "12596bbdb28e41782f65b58ae477c20fd96b1857ed5718907072723537fd0a2e"
+    },
+    {
+      "file": "visualizations/flex_temporal_dynamics.png",
+      "size_bytes": 574751,
+      "sha256": "b157cc784d53ecb359da1f6a24f74b17981445663bb52f13bee2fc2684562132"
+    },
+    {
+      "file": "visualizations/flex_validation_comparison.png",
+      "size_bytes": 876243,
+      "sha256": "bd55439910d6a5a6d324c3a735f3181d5e517e07e371527129b374b607566ee0"
+    },
+    {
+      "file": "visualizations/flex_validation_samples.png",
+      "size_bytes": 1339782,
+      "sha256": "4dae6424c5c121b885648f7e9f7db5f4af677661d7cf2735cfbae52b3f84f583"
+    }
+  ]
+}
