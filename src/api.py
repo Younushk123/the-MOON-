@@ -81,7 +81,7 @@ def answer_question(query: str, top_k: int = 5, experiment_ids: Optional[List[st
         if sid and sid not in seen:
             seen.add(sid)
             cited_sources.append(sid)
-    if not cited_sources:
+    if not cited_sources and not res.get("abstained"):
         for r in res.get("retrieved", [])[:3]:
             rid = r.get("register_id")
             if rid and rid not in seen:
