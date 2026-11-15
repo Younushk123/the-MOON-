@@ -1,9 +1,10 @@
 """Services that resolve experiments, then hand off to a teammate's module (or its placeholder)."""
 
 from app.config import DataMode
+from app.errors import MediaExperimentMismatchError
 from app.integrations.analysis import AnalysisEngine
 from app.integrations.insights import InsightEngine, ResearchAssistant
-from app.integrations.vision import VisionAnalyzer
+from app.integrations.vision import VisionAnalyzer, not_processed
 from app.models.analysis import AnalysisRequest, AnalysisResult, Comparison, ComparisonRequest
 from app.models.insight import AskRequest, Insight, InsightRequest
 from app.models.vision import CVResult, VisionRequest
@@ -55,5 +56,12 @@ class VisionService(_ModuleService):
         self.analyzer = analyzer
 
     def analyze(self, request: VisionRequest) -> CVResult:
+        """Check the media belongs to the experiment and has a file before the CV module sees it."""
         experiment = self.experiments.get_experiment(request.experiment_id)
-        return self.analyzer.analyze(experiment, request.media_id)
+        media = self.experiments.get_media(request.media_id)
+        if media.experiment_id != experiment.experiment_id:
+            raise MediaExperimentMismatchError(media.media_id, experiment.experiment_id, media.experiment_id)
+        if media.availability_status != "available":
+            reason = f"Media '{media.media_id}' is {media.availability_status}. No file was analysed."
+            return not_processed(experiment, media, reason)
+        return self.analyzer.analyze(experiment, media)
