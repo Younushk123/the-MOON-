@@ -10,7 +10,7 @@ import {
   Flame,
 } from "lucide-react";
 
-import "../styles/overview.css";
+import "../styles/Overview.css";
 
 import MockNotice from "../components/ui/MockNotice";
 import { formatDate, formatRange } from "../utils/format";
