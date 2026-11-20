@@ -18,7 +18,7 @@ from app.services.module_services import VisionService
 router = APIRouter(tags=["vision"])
 
 Service = Annotated[VisionService, Depends(get_vision_service)]
-MAX_VIDEO_SIZE = 25 * 1024 * 1024
+MAX_VIDEO_SIZE = 4 * 1024 * 1024
 MAX_IMAGE_SIZE = 25 * 1024 * 1024
 SUPPORTED_IMAGE_SUFFIXES = {".jpg", ".jpeg", ".png", ".webp"}
 logger = logging.getLogger(__name__)
@@ -98,9 +98,9 @@ async def analyze_flex_image(
     description=(
         "Accepts an MP4 matching the PSI-69 FLEX profile (960x540, 30 FPS, 693 frames). "
         "Returns a job ID immediately; poll `/vision/jobs/{job_id}` for status. "
-        "Uploads are temporary, limited to 25 MB, and are not retained."
+        "Uploads are temporary, limited to 4 MB for serverless deployment, and are not retained."
     ),
-    responses={**INVALID, 413: {"description": "Video exceeds the 25 MB upload limit"}},
+    responses={**INVALID, 413: {"description": "Video exceeds the 4 MB serverless upload limit"}},
 )
 async def analyze_flex_video(
     media_id: Annotated[Identifier, Form()],
