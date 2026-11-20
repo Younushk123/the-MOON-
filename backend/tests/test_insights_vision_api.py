@@ -340,16 +340,27 @@ def test_flex_video_upload_rejects_non_mp4(client):
     assert_error(response, 422, "VALIDATION_ERROR")
 
 
-def test_flex_video_upload_rejects_serverless_execution(client, monkeypatch):
+def test_flex_video_upload_rejects_invalid_profile_in_serverless(client, monkeypatch):
     from app.integrations import vision as vision_integration
+    from app.integrations.vision import FlexVisionAnalyzer
+    from app.errors import AppError, ErrorCode
 
     monkeypatch.setattr(vision_integration, "IS_VERCEL", True)
+    monkeypatch.setattr(
+        FlexVisionAnalyzer,
+        "_analyze_video",
+        lambda self, media_id, path: (_ for _ in ()).throw(
+            AppError(ErrorCode.VALIDATION_ERROR, "Unsupported FLEX video profile.", 422)
+        ),
+    )
     response = client.post(
         f"{API}/vision/analyze-video",
         data={"media_id": "MEDIA-001"},
         files={"video": ("flex.mp4", b"video-bytes", "video/mp4")},
     )
-    assert_error(response, 503, "ANALYSIS_FAILED")
+    data = assert_ok(response, status=202)
+    assert data["status"] == "failed"
+    assert data["error"] == "Unsupported FLEX video profile."
 
 
 def test_flex_video_upload_enforces_size_limit(client, monkeypatch):

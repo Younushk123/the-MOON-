@@ -176,6 +176,17 @@ export default function ComputerVision() {
       const job = await startFlexVideoAnalysis(video, mediaId.trim())
       setJobId(job.job_id)
       setJobStatus(job.status)
+      if (job.status === 'completed' && job.result) {
+        setResult(job.result)
+        setStatus('success')
+        setError('')
+        return
+      }
+      if (job.status === 'failed') {
+        setError(job.error || 'FLEX video analysis failed.')
+        setStatus('error')
+        return
+      }
       await waitForJob(job.job_id)
     } catch (requestError: unknown) {
       if (requestError instanceof ApiError && requestError.status === 503) {

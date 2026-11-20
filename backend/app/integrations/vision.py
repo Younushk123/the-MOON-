@@ -115,11 +115,27 @@ class FlexVisionAnalyzer(UnavailableVisionAnalyzer):
 
     def submit_video(self, media_id: str, video_path: Path, upload_directory: Path) -> CVAnalysisJob:
         if IS_VERCEL:
-            raise AppError(
-                ErrorCode.ANALYSIS_FAILED,
-                "Video analysis requires the persistent worker deployment. It is not available in the serverless API.",
-                503,
-            )
+            job_id = new_id("CVJOB")
+            try:
+                result = self._analyze_video(media_id, video_path)
+                job = CVAnalysisJob(job_id=job_id, status="completed", result=result)
+            except AppError as exc:
+                job = CVAnalysisJob(job_id=job_id, status="failed", error=exc.message)
+            except Exception:
+                logger.exception("Unexpected error while synchronously analyzing FLEX video job %s", job_id)
+                job = CVAnalysisJob(
+                    job_id=job_id,
+                    status="failed",
+                    error="FLEX video analysis failed. Please try again with the supported source video.",
+                )
+            finally:
+                try:
+                    shutil.rmtree(upload_directory)
+                except FileNotFoundError:
+                    pass
+                except OSError:
+                    logger.exception("Could not remove temporary video upload directory %s", upload_directory)
+            return job
 
         with self._lock:
             active_jobs = sum(job.status in {"queued", "processing"} for job in self._jobs.values())
