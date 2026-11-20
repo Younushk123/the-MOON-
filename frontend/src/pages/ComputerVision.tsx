@@ -3,6 +3,7 @@ import { Film, Image as ImageIcon, ScanEye, Upload } from 'lucide-react'
 import CvResultCard from '../components/ui/CvResultCard'
 import Tag from '../components/ui/Tag'
 import { analyzeFlexImage, getFlexVideoJob, startFlexVideoAnalysis } from '../services/api'
+import { ApiError } from '../services/apiClient'
 import type { CvAnalysisJobStatus, CvResult } from '../types/schemas'
 import '../styles/ComputerVision.css'
 
@@ -177,11 +178,17 @@ export default function ComputerVision() {
       setJobStatus(job.status)
       await waitForJob(job.job_id)
     } catch (requestError: unknown) {
-      setError(
-        requestError instanceof Error
-          ? requestError.message
-          : 'Video analysis failed.',
-      )
+      if (requestError instanceof ApiError && requestError.status === 503) {
+        setError(
+          'Video analysis needs a persistent backend worker. It is not available on the public serverless deployment yet.',
+        )
+      } else {
+        setError(
+          requestError instanceof Error
+            ? requestError.message
+            : 'Video analysis failed.',
+        )
+      }
       setStatus('error')
     }
   }
