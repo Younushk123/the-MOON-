@@ -1,7 +1,8 @@
 # THE MOON
 
-THE MOON is a NASA Space Apps 2026 research platform for exploring microgravity combustion data,
-evidence-linked research answers, and FLEX flame-media analysis.
+THE MOON is designed as a web-based scientific intelligence platform that helps users explore NASA's microgravity combustion research and understand its relevance to spacecraft fire safety.
+
+The platform organizes information about combustion experiments and provides an interactive dashboard for exploring experiment details, available research materials, scientific findings, and fire-safety-related insights
 
 ## Repository structure
 
