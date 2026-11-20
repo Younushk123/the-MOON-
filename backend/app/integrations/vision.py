@@ -2,6 +2,7 @@
 
 import json
 import logging
+import os
 import shutil
 import subprocess
 import sys
@@ -23,6 +24,7 @@ MAX_ACTIVE_VIDEO_JOBS = 2
 MAX_STORED_VIDEO_JOBS = 20
 MAX_IMAGE_PIXELS = 12_000_000
 SUPPORTED_IMAGE_FORMATS = {"JPEG", "PNG", "WEBP"}
+IS_VERCEL = bool(os.getenv("VERCEL"))
 
 
 class VisionAnalyzer(Protocol):
@@ -112,6 +114,13 @@ class FlexVisionAnalyzer(UnavailableVisionAnalyzer):
         return CVResult.model_validate(result)
 
     def submit_video(self, media_id: str, video_path: Path, upload_directory: Path) -> CVAnalysisJob:
+        if IS_VERCEL:
+            raise AppError(
+                ErrorCode.ANALYSIS_FAILED,
+                "Video analysis requires the persistent worker deployment. It is not available in the serverless API.",
+                503,
+            )
+
         with self._lock:
             active_jobs = sum(job.status in {"queued", "processing"} for job in self._jobs.values())
             if active_jobs >= MAX_ACTIVE_VIDEO_JOBS:

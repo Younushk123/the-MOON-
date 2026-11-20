@@ -4,7 +4,7 @@ const env = import.meta.env
 export const USE_MOCK: boolean = env.VITE_USE_MOCK_DATA !== 'false'
 
 export const API_BASE_URL: string = String(
-  env.VITE_API_BASE_URL || 'http://127.0.0.1:8000',
+  env.VITE_API_BASE_URL ?? (env.DEV ? 'http://127.0.0.1:8000' : ''),
 )
   .trim()
   .replace(/\/+$/, '')

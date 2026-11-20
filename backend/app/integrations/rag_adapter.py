@@ -1,6 +1,7 @@
 """Adapter connecting the NASA RAG module to the backend ResearchAssistant."""
 
 import sys
+import os
 from functools import lru_cache
 from pathlib import Path
 from typing import Any
@@ -17,7 +18,10 @@ def _load_rag():
     """Initialize the RAG engine once and reuse it."""
     from rag_pipeline import NASARAG
 
-    return NASARAG(mode="auto")
+    return NASARAG(
+        mode=os.getenv("MOON_RAG_MODE", "extractive"),
+        use_semantic=False,
+    )
 
 
 class NASAResearchAssistant:

@@ -11,7 +11,7 @@ os.environ.setdefault("ANONYMIZED_TELEMETRY", "False")
 
 try:
     from dotenv import load_dotenv
-    load_dotenv(Path(__file__).resolve().parent.parent / ".env")   # always the project-root .env, whatever the cwd
+    load_dotenv(Path(__file__).resolve().parents[1] / ".env")
 except Exception:  # python-dotenv optional
     pass
 

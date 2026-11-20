@@ -340,6 +340,18 @@ def test_flex_video_upload_rejects_non_mp4(client):
     assert_error(response, 422, "VALIDATION_ERROR")
 
 
+def test_flex_video_upload_rejects_serverless_execution(client, monkeypatch):
+    from app.integrations import vision as vision_integration
+
+    monkeypatch.setattr(vision_integration, "IS_VERCEL", True)
+    response = client.post(
+        f"{API}/vision/analyze-video",
+        data={"media_id": "MEDIA-001"},
+        files={"video": ("flex.mp4", b"video-bytes", "video/mp4")},
+    )
+    assert_error(response, 503, "ANALYSIS_FAILED")
+
+
 def test_flex_video_upload_enforces_size_limit(client, monkeypatch):
     from app.api.v1 import vision as vision_api
 

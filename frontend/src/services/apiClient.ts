@@ -83,12 +83,6 @@ async function realRequest(
   const isFormData =
     typeof FormData !== 'undefined' && body instanceof FormData
 
-  if (!API_BASE_URL) {
-    throw new ApiError(
-      'VITE_API_BASE_URL is not configured. Check your .env.local file.',
-    )
-  }
-
   if (signal?.aborted) {
     throw createAbortError()
   }
