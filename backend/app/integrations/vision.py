@@ -217,6 +217,37 @@ class FlexVisionAnalyzer(UnavailableVisionAnalyzer):
 
     def _analyze_video(self, media_id: str, video_path: Path) -> CVResult:
         repository_root = Path(__file__).resolve().parents[3]
+        if IS_VERCEL:
+            if str(repository_root) not in sys.path:
+                sys.path.insert(0, str(repository_root))
+            try:
+                from computer_vision.src.backend_output import export_video_result
+                from computer_vision.src.video_analysis import analyze_video
+
+                analysis = analyze_video(video_path)
+                result, _ = export_video_result(
+                    video_path,
+                    analysis["timeline"],
+                    experiment_id=FLEX_EXPERIMENT_ID,
+                    media_id=media_id,
+                )
+            except ValueError as exc:
+                raise AppError(
+                    ErrorCode.VALIDATION_ERROR,
+                    str(exc),
+                    422,
+                ) from exc
+            except Exception as exc:
+                logger.exception("In-process Vercel FLEX video analyzer failed")
+                raise AppError(
+                    ErrorCode.ANALYSIS_FAILED,
+                    "FLEX video analysis failed.",
+                    500,
+                ) from exc
+
+            result["cv_result_id"] = new_id("CV")
+            return CVResult.model_validate(result)
+
         try:
             completed = subprocess.run(
                 [

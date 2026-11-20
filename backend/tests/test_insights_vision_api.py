@@ -270,8 +270,11 @@ def test_flex_video_upload_returns_job(client, monkeypatch):
 def test_flex_video_job_runs_in_background_and_cleans_upload(tmp_path, monkeypatch):
     import time
 
+    import app.integrations.vision as vision_integration
     from app.integrations.vision import FlexVisionAnalyzer
     from app.models.vision import CVAnalysisJob
+
+    monkeypatch.setattr(vision_integration, "IS_VERCEL", False)
 
     analyzer = FlexVisionAnalyzer()
     upload_directory = tmp_path / "upload"

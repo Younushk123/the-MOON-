@@ -7,7 +7,7 @@ import { ApiError } from '../services/apiClient'
 import type { CvAnalysisJobStatus, CvResult } from '../types/schemas'
 import '../styles/ComputerVision.css'
 
-const MAX_VIDEO_BYTES = 25 * 1024 * 1024
+const MAX_VIDEO_BYTES = 4 * 1024 * 1024
 const MAX_IMAGE_BYTES = 25 * 1024 * 1024
 const JOB_POLL_INTERVAL_MS = 2000
 const MAX_JOB_POLLS = 420
@@ -78,7 +78,7 @@ export default function ComputerVision() {
     if (selected.size > MAX_VIDEO_BYTES) {
       setVideo(null)
       setStatus('error')
-      setError('The video exceeds the 25 MB upload limit.')
+      setError('The video exceeds the 4 MB serverless upload limit.')
       return
     }
 
@@ -189,6 +189,11 @@ export default function ComputerVision() {
       }
       await waitForJob(job.job_id)
     } catch (requestError: unknown) {
+      if (requestError instanceof ApiError && requestError.status === 413) {
+        setError(
+          'The uploaded video exceeds Vercel’s serverless request limit. Use a compressed MP4 below 4 MB.',
+        )
+      } else
       if (requestError instanceof ApiError && requestError.status === 503) {
         setError(
           'Video analysis needs a persistent backend worker. It is not available on the public serverless deployment yet.',
