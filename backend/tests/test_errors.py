@@ -2,7 +2,12 @@
 
 from fastapi.testclient import TestClient
 
+from app.config import Settings
 from tests.conftest import API, assert_error
+
+
+def test_settings_trim_trailing_environment_whitespace():
+    assert Settings(data_mode="mock\r\n").data_mode == "mock"
 
 
 def test_unknown_route(client):

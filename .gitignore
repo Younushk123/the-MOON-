@@ -62,3 +62,5 @@ build/
 /computer_vision/data/*.jpg
 /computer_vision/data/*.jpeg
 /computer_vision/data/*.png
+.vercel
+.env*.local

@@ -3,6 +3,7 @@
 from functools import lru_cache
 from typing import Literal
 
+from pydantic import field_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 SCHEMA_VERSION = "1.0"
@@ -22,6 +23,11 @@ class Settings(BaseSettings):
         "http://localhost:5173",
         "http://127.0.0.1:5173",
     ]
+
+    @field_validator("data_mode", mode="before")
+    @classmethod
+    def normalize_data_mode(cls, value: object) -> object:
+        return value.strip() if isinstance(value, str) else value
 
 
 @lru_cache
