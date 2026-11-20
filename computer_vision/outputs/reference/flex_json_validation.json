@@ -1,0 +1,194 @@
+{
+  "total_checks": 46,
+  "passed": 46,
+  "failed": 0,
+  "status": "PASS",
+  "validation_scope": "local CV output integrity",
+  "backend_registry_verification": "pending",
+  "checks": [
+    {
+      "Validation": "flex_video_cv_result.json exists",
+      "Status": "PASS"
+    },
+    {
+      "Validation": "flex_video_cv_result.json valid JSON",
+      "Status": "PASS"
+    },
+    {
+      "Validation": "flex_image_cv_result.json exists",
+      "Status": "PASS"
+    },
+    {
+      "Validation": "flex_image_cv_result.json valid JSON",
+      "Status": "PASS"
+    },
+    {
+      "Validation": "flex_frame_timeline.json exists",
+      "Status": "PASS"
+    },
+    {
+      "Validation": "flex_frame_timeline.json valid JSON",
+      "Status": "PASS"
+    },
+    {
+      "Validation": "flex_backend_output.json exists",
+      "Status": "PASS"
+    },
+    {
+      "Validation": "flex_backend_output.json valid JSON",
+      "Status": "PASS"
+    },
+    {
+      "Validation": "CV-FLEX-001: Required fields",
+      "Status": "PASS"
+    },
+    {
+      "Validation": "CV-FLEX-001: Required features",
+      "Status": "PASS"
+    },
+    {
+      "Validation": "CV-FLEX-001: Processing successful",
+      "Status": "PASS"
+    },
+    {
+      "Validation": "CV-FLEX-001: Detection boolean",
+      "Status": "PASS"
+    },
+    {
+      "Validation": "CV-FLEX-001: Valid width_pixels",
+      "Status": "PASS"
+    },
+    {
+      "Validation": "CV-FLEX-001: Valid brightness_mean",
+      "Status": "PASS"
+    },
+    {
+      "Validation": "CV-FLEX-001: Valid height_pixels",
+      "Status": "PASS"
+    },
+    {
+      "Validation": "CV-FLEX-001: Valid area_pixels",
+      "Status": "PASS"
+    },
+    {
+      "Validation": "CV-FLEX-001: Brightness within range",
+      "Status": "PASS"
+    },
+    {
+      "Validation": "CV-FLEX-001: Area within bounding dimensions",
+      "Status": "PASS"
+    },
+    {
+      "Validation": "CV-FLEX-001: Calibration documented",
+      "Status": "PASS"
+    },
+    {
+      "Validation": "CV-FLEX-001: Limitations documented",
+      "Status": "PASS"
+    },
+    {
+      "Validation": "CV-FLEX-001: Source ID field valid",
+      "Status": "PASS"
+    },
+    {
+      "Validation": "CV-FLEX-002: Required fields",
+      "Status": "PASS"
+    },
+    {
+      "Validation": "CV-FLEX-002: Required features",
+      "Status": "PASS"
+    },
+    {
+      "Validation": "CV-FLEX-002: Processing successful",
+      "Status": "PASS"
+    },
+    {
+      "Validation": "CV-FLEX-002: Detection boolean",
+      "Status": "PASS"
+    },
+    {
+      "Validation": "CV-FLEX-002: Valid width_pixels",
+      "Status": "PASS"
+    },
+    {
+      "Validation": "CV-FLEX-002: Valid brightness_mean",
+      "Status": "PASS"
+    },
+    {
+      "Validation": "CV-FLEX-002: Valid height_pixels",
+      "Status": "PASS"
+    },
+    {
+      "Validation": "CV-FLEX-002: Valid area_pixels",
+      "Status": "PASS"
+    },
+    {
+      "Validation": "CV-FLEX-002: Brightness within range",
+      "Status": "PASS"
+    },
+    {
+      "Validation": "CV-FLEX-002: Area within bounding dimensions",
+      "Status": "PASS"
+    },
+    {
+      "Validation": "CV-FLEX-002: Calibration documented",
+      "Status": "PASS"
+    },
+    {
+      "Validation": "CV-FLEX-002: Limitations documented",
+      "Status": "PASS"
+    },
+    {
+      "Validation": "CV-FLEX-002: Source ID field valid",
+      "Status": "PASS"
+    },
+    {
+      "Validation": "Timeline contains 693 frames",
+      "Status": "PASS"
+    },
+    {
+      "Validation": "Timeline frame continuity",
+      "Status": "PASS"
+    },
+    {
+      "Validation": "Timeline frame count consistency",
+      "Status": "PASS"
+    },
+    {
+      "Validation": "Playback timestamps are valid and ordered",
+      "Status": "PASS"
+    },
+    {
+      "Validation": "148 quality-screened measurements",
+      "Status": "PASS"
+    },
+    {
+      "Validation": "Unavailable envelope measurements remain null",
+      "Status": "PASS"
+    },
+    {
+      "Validation": "Backend summary frame count",
+      "Status": "PASS"
+    },
+    {
+      "Validation": "Backend summary screened count",
+      "Status": "PASS"
+    },
+    {
+      "Validation": "Both media results included",
+      "Status": "PASS"
+    },
+    {
+      "Validation": "Media results match individual exports",
+      "Status": "PASS"
+    },
+    {
+      "Validation": "Unique CV result identifiers",
+      "Status": "PASS"
+    },
+    {
+      "Validation": "NASA source URLs included",
+      "Status": "PASS"
+    }
+  ]
+}

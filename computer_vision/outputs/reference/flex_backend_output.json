@@ -1,0 +1,140 @@
+{
+  "experiment_id": "PSI-69",
+  "total_processed_frames": 693,
+  "quality_screened_measurements": 148,
+  "representative_frame_index": 184,
+  "cv_results": [
+    {
+      "cv_result_id": "CV-FLEX-001",
+      "experiment_id": "PSI-69",
+      "media_id": "MEDIA-001",
+      "processing_status": "success",
+      "detected": true,
+      "features": {
+        "area_pixels": 39381,
+        "width_pixels": 225,
+        "height_pixels": 225,
+        "brightness_mean": 28.0417
+      },
+      "method": "phase_gated_ransac_circle",
+      "calibration_status": "not_calibrated",
+      "limitations": [
+        "Features describe representative video frame 184.",
+        "Geometry is estimated using a circular model.",
+        "Pixel measurements are not physical dimensions.",
+        "Brightness represents grayscale digital intensity.",
+        "Playback time is not calibrated experimental time."
+      ],
+      "source_ids": []
+    },
+    {
+      "cv_result_id": "CV-FLEX-002",
+      "experiment_id": "PSI-69",
+      "media_id": "MEDIA-002",
+      "processing_status": "success",
+      "detected": true,
+      "features": {
+        "area_pixels": 171587,
+        "width_pixels": 537,
+        "height_pixels": 451,
+        "brightness_mean": 94.6489
+      },
+      "method": "red_excess_connected_component_segmentation",
+      "calibration_status": "not_calibrated",
+      "limitations": [
+        "Detected region is a luminous candidate, not a confirmed flame.",
+        "Largest connected component at red-excess threshold 25.",
+        "Segmentation is threshold dependent.",
+        "Apparatus-related illumination may be included.",
+        "Physical dimensions and temperature are unavailable."
+      ],
+      "source_ids": []
+    }
+  ],
+  "static_image_multilevel_analysis": [
+    {
+      "image_name": "flex_companion_image.jpg",
+      "signal_type": "red_excess",
+      "threshold": 15,
+      "area_pixels": 214086,
+      "image_percentage": 23.2298,
+      "mean_signal": 57.5247,
+      "calibration_status": "not_calibrated",
+      "interpretation": "candidate_luminous_region"
+    },
+    {
+      "image_name": "flex_companion_image.jpg",
+      "signal_type": "red_excess",
+      "threshold": 25,
+      "area_pixels": 174167,
+      "image_percentage": 18.8983,
+      "mean_signal": 66.2646,
+      "calibration_status": "not_calibrated",
+      "interpretation": "candidate_luminous_region"
+    },
+    {
+      "image_name": "flex_companion_image.jpg",
+      "signal_type": "red_excess",
+      "threshold": 40,
+      "area_pixels": 140564,
+      "image_percentage": 15.2522,
+      "mean_signal": 74.5651,
+      "calibration_status": "not_calibrated",
+      "interpretation": "candidate_luminous_region"
+    },
+    {
+      "image_name": "flex_companion_image.jpg",
+      "signal_type": "red_excess",
+      "threshold": 55,
+      "area_pixels": 116487,
+      "image_percentage": 12.6396,
+      "mean_signal": 80.2594,
+      "calibration_status": "not_calibrated",
+      "interpretation": "candidate_luminous_region"
+    },
+    {
+      "image_name": "flex_companion_image.jpg",
+      "signal_type": "blue_excess",
+      "threshold": 15,
+      "area_pixels": 0,
+      "image_percentage": 0.0,
+      "mean_signal": null,
+      "calibration_status": "not_calibrated",
+      "interpretation": "candidate_luminous_region"
+    },
+    {
+      "image_name": "flex_companion_image.jpg",
+      "signal_type": "blue_excess",
+      "threshold": 25,
+      "area_pixels": 0,
+      "image_percentage": 0.0,
+      "mean_signal": null,
+      "calibration_status": "not_calibrated",
+      "interpretation": "candidate_luminous_region"
+    },
+    {
+      "image_name": "flex_companion_image.jpg",
+      "signal_type": "blue_excess",
+      "threshold": 40,
+      "area_pixels": 0,
+      "image_percentage": 0.0,
+      "mean_signal": null,
+      "calibration_status": "not_calibrated",
+      "interpretation": "candidate_luminous_region"
+    },
+    {
+      "image_name": "flex_companion_image.jpg",
+      "signal_type": "blue_excess",
+      "threshold": 55,
+      "area_pixels": 0,
+      "image_percentage": 0.0,
+      "mean_signal": null,
+      "calibration_status": "not_calibrated",
+      "interpretation": "candidate_luminous_region"
+    }
+  ],
+  "source_urls": [
+    "https://psi.nasa.gov/physci/repo/data/investigations/PSI-69",
+    "https://svs.gsfc.nasa.gov/11318/"
+  ]
+}

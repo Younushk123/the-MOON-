@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "question": {
+      "maxLength": 1000,
+      "minLength": 3,
+      "title": "Question",
+      "type": "string"
+    },
+    "experiment_ids": {
+      "items": {
+        "maxLength": 64,
+        "minLength": 1,
+        "type": "string"
+      },
+      "maxItems": 10,
+      "title": "Experiment Ids",
+      "type": "array"
+    }
+  },
+  "required": [
+    "question"
+  ],
+  "title": "InsightRequest",
+  "type": "object"
+}

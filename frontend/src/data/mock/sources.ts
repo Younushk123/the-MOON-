@@ -1,0 +1,40 @@
+import type { Source } from '../../types/schemas'
+
+export const mockSources: Source[] = [
+  {
+    source_id: 'SRC-MOCK-001',
+    title: 'NASA Open Data (mock)',
+    url: null,
+    publisher: 'Mock publisher',
+    source_type: 'dataset',
+    experiment_id: 'MOCK-EX-001',
+    access_status: 'unknown',
+    verification_status: 'unverified',
+    ingestion_status: 'not_ingested',
+    publication_date: null,
+  },
+  {
+    source_id: 'SRC-MOCK-002',
+    title: 'Research Publications (mock)',
+    url: null,
+    publisher: 'Mock publisher',
+    source_type: 'research_paper',
+    experiment_id: 'MOCK-EX-002',
+    access_status: 'unknown',
+    verification_status: 'unverified',
+    ingestion_status: 'not_ingested',
+    publication_date: null,
+  },
+  {
+    source_id: 'SRC-MOCK-003',
+    title: 'Scientific Literature (mock)',
+    url: null,
+    publisher: 'Mock publisher',
+    source_type: 'technical_report',
+    experiment_id: 'MOCK-EX-003',
+    access_status: 'unknown',
+    verification_status: 'unverified',
+    ingestion_status: 'not_ingested',
+    publication_date: null,
+  },
+]

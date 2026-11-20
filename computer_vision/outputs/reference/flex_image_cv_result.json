@@ -1,0 +1,23 @@
+{
+  "cv_result_id": "CV-FLEX-002",
+  "experiment_id": "PSI-69",
+  "media_id": "MEDIA-002",
+  "processing_status": "success",
+  "detected": true,
+  "features": {
+    "area_pixels": 171587,
+    "width_pixels": 537,
+    "height_pixels": 451,
+    "brightness_mean": 94.6489
+  },
+  "method": "red_excess_connected_component_segmentation",
+  "calibration_status": "not_calibrated",
+  "limitations": [
+    "Detected region is a luminous candidate, not a confirmed flame.",
+    "Largest connected component at red-excess threshold 25.",
+    "Segmentation is threshold dependent.",
+    "Apparatus-related illumination may be included.",
+    "Physical dimensions and temperature are unavailable."
+  ],
+  "source_ids": []
+}

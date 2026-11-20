@@ -1,0 +1,9 @@
+image_name,signal_type,threshold,area_pixels,image_percentage,mean_signal,calibration_status,interpretation
+flex_companion_image.jpg,red_excess,15,214086,23.2298,57.5247,not_calibrated,candidate_luminous_region
+flex_companion_image.jpg,red_excess,25,174167,18.8983,66.2646,not_calibrated,candidate_luminous_region
+flex_companion_image.jpg,red_excess,40,140564,15.2522,74.5651,not_calibrated,candidate_luminous_region
+flex_companion_image.jpg,red_excess,55,116487,12.6396,80.2594,not_calibrated,candidate_luminous_region
+flex_companion_image.jpg,blue_excess,15,0,0.0,,not_calibrated,candidate_luminous_region
+flex_companion_image.jpg,blue_excess,25,0,0.0,,not_calibrated,candidate_luminous_region
+flex_companion_image.jpg,blue_excess,40,0,0.0,,not_calibrated,candidate_luminous_region
+flex_companion_image.jpg,blue_excess,55,0,0.0,,not_calibrated,candidate_luminous_region

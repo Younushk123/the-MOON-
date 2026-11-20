@@ -34,3 +34,31 @@ data/processed/ingested.json
 *.log
 scratch/
 .tmp/
+
+# Node and Frontend Build Output
+node_modules/
+dist/
+build/
+.vite/
+
+# Locally cloned team workspaces
+/the-MOON--frontend/
+/the-MOON-backend/
+/the-MOON-cv/
+/the-MOON-/
+/THE_MOON_CORE/
+
+# RAG generated data
+/research_rag/documents/raw_documents/*.pdf
+/research_rag/documents/raw_documents/*.docx
+/research_rag/documents/raw_documents/*.zip
+/research_rag/documents/raw_documents/*.tar.gz
+/research_rag/data/processed/chroma/
+/research_rag/data/processed/docs/
+/research_rag/data/processed/ingested.json
+
+# Computer vision source media
+/computer_vision/data/*.mp4
+/computer_vision/data/*.jpg
+/computer_vision/data/*.jpeg
+/computer_vision/data/*.png

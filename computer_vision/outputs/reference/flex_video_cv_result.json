@@ -1,0 +1,23 @@
+{
+  "cv_result_id": "CV-FLEX-001",
+  "experiment_id": "PSI-69",
+  "media_id": "MEDIA-001",
+  "processing_status": "success",
+  "detected": true,
+  "features": {
+    "area_pixels": 39381,
+    "width_pixels": 225,
+    "height_pixels": 225,
+    "brightness_mean": 28.0417
+  },
+  "method": "phase_gated_ransac_circle",
+  "calibration_status": "not_calibrated",
+  "limitations": [
+    "Features describe representative video frame 184.",
+    "Geometry is estimated using a circular model.",
+    "Pixel measurements are not physical dimensions.",
+    "Brightness represents grayscale digital intensity.",
+    "Playback time is not calibrated experimental time."
+  ],
+  "source_ids": []
+}

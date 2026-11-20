@@ -1,0 +1,119 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "source_id": {
+      "maxLength": 64,
+      "minLength": 1,
+      "title": "Source Id",
+      "type": "string"
+    },
+    "title": {
+      "minLength": 1,
+      "title": "Title",
+      "type": "string"
+    },
+    "url": {
+      "anyOf": [
+        {
+          "maxLength": 2048,
+          "pattern": "^https?://\\S+$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Url"
+    },
+    "publisher": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Publisher"
+    },
+    "source_type": {
+      "enum": [
+        "dataset",
+        "research_paper",
+        "technical_report",
+        "webpage"
+      ],
+      "title": "Source Type",
+      "type": "string"
+    },
+    "experiment_id": {
+      "anyOf": [
+        {
+          "maxLength": 64,
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Experiment Id"
+    },
+    "access_status": {
+      "default": "unknown",
+      "enum": [
+        "accessible",
+        "restricted",
+        "unavailable",
+        "unknown"
+      ],
+      "title": "Access Status",
+      "type": "string"
+    },
+    "verification_status": {
+      "default": "unverified",
+      "enum": [
+        "metadata_verified",
+        "content_verified",
+        "unverified"
+      ],
+      "title": "Verification Status",
+      "type": "string"
+    },
+    "ingestion_status": {
+      "default": "not_ingested",
+      "enum": [
+        "not_ingested",
+        "ingested",
+        "partially_ingested",
+        "failed"
+      ],
+      "title": "Ingestion Status",
+      "type": "string"
+    },
+    "publication_date": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "As given by the publisher, e.g. 2019 or 2019-05-02.",
+      "title": "Publication Date"
+    }
+  },
+  "required": [
+    "source_id",
+    "title",
+    "source_type"
+  ],
+  "title": "Source",
+  "type": "object"
+}

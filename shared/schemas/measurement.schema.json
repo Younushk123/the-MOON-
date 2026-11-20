@@ -1,0 +1,160 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$defs": {
+    "MeasurementConditions": {
+      "additionalProperties": false,
+      "description": "Conditions a measurement was taken under. Unknown values are null, never zero.\n\nNOTE: v1.0 gives pressure/temperature/flow_velocity no units. Raised as an open question.",
+      "properties": {
+        "fuel": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Fuel"
+        },
+        "pressure": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Pressure"
+        },
+        "temperature": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Temperature"
+        },
+        "flow_velocity": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Flow Velocity"
+        }
+      },
+      "title": "MeasurementConditions",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "measurement_id": {
+      "maxLength": 64,
+      "minLength": 1,
+      "title": "Measurement Id",
+      "type": "string"
+    },
+    "experiment_id": {
+      "maxLength": 64,
+      "minLength": 1,
+      "title": "Experiment Id",
+      "type": "string"
+    },
+    "variable": {
+      "maxLength": 100,
+      "minLength": 1,
+      "title": "Variable",
+      "type": "string"
+    },
+    "value": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Value"
+    },
+    "unit": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Unit"
+    },
+    "timestamp": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "As recorded in the source (format not yet agreed).",
+      "title": "Timestamp"
+    },
+    "conditions": {
+      "$ref": "#/$defs/MeasurementConditions"
+    },
+    "source_id": {
+      "anyOf": [
+        {
+          "maxLength": 64,
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Source Id"
+    },
+    "measurement_status": {
+      "default": "unverified",
+      "enum": [
+        "illustrative",
+        "unverified",
+        "verified"
+      ],
+      "title": "Measurement Status",
+      "type": "string"
+    },
+    "notes": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Notes",
+      "type": "array"
+    }
+  },
+  "required": [
+    "measurement_id",
+    "experiment_id",
+    "variable"
+  ],
+  "title": "Measurement",
+  "type": "object"
+}

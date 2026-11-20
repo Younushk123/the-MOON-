@@ -1,0 +1,176 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$defs": {
+    "ComparedVariable": {
+      "additionalProperties": false,
+      "properties": {
+        "variable": {
+          "title": "Variable",
+          "type": "string"
+        },
+        "unit": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Unit"
+        },
+        "comparable": {
+          "title": "Comparable",
+          "type": "boolean"
+        },
+        "reason": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Why the variable can't be compared. Null when comparable.",
+          "title": "Reason"
+        }
+      },
+      "required": [
+        "variable",
+        "comparable"
+      ],
+      "title": "ComparedVariable",
+      "type": "object"
+    },
+    "ComparisonFinding": {
+      "additionalProperties": false,
+      "description": "PROVISIONAL: v1.0 leaves the shape of `findings` open.",
+      "properties": {
+        "variable": {
+          "title": "Variable",
+          "type": "string"
+        },
+        "unit": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Unit"
+        },
+        "values": {
+          "items": {
+            "$ref": "#/$defs/ExperimentValueSummary"
+          },
+          "title": "Values",
+          "type": "array"
+        }
+      },
+      "required": [
+        "variable",
+        "values"
+      ],
+      "title": "ComparisonFinding",
+      "type": "object"
+    },
+    "ExperimentValueSummary": {
+      "additionalProperties": false,
+      "properties": {
+        "experiment_id": {
+          "title": "Experiment Id",
+          "type": "string"
+        },
+        "n": {
+          "title": "N",
+          "type": "integer"
+        },
+        "mean": {
+          "title": "Mean",
+          "type": "number"
+        },
+        "min": {
+          "title": "Min",
+          "type": "number"
+        },
+        "max": {
+          "title": "Max",
+          "type": "number"
+        }
+      },
+      "required": [
+        "experiment_id",
+        "n",
+        "mean",
+        "min",
+        "max"
+      ],
+      "title": "ExperimentValueSummary",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "comparison_id": {
+      "title": "Comparison Id",
+      "type": "string"
+    },
+    "experiment_ids": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Experiment Ids",
+      "type": "array"
+    },
+    "status": {
+      "enum": [
+        "success",
+        "partial",
+        "not_comparable"
+      ],
+      "title": "Status",
+      "type": "string"
+    },
+    "compared_variables": {
+      "items": {
+        "$ref": "#/$defs/ComparedVariable"
+      },
+      "title": "Compared Variables",
+      "type": "array"
+    },
+    "findings": {
+      "items": {
+        "$ref": "#/$defs/ComparisonFinding"
+      },
+      "title": "Findings",
+      "type": "array"
+    },
+    "warnings": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Warnings",
+      "type": "array"
+    },
+    "source_ids": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Source Ids",
+      "type": "array"
+    }
+  },
+  "required": [
+    "comparison_id",
+    "experiment_ids",
+    "status"
+  ],
+  "title": "Comparison",
+  "type": "object"
+}

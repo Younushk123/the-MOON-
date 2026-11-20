@@ -1,0 +1,143 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$defs": {
+    "CVFeatures": {
+      "additionalProperties": false,
+      "description": "Pixel-based features. Not physical flame dimensions unless calibration_status is 'calibrated'.",
+      "properties": {
+        "area_pixels": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Area Pixels"
+        },
+        "width_pixels": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Width Pixels"
+        },
+        "height_pixels": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Height Pixels"
+        },
+        "brightness_mean": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Brightness Mean"
+        }
+      },
+      "title": "CVFeatures",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "cv_result_id": {
+      "title": "Cv Result Id",
+      "type": "string"
+    },
+    "experiment_id": {
+      "title": "Experiment Id",
+      "type": "string"
+    },
+    "media_id": {
+      "title": "Media Id",
+      "type": "string"
+    },
+    "processing_status": {
+      "enum": [
+        "success",
+        "failed",
+        "not_processed"
+      ],
+      "title": "Processing Status",
+      "type": "string"
+    },
+    "detected": {
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Detected"
+    },
+    "features": {
+      "$ref": "#/$defs/CVFeatures"
+    },
+    "method": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Method"
+    },
+    "calibration_status": {
+      "default": "not_calibrated",
+      "enum": [
+        "not_calibrated",
+        "calibrated"
+      ],
+      "title": "Calibration Status",
+      "type": "string"
+    },
+    "limitations": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Limitations",
+      "type": "array"
+    },
+    "source_ids": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Source Ids",
+      "type": "array"
+    }
+  },
+  "required": [
+    "cv_result_id",
+    "experiment_id",
+    "media_id",
+    "processing_status"
+  ],
+  "title": "CVResult",
+  "type": "object"
+}
