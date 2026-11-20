@@ -1,7 +1,8 @@
 
 const env = import.meta.env
 
-export const USE_MOCK: boolean = env.VITE_USE_MOCK_DATA !== 'false'
+export const USE_MOCK: boolean =
+  String(env.VITE_USE_MOCK_DATA ?? 'true').trim() !== 'false'
 
 export const API_BASE_URL: string = String(
   env.VITE_API_BASE_URL ?? (env.DEV ? 'http://127.0.0.1:8000' : ''),
@@ -28,7 +29,7 @@ export const MOCK_LATENCY_MS =
  * Off by default.
  */
 export const ENABLE_VISION: boolean =
-  env.VITE_ENABLE_VISION === 'true'
+  String(env.VITE_ENABLE_VISION ?? 'false').trim() === 'true'
 
 /**
  * Units for MeasurementConditions.
